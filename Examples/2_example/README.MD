@@ -1,6 +1,6 @@
 # 2 Example | MyMVC
 
-This is a toy example in order to demonstrate how to implement an Model-View-Controller (MVC) architecture pattern.
+This is a toy example in order to demonstrate how to implement a Model-View-Controller (MVC) architectural pattern.
 
  - **Java**: project written in Java
  - **TypeScript**: same project written in TypeScript
