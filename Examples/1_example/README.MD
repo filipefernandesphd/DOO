@@ -1,6 +1,3 @@
-# DOO Example 1
+# 1 Example | OO Concept
 
-This is a toy-example of the Oriented-Object Development subject from IF Sudeste MG
-
-# Contact Me
-[filipefernandesphd.com](http://filipefernandesphd.com)
+This is a toy example of the Oriented-Object Development subject from IF Sudeste MG
