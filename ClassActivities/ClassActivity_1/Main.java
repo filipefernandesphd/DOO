@@ -39,7 +39,9 @@ public class Main{
         estudantea.pedirEmprestimo(livroa);
         estudantea.pedirEmprestimo(livroc);
         estudantea.pedirEmprestimo(livrod);
+        
+        estudantea.pedirEmprestimo(livroa);
 
-        GUI.mostrarLivrosEmprestados(estudantea.getLivrosEmprestados());
+        GUI.mostrarLivrosEmprestados( estudantea.getLivrosEmprestados() );
     }
 }
