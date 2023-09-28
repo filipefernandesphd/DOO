@@ -21,6 +21,7 @@ public class ControleEmprestimo {
     if( this.verificarCondicaoDeEmprestimoDeLivro(livro) ){
       if(usuario.efetivarEmprestimo(livro)){
         this.livrosemprestados.add(livro);
+        GUI.emprestimoRealizado(usuario, livro);
       }
     }
   }
@@ -68,7 +69,7 @@ public class ControleEmprestimo {
           for(Map.Entry<Usuario,Livro> lista : this.listadeespera.entrySet()){
             // Se o livro estiver na lista de espera
             if( lista.getValue().equals(livro) ){
-              GUI.notificarUsuarioDaListaDeEspera(usuario, livro);
+              GUI.notificarUsuarioDaListaDeEspera(lista.getKey(), livro);
             }
           }
 

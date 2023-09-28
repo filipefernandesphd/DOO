@@ -25,15 +25,17 @@ public class Estante {
             GUI.livroGuardadoNaEstante(this.nome, livro);
         }else{
             // A estante não comporta mais livros
-            GUI.limiteMaxEstanteAtingido(this.nome, this.qtdmaxlivros);
+            GUI.limiteMaxEstanteAtingido(this.nome, livro, this.qtdmaxlivros);
         }
     }
 
-    // Retira o livro da estante para emprestar
+    // Retirar o livro por algum motivo
+    // Um livro que é emprestado deve manter a informação da estante, a fim de que retorne para o mesmo lugar depois da devolução do livro 
     public void retirarLivro(Livro livro){
         for (int i = 0; i < this.livros.size(); i++) {
             if( this.livros.get(i).equals(livro) ){
-                this.livros.remove(livro);
+                this.livros.remove(livro); // remove o livro da lista desta estante
+                GUI.retirarLivroDaEstante(livro, this);
             }
         }
     }

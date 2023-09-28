@@ -2,6 +2,8 @@ import java.util.ArrayList;
 
 public class GUI {
     public static void mostrarLivrosEmprestados(ArrayList<Livro> livros){
+        System.out.println("--------------------\nMostra todos os livros emprestados\n--------------------");
+
         if(!livros.isEmpty()){
             for (int i = 0; i < livros.size(); i++) {
                 System.out.println(livros.get(i).getNome());
@@ -12,6 +14,8 @@ public class GUI {
     }
 
     public static void mostrarUsuariosComLivrosEmprestados(ArrayList<Usuario> usuarios){
+        System.out.println("--------------------\nMostra os livros emprestados por usuário\n--------------------");
+
         for (int i = 0; i < usuarios.size(); i++) {
             if( !usuarios.get(i).getLivrosEmprestados().isEmpty() ){
                 System.out.println(usuarios.get(i).getNome()+" possui os seguintes livros emprestados:");
@@ -21,6 +25,10 @@ public class GUI {
                 }
             }
         }
+    }
+
+    public static void emprestimoRealizado(Usuario usuario, Livro livro){
+        System.out.println(livro.getNome()+" emprestado para "+usuario.getNome());
     }
 
     public static void livroJaEmprestado(Livro livro){
@@ -51,16 +59,25 @@ public class GUI {
         System.out.println(livro.getNome() + " guardado na estante " + nome);
     }
 
-    public static void limiteMaxEstanteAtingido(String estante, int qtdmaxlivros){
-        System.out.println("Não é possível guardar livros na estante "+estante+". O limite máximo é " + qtdmaxlivros);
+    public static void limiteMaxEstanteAtingido(String estante, Livro livro, int qtdmaxlivros){
+        System.out.println("Não é possível guardar o livro "+livro.getNome()+" na estante "+estante+". O limite máximo de " + qtdmaxlivros + " livros foi atingido.");
     }
 
     public static void mostrarLivrosDaEstante(Estante estante){
+        System.out.println("--------------------\nMostra os livros alocados na estante "+estante.getNome()+"\n--------------------");
+
         if( !estante.getLivros().isEmpty() ){
-            System.out.println("Livros alocados na estante " + estante.getNome());
             for (int i = 0; i < estante.getLivros().size(); i++) {
-                System.out.println("\t" + estante.getLivros().get(i).getNome());
+                System.out.println(estante.getLivros().get(i).getNome());
             }
         }        
+    }
+
+    public static void retirarLivroDaEstante(Livro livro, Estante estante){
+        System.out.println("Livro "+livro.getNome()+" retirado da estante " + estante.getNome());        
+    }
+
+    public static void livroMovidoComSucesso(Livro livro, Estante estante){
+        System.out.println("Livro "+livro.getNome()+" realocado à estante " + estante.getNome());        
     }
 }

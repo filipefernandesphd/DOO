@@ -37,4 +37,18 @@ public class Livro {
         this.estante.retirarLivro(this);
         this.estante = null;
     }
+
+    public void moverParaEstante(Estante destino){
+        // Se o livro estiver em nenhuma estante
+        if( this.estante == null ){
+            this.estante = destino;
+            this.estante.guardarLivro(this);
+
+        // Se já estiver em algum estante
+        }else{
+            this.estante.retirarLivro(this);
+            this.estante = destino;
+            this.estante.guardarLivro(this);
+        }
+    }
 }

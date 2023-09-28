@@ -48,6 +48,8 @@ public class Main{
         livroh.setIsbn("444444444");
         livroi.setIsbn("555555555");
 
+        System.out.println("--------------------\nAlocando Livros às Estantes\n--------------------");
+
         livroa.guardarNaEstante(estantea);
         livrob.guardarNaEstante(estantea);
         livroc.guardarNaEstante(estantea);
@@ -85,31 +87,52 @@ public class Main{
         // Instancia o objeto que controlará os empréstimos
         ControleEmprestimo controleemprestimo = new ControleEmprestimo();
 
+        
         // Realização de empréstimos
+        System.out.println("--------------------\nRealização de Empréstimos\n--------------------");        
         controleemprestimo.realizarEmprestimo(estudantea, livroa);
         controleemprestimo.realizarEmprestimo(estudantea, livrob);
         controleemprestimo.realizarEmprestimo(estudantea, livroc);
         controleemprestimo.realizarEmprestimo(estudantea, livrod);
         controleemprestimo.realizarEmprestimo(profa, livrod);
-        controleemprestimo.realizarEmprestimo(profa, livroe);
+        controleemprestimo.realizarEmprestimo(profa, livroa);
         controleemprestimo.realizarEmprestimo(profa, livrof);
         controleemprestimo.realizarEmprestimo(profa, livrog);
         controleemprestimo.realizarEmprestimo(profa, livroh);
         controleemprestimo.realizarEmprestimo(profa, livroi);
 
-        // Lista de Espera
-        controleemprestimo.addLivroNaListaDeEspera(estudantea, livrod);
+
+         // Lista de Espera
+        System.out.println("--------------------\nLista de Espera\n--------------------");
+        controleemprestimo.addLivroNaListaDeEspera(profa, livroa);
+
 
         // Devolução de livros
-        // controleemprestimo.devolverLivro(estudantea, livroa);
-        // controleemprestimo.devolverLivro(profa, livrod);
+        System.out.println("--------------------\nDevolução de Livros\n--------------------");
+        controleemprestimo.devolverLivro(estudantea, livroa);
 
+
+        // Retirar livros das estantes
+        System.out.println("--------------------\nRetirar Livros das Estantes\n--------------------");
+        livroa.retirarDaEstante();
+
+
+        // Retirar livros das estantes
+        System.out.println("--------------------\nRealocar Livros às Estantes\n--------------------");
+        livroa.moverParaEstante(estantec);
+        
+
+        // --------------------
+        // Metódos para mostrar dados no console
+        // --------------------
+        System.out.println("--------------------\nRELATÓRIO GERAL\n--------------------");
+        
+        GUI.mostrarLivrosEmprestados(controleemprestimo.getLivrosEmprestados());
+        
+        GUI.mostrarUsuariosComLivrosEmprestados(usuarios);
+        
         GUI.mostrarLivrosDaEstante(estantea);
         GUI.mostrarLivrosDaEstante(estanteb);
         GUI.mostrarLivrosDaEstante(estantec);
-
-        // Metódos para mostrar dados no console
-        // GUI.mostrarLivrosEmprestados(controleemprestimo.getLivrosEmprestados());
-        GUI.mostrarUsuariosComLivrosEmprestados(usuarios);
     }
 }
