@@ -1,5 +1,5 @@
 package Product;
 
 interface IFood {
-  public String setIngredients(String ingredients);
+  public void setIngredients(String ingredients);
 }

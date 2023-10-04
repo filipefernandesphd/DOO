@@ -1,7 +1,9 @@
 package Product;
 
 public class IcedCoffee extends Product implements IFood{
-  public String setIngredients(String ingredients){
-    return ingredients;
+  private String ingredients;
+
+  public void setIngredients(String ingredients){
+    this.ingredients = ingredients;
   }
 }
