@@ -1,7 +1,5 @@
 public class Professor extends Usuario {
-
-  Professor(){
-    this.maxlivros = 5;
-  }
-
+    public void pedirEmprestimo(Livro livro){
+        
+    }
 }

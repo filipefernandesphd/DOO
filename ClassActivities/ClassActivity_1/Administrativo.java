@@ -1,6 +1,6 @@
 public class Administrativo extends Usuario {
 
-  Administrativo(){
-    this.maxlivros = 5;
-  }
+    public void pedirEmprestimo(Livro livro){
+        System.out.println("teste");
+    }
 }
