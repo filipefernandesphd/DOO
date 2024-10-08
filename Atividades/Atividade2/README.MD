@@ -1,4 +1,4 @@
-# ATIVIDADE 2
+# Atividade 2
 
 1. Faça um algoritmo que peça ao usuário para digitar uma temperatura em graus Celsius e converta essa temperatura para Fahrenheit. Utilize tipos de dados apropriados para realizar a conversão e exiba o resultado.
    - Fórmula: \( F = (C \times \frac{9}{5}) + 32 \)
