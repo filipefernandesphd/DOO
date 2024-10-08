@@ -1,6 +1,6 @@
 // Crie um programa que peça ao usuário para digitar um número e, usando a estrutura de controle \texttt{switch}, verifique se o número corresponde a um dia da semana (1 = Domingo, 2 = Segunda, ..., 7 = Sábado). Exiba o nome do dia correspondente ou informe se o número é inválido.
 
-package Atividades.Atividade2;
+package Atividades.Atividade3;
 
 import java.util.Scanner;
 

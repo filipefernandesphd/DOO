@@ -1,6 +1,6 @@
 // Crie um algoritmo para uma loja que, ao receber o valor de uma compra, aplica um desconto de 10% se o valor for maior que R$ 100,00. O programa deve imprimir o valor final com o desconto, se aplicável.
 
-package Atividades.Atividade2;
+package Atividades.Atividade3;
 
 import java.util.Scanner;
 

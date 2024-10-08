@@ -1,6 +1,6 @@
 // Crie um algoritmo que receba o nome e a idade de 5 pessoas e armazene esses dados em um \texttt{ArrayList}. O programa deve exibir o nome e a idade da pessoa mais velha.
 
-package Atividades.Atividade2;
+package Atividades.Atividade3;
 
 import java.util.ArrayList;
 import java.util.Scanner;

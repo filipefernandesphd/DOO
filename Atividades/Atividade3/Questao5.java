@@ -1,6 +1,6 @@
 // Desenvolva um programa que crie um array de 5 números inteiros. O programa deve permitir que o usuário preencha os valores do array, e depois exiba a soma de todos os números armazenados no array.
 
-package Atividades.Atividade2;
+package Atividades.Atividade3;
 
 import java.util.Scanner;
 

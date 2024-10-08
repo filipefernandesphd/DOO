@@ -1,6 +1,6 @@
 // Faça um algoritmo que peça ao usuário para digitar um número e verifique se esse número é par ou ímpar. O programa deve, também, verificar se o número é primo.
 
-package Atividades.Atividade2;
+package Atividades.Atividade3;
 
 import java.util.Scanner;
 

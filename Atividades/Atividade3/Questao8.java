@@ -1,6 +1,6 @@
 // Faça um algoritmo que crie um array 2D (matriz) de inteiros com 3 linhas e 3 colunas. Preencha o array com valores fornecidos pelo usuário e depois exiba os valores na forma de uma matriz.
 
-package Atividades.Atividade2;
+package Atividades.Atividade3;
 
 import java.util.Scanner;
 

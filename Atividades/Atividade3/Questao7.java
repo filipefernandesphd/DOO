@@ -1,6 +1,6 @@
 // Desenvolva um programa que utilize um \texttt{HashMap} para armazenar as notas de um grupo de alunos, onde as chaves são os nomes dos alunos e os valores são as notas (valores decimais). O programa deve permitir que o usuário consulte a nota de um aluno pelo nome.
 
-package Atividades.Atividade2;
+package Atividades.Atividade3;
 
 import java.util.HashMap;
 import java.util.Scanner;

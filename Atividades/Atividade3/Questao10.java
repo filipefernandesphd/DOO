@@ -1,6 +1,6 @@
 // Desenvolva um programa que peça ao usuário para inserir um número e utilize um laço \texttt{for} para imprimir todos os números de 1 até o número informado. O programa deve, também, indicar quais desses números são múltiplos de 3.
 
-package Atividades.Atividade2;
+package Atividades.Atividade3;
 
 import java.util.Scanner;
 

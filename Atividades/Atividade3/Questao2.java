@@ -1,6 +1,6 @@
 // Desenvolva um programa que peça ao usuário para inserir três notas (valores decimais). O programa deve calcular a média dessas notas e informar se o aluno foi aprovado (média maior ou igual a 7), está de recuperação (média entre 5 e 7) ou reprovado (média abaixo de 5).
 
-package Atividades.Atividade2;
+package Atividades.Atividade3;
 
 import java.util.Scanner;
 

@@ -1,6 +1,6 @@
 // Faça um algoritmo que peça ao usuário para digitar uma temperatura em graus Celsius e converta essa temperatura para Fahrenheit. Utilize tipos de dados apropriados para realizar a conversão e exiba o resultado.
 
-package Atividades.Atividade2;
+package Atividades.Atividade3;
 
 import java.util.Scanner;
 
