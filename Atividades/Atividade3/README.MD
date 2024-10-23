@@ -1,7 +1,7 @@
 # Atividade 3
 
 1. Faça um algoritmo que peça ao usuário para digitar uma temperatura em graus Celsius e converta essa temperatura para Fahrenheit. Utilize tipos de dados apropriados para realizar a conversão e exiba o resultado.
-   - Fórmula: \( F = (C \times \frac{9}{5}) + 32 \)
+   - Fórmula: F = (C * 1,8) + 32
 
 2. Desenvolva um programa que peça ao usuário para inserir três notas (valores decimais). O programa deve calcular a média dessas notas e informar se o aluno foi aprovado (média maior ou igual a 7), está de recuperação (média entre 5 e 7) ou reprovado (média abaixo de 5).
 
