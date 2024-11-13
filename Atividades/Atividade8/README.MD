@@ -1,6 +1,6 @@
 # Atividade 8
 
-## Exercício 1: Contador de Instâncias
+## Questão 1: Contador de Instâncias
 
 1. Crie uma classe `ContadorInstancia` com:
    - Um atributo `static` chamado `numeroDeInstancias` que conta quantas instâncias dessa classe foram criadas.
@@ -11,7 +11,7 @@
 
 ---
 
-## Exercício 2: Banco com Taxa de Juros
+## Questão 2: Banco com Taxa de Juros
 
 1. Crie uma classe `Banco` com:
    - Um atributo `static final` chamado `TAXA_DE_JUROS` com valor de `0.05` (5%).
@@ -23,7 +23,7 @@
 
 ---
 
-## Exercício 3: Configurações do Sistema
+## Questão 3: Configurações do Sistema
 
 1. Crie uma classe `ConfiguracoesSistema` com:
    - Um atributo `static final` chamado `VERSAO` e defina um valor para ele, como `"1.0.0"`.
@@ -33,7 +33,7 @@
 
 ---
 
-## Exercício 4: Conversor de Moedas
+## Questão 4: Conversor de Moedas
 
 1. Crie uma classe `ConversorMoedas` com:
    - Um atributo `static final` chamado `TAXA_DOLAR_REAL` com valor de `5.20`.
@@ -43,7 +43,7 @@
 
 ---
 
-## Exercício 5: Cadastro de Produtos com ID Único
+## Questão 5: Cadastro de Produtos com ID Único
 
 1. Crie uma classe `Produto` com:
    - Um atributo `static` chamado `contadorDeProdutos` que conta o total de produtos cadastrados.
@@ -55,7 +55,7 @@
 
 ---
 
-## Exercício 6: Biblioteca com Contador de Livros
+## Questão 6: Biblioteca com Contador de Livros
 
 1. Crie uma classe `Livro` com:
    - Um atributo `static` chamado `totalLivros` para contar quantos livros foram adicionados.
