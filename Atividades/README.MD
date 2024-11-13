@@ -7,3 +7,4 @@
 - **Atividade 5**: codificação completa do exemplo de *Pessoa* e *Pet* usado nos slides
 - **Atividade 6**: implementação em OO
 - **Atividade 7**: exercícios de fixação
+- **Atividade 8**: modificadores de estado (*static* e *final*)
