@@ -8,3 +8,7 @@
 - **Atividade 6**: implementação em OO
 - **Atividade 7**: exercícios de fixação
 - **Atividade 8**: modificadores de estado (*static* e *final*)
+- **Atividade 9**: polimorfismo
+- **Atividade 10**: revisão
+- **Atividade 11**: classe abstrata e interface
+- **Atividade 12**: sobrescrita e sobrecarga de métodos, e tratamento de exceções
