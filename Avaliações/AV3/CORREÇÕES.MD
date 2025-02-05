@@ -35,3 +35,6 @@
 
 ## Vitor
 - O tratamento de execeções não foi implementado de acordo com a prova. 
+
+## Itaney
+- Conceitos fundamentais de OO ainda não foram internalizados. Por exemplo, no terminal está mostrando a referência de memória do objeto (`Aluno@55f96302`) e não conteúdos que o usuário entende. 
