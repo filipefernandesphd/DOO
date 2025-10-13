@@ -14,3 +14,4 @@
 - **Atividade 12**: sobrescrita e sobrecarga de métodos, e tratamento de exceções
 - **Atividade 13**: sobrescrita e sobrecarga de métodos, e tratamento de exceções
 - **Atividade 14**: método construtor
+- **Atividade 15**: agregação e composição
