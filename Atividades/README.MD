@@ -8,10 +8,12 @@
 - **Atividade 6**: implementação em OO
 - **Atividade 7**: exercícios de fixação
 - **Atividade 8**: modificadores de estado (*static* e *final*)
-- **Atividade 9**: polimorfismo
+- **Atividade 9**: polimorfismo e método *super()*
 - **Atividade 10**: revisão
 - **Atividade 11**: classe abstrata e interface
 - **Atividade 12**: sobrescrita e sobrecarga de métodos, e tratamento de exceções
 - **Atividade 13**: sobrescrita e sobrecarga de métodos, e tratamento de exceções
 - **Atividade 14**: método construtor
 - **Atividade 15**: agregação e composição
+- **Atividade 16**: classes internas e classe anônima
+- **Atividade 17**: exceções 
