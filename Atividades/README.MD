@@ -17,3 +17,6 @@
 - **Atividade 15**: agregação e composição
 - **Atividade 16**: classes internas e classe anônima
 - **Atividade 17**: exceções 
+- **Atividade 18**: padrões de projeto: composite e decorator
+- **Atividade 19**: classe genérica
+- **Atividade 20**: concorrência
