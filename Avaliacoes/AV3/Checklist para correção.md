@@ -31,24 +31,7 @@
 
 ### *Prova*
 
-- [ ] 
-- [ ] 
-- [ ] 
-- [ ] 
-- [ ] 
-- [ ] 
-- [ ] 
-- [ ] 
-- [ ] 
-- [ ] 
-- [ ] 
-- [ ] 
-- [ ] 
-- [ ] 
-- [ ] 
-- [ ] 
-- [ ] 
-- [ ] 
-- [ ] 
-- [ ] 
-- [ ] 
+- [ ] As classes estão em `br/com/sistema/provas`;
+- [ ] O método `public void adicionarQuestao(BlocoQuestao questao)` de `Prova` foi implementado corretamente;
+- [ ] O método `public ArrayList<BlocoQuestao> retornarQuestoes()` de `Prova` foi implementado corretamente;
+- [ ] `GeraProva` foi implementada corretamente.

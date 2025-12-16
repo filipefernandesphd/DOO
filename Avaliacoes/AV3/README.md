@@ -65,11 +65,11 @@
 
 **Design**
 
-- As classes `Prova` e `ProvaGerada` devem estar na pasta `br/com/sistema/provas/`;
+- As classes `Prova` e `GeraProva` devem estar na pasta `br/com/sistema/provas/`;
 - `Prova` deve implementar somente os métodos:
     - `public void adicionarQuestao(BlocoQuestao questao)`: adicionar uma questão à lista de questões;
     - `public ArrayList<BlocoQuestao> retornarQuestoes()`: retornar a lista de questões;
-- `ProvaGerada` implementa a lógica para mostrar as questões da prova em tela por meio do principal método `iniciar()`. Ele deve numerar as questões, bem como colocar as letras das alternativas de múltipla escolha na ordem. 
+- `GeraProva` implementa a lógica para mostrar as questões da prova em tela por meio do principal método `iniciar()`. Ele deve numerar as questões, bem como colocar as letras das alternativas de múltipla escolha na ordem. 
 
 **DICA**
 > Talvez você precise converter uma variável do tipo *SuperClasse* para *SubClasse* 
@@ -169,3 +169,13 @@ e) Os povos indígenas
 
 3 - Comente sobre o atual cenário político do Brasil.
 ```
+
+## Critérios de Pontuação
+
+- Implementação de **Usuários** (0,2)
+- Implementação de **Questões** (0,2)
+- Implementação de **Conteúdos Extras** (0,2)
+- Implementação de **Prova** (0,2)
+- Programa com a mesma saída esperada (2,2pts)
+
+Total: 3 pontos
