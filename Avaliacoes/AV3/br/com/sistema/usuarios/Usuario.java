@@ -1,9 +1,9 @@
 package br.com.sistema.usuarios;
 
-abstract class Usuario<T> {
+public abstract class Usuario<T> {
     protected T identificacao;
 
-    Usuario(T identificacao){
+    public Usuario(T identificacao){
         this.identificacao = identificacao;
     }
 

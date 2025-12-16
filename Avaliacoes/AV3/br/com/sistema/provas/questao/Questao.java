@@ -12,7 +12,7 @@ public class Questao extends BlocoQuestao {
     private ArrayList<MultiplaEscolha> alternativas = new ArrayList<MultiplaEscolha>();     // para múltipla escolha
     private String repostaaberta;           // quando a questão for aberta
     private boolean afirmacaocorreta;       // no caso de ser verdadeiro ou false
-    private IConteudoExtra conteudoextra; // acrescenta conteúdos extras ao enunciado da questão (implementa decorator)
+    private IConteudoExtra conteudoextra;   // acrescenta conteúdos extras ao enunciado da questão (implementa decorator)
 
     public Questao(String descricao) {
         super(descricao);
@@ -20,7 +20,22 @@ public class Questao extends BlocoQuestao {
     }
 
     // =======================================
-    // Adicicionar alternativas 
+    // Obter opções de resposta 
+    // =======================================
+    public ArrayList<MultiplaEscolha> getAlternativas(){
+        return this.alternativas;
+    }
+    
+    public String getRespotaAberta(){
+        return this.repostaaberta;
+    }
+
+    public boolean getAfirmacaoCorreta() {
+        return this.afirmacaocorreta;
+    }
+
+    // =======================================
+    // Adicicionar opções de resposta 
     // =======================================
     public void adicionarRespostaAberta(String repostaaberta){
         this.repostaaberta = repostaaberta;
@@ -38,7 +53,7 @@ public class Questao extends BlocoQuestao {
         this.alternativas.add(new MultiplaEscolha(descricao, correta));
     }
 
-    private class MultiplaEscolha {
+    public class MultiplaEscolha {
         private String descricao;
         private boolean correta = false;
 
@@ -49,6 +64,10 @@ public class Questao extends BlocoQuestao {
         public MultiplaEscolha(String descricao, boolean correta){
             this.correta = correta;
             this.descricao = descricao;
+        }
+
+        public String getDescricao() {
+            return this.descricao;
         }
     }
 

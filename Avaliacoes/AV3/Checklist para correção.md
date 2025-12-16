@@ -4,8 +4,7 @@
 
 - [ ] As classes estão em `package br.com.sistema.usuarios`;
 - [ ] `Aluno` e `Professor` são subclasses de `Usuario`;
-- [ ] `Usuario` deve estar visível somente no pacote;
-- [ ] `Aluno` e `Professor` estão como `public`;
+- [ ] `Usuario`, `Aluno` e `Professor` estão como `public`;
 - [ ] `Usuario` tem somente um construtor e o método `public T getIdentificacao()`;
 - [ ] `Usuario` é uma classe genérica;
 
@@ -14,7 +13,7 @@
 - [ ] As classes estão em `br/com/sistema/provas/questao`;
 - [ ] Foi implementado o padrão **Composite**;
 - [ ] As classes estão como `public`;
-- [ ] `Questao` implementou uma classe interna não estática privada;
+- [ ] `Questao` implementou uma classe interna não estática pública;
 - [ ] `public void adicionarRespostaAberta(String repostaaberta)` foi implementado corretamente;
 - [ ] `public void adicionarVerdadeiroFalso(boolean afirmacaocorreta)` foi implementado corretamente;
 - [ ] `public void adicionarMultiplaEscolha(String descricao)` foi implementado corretamente;
