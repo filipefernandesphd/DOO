@@ -43,9 +43,21 @@ public class Board {
     * Mostra o board no terminal para o usuário
     */
     public void showBoard(){
-        for (int i = 0; i < this.board.length; i++) {
-            for (int j = 0; j < this.board[i].length; j++) {
-                System.out.print(this.board[i][j]);
+        for (int i = 0; i < this.board.length; i++) { // linha
+            // monstra o número da coluna
+            if(i == 0){
+                System.err.print(" ");
+                for (int k = 0; k < this.board[i].length; k++) { // coluna
+                    System.out.print("  "+k);
+                }
+                System.err.println();
+            }
+
+            // monsta o número da linha
+            System.out.print(i+" "); 
+
+            for (int j = 0; j < this.board[i].length; j++) { // coluna
+                System.out.print(this.board[i][j]); // mostra o valor da célula
 
                 // Mostra |
                 if(j != this.board[j].length-1){
@@ -56,7 +68,7 @@ public class Board {
 
             // Mostra a divisão
             if(i != this.board[i].length-1) {
-                System.out.print("---------");
+                System.out.print("  ---------");
             }
 
             System.out.println(""); // pula linha

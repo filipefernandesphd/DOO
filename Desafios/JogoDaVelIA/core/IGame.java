@@ -12,7 +12,7 @@ public interface IGame {
     * Retorna "velha" se deu empate
     * Retorna "X" ou "O" caso tenha um vencedor
     */
-    String verificaJogada();
+    String verificaJogada(String jogada);
 
     /*
     * Retorna 1 quando houver um vencedor
