@@ -144,60 +144,124 @@ public class Player implements ia.Player {
         System.out.println();
 
         // Fazendo a jogada
-        // Prioridade 1: bloquear vitória do adversário
-        if(linhaspontuadas.size() == 2 ){
-
+        // Por linha
+        if(linhaspontuadas.size() >= 2 ){
             // Descobre qual é a linha mais frequente
             Map<Integer, Integer> contagem = new HashMap<>();
 
             for (int[] p : linhaspontuadas) {
-                int x = p[0];  // pega o X do par
-                contagem.put(x, contagem.getOrDefault(x, 0) + 1);
+                int linha = p[0];  // pega o linha do par
+                contagem.put(linha, contagem.getOrDefault(linha, 0) + 1);
             }
 
             int linhaMaisFrequente = -1;
             int maiorFrequencia = 0;
 
             for (Map.Entry<Integer, Integer> entry : contagem.entrySet()) {
-                int x = entry.getKey();
+                int linha = entry.getKey();
                 int freq = entry.getValue();
 
                 if (freq > maiorFrequencia) {
                     maiorFrequencia = freq;
-                    linhaMaisFrequente = x;
+                    linhaMaisFrequente = linha;
                 }
             }
 
             // System.out.println("X que mais se repete: " + linhaMaisFrequente);
             // System.out.println("Quantidade: " + maiorFrequencia);
 
-            int coluna = -1;
-            boolean zero = true;
-            boolean um = true;
-            boolean dois = true;
-            // loop linhas situação vitória
-            for (int[] pos : linhaspontuadas) {
-                if(pos[0] == linhaMaisFrequente){
-                    // System.out.print(pos[0]);
-                    // System.out.println(pos[1]);
+            // Bloquear adversário
+            if(maiorFrequencia>=2){
+                int coluna = -1;
+                boolean zero = true;
+                boolean um = true;
+                boolean dois = true;
+                // loop linhas situação vitória
+                for (int[] pos : linhaspontuadas) {
+                    if(pos[0] == linhaMaisFrequente){
+                        // System.out.print(pos[0]);
+                        // System.out.println(pos[1]);
 
-                    if(pos[1] == 0){
-                        zero = false; 
-                    }else if(pos[1] == 1){
-                        um = false;
-                    }else{
-                        dois = false;
+                        if(pos[1] == 0){
+                            zero = false; 
+                        }else if(pos[1] == 1){
+                            um = false;
+                        }else{
+                            dois = false;
+                        }
                     }
+                }
+
+                if(zero) { coluna=0; } else if (um) { coluna=1; } else { coluna=2; }
+                System.out.println("Jogada para bloquear: " +linhaMaisFrequente +""+coluna);
+                tab[linhaMaisFrequente][coluna] = simbolojogador;
+                this.showBoard(tab);
+            }else{
+                System.out.println("Fazer minha jogada");
+            }
+        }
+
+        // Por coluna
+        if(colunaspontuadas.size() >= 2){
+            Map<Integer, Integer> contagem = new HashMap<>();
+
+            for (int[] p : colunaspontuadas) {
+                int coluna = p[1];  // pega o Y
+
+                contagem.put(coluna, contagem.getOrDefault(coluna, 0) + 1);
+            }
+
+            int colunaMaisFrequente = -1;
+            int maiorFrequencia = 0;
+
+            for (Map.Entry<Integer, Integer> entry : contagem.entrySet()) {
+                int coluna = entry.getKey();
+                int freq = entry.getValue();
+
+                if (freq > maiorFrequencia) {
+                    maiorFrequencia = freq;
+                    colunaMaisFrequente = coluna;
                 }
             }
 
-            if(zero) { coluna=0; } else if (um) { coluna=1; } else { coluna=2; }
-            System.out.println("Jogada para bloquear: " +linhaMaisFrequente +""+coluna);
-            tab[linhaMaisFrequente][coluna] = simbolojogador;
-            this.showBoard(tab);
-        }
+            // System.out.println("Y que mais se repete: " + colunaMaisFrequente);
+            // System.out.println("Quantidade: " + maiorFrequencia);
 
-        // Prioridade 2: fazer jogada estratégica para vitória  
+            if(maiorFrequencia >=2){
+                System.out.println("Bloquear jogada");
+
+                int linha = -1;
+                boolean zero = true;
+                boolean um = true;
+                boolean dois = true;
+                // loop linhas situação vitória
+                for (int[] pos : colunaspontuadas) {
+                    if(pos[1] == colunaMaisFrequente){
+                        // System.out.print(pos[0]);
+                        // System.out.println(pos[1]);
+
+                        if(pos[0] == 0){
+                            zero = false; 
+                        }else if(pos[0] == 1){
+                            um = false;
+                        }else{
+                            dois = false;
+                        }
+                    }
+                }
+
+                if(zero) { linha=0; } else if (um) { linha=1; } else { linha=2; }
+                System.out.println("Jogada para bloquear: " + linha +""+colunaMaisFrequente);
+                tab[linha][colunaMaisFrequente] = simbolojogador;
+                this.showBoard(tab);
+            }else{
+                System.out.println("Fazer minha jogada");
+            }
+
+        }
+        
+        // Por Diagonal
+        
     }
 
 
