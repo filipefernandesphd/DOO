@@ -19,9 +19,9 @@ public class App {
         // jogadorTeste.testaJogadaConsiderandoDuasNoCantoEcentroVazio();
 
         String [][] tab = {
-            {"O", "", ""},
+            {"", "", ""},
             {"", "O", ""},
-            {"", "", ""}
+            {"O", "", ""}
         };
 
         jogadorTeste.testaInteligencia(tab, "X", "O");

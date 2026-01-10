@@ -82,7 +82,6 @@ public class Player implements ia.Player {
             {0,2}, {1,1}, {2,0}
         };
 
-
         // Linhas que possuem pontuação, pois tem marcação do adversário
         ArrayList<int[]> linhaspontuadas = new ArrayList<>();
 
@@ -114,15 +113,23 @@ public class Player implements ia.Player {
                     }
                 }
 
-                // loop diagonais situação vitória
-                for(int k=0; k < diagonais.length; k++){   
-                    if(diagonais[k][0] == i && diagonais[k][1] == j && tab[i][j].equals(simboloadversario)){
-                        // incrementar pontuação
+                if(tab[i][j].equals(simboloadversario)){
+                    // diagonal primária
+                    if(i==j){
+                        diagonaispontuadas.add(new int[]{i,j});
+                    }
+
+                    // diagonal secundária
+                    if(i==0 && j==2){
+                        diagonaispontuadas.add(new int[]{i,j});
+                    }
+
+                    if(i==2 && j==0){
                         diagonaispontuadas.add(new int[]{i,j});
                     }
                 }
             }
-        }   
+        }           
 
         // Mostrando as pontuações
         System.out.println("Linhas pontuadas: ");
@@ -196,9 +203,9 @@ public class Player implements ia.Player {
                 System.out.println("Jogada para bloquear: " +linhaMaisFrequente +""+coluna);
                 tab[linhaMaisFrequente][coluna] = simbolojogador;
                 this.showBoard(tab);
-            }else{
-                System.out.println("Fazer minha jogada");
             }
+        }else{
+            System.out.println("Fazer minha jogada");
         }
 
         // Por coluna
@@ -254,15 +261,61 @@ public class Player implements ia.Player {
                 System.out.println("Jogada para bloquear: " + linha +""+colunaMaisFrequente);
                 tab[linha][colunaMaisFrequente] = simbolojogador;
                 this.showBoard(tab);
-            }else{
-                System.out.println("Fazer minha jogada");
             }
-
+        }else{
+            System.out.println("Fazer minha jogada");
         }
         
         // Por Diagonal
-        
-    }
+        int[] jogadaBloqueio = null;
+        if (diagonaispontuadas.size() >= 2) {
+
+            int countPrincipal = 0;
+            int countSecundaria = 0;
+
+            boolean[] principal = new boolean[3];
+            boolean[] secundaria = new boolean[3];
+
+            for (int[] p : diagonaispontuadas) {
+                int i = p[0];
+                int j = p[1];
+
+                if (i == j) {
+                    if (i == 0) principal[0] = true;
+                    if (i == 1) principal[1] = true;
+                    if (i == 2) principal[2] = true;
+                    countPrincipal++;
+                }
+
+                if (i + j == 2) {
+                    if (i == 0 && j == 2) secundaria[0] = true;
+                    if (i == 1 && j == 1) secundaria[1] = true;
+                    if (i == 2 && j == 0) secundaria[2] = true;
+                    countSecundaria++;
+                }
+            }
+
+            if (countPrincipal == 2) {
+                if (!principal[0]) jogadaBloqueio = new int[]{0,0};
+                if (!principal[1]) jogadaBloqueio = new int[]{1,1};
+                if (!principal[2]) jogadaBloqueio = new int[]{2,2};
+            }
+
+            if (countSecundaria == 2) {
+                if (!secundaria[0]) jogadaBloqueio = new int[]{0,2};
+                if (!secundaria[1]) jogadaBloqueio = new int[]{1,1};
+                if (!secundaria[2]) jogadaBloqueio = new int[]{2,0};
+            }
+
+            System.out.println("Jogada para bloquear: " + jogadaBloqueio[0] +""+jogadaBloqueio[1]);
+            tab[jogadaBloqueio[0]][jogadaBloqueio[1]] = simbolojogador;
+            this.showBoard(tab);
+
+        }else{
+            System.out.println("Fazer minha jogada");
+        }
+
+}
 
 
     // // Quando o tabuleiro está vazio,
