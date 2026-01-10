@@ -16,7 +16,7 @@
     - Atualizar o terminal a cada jogada;
     - O intervalo padrão de cada jogada deve ser de 2 segundos. Porém, deve ser possível mudá-lo;
     - Deve-se mostrar na tela o status atual do jogo. Por exemplo, "iniciando jogada...", "velha", "vencedor" etc.
-- A implementação deve, **obrigatoriamente**, conter, no mínimo:
+- A implementação deve, **preferencialmente**, conter, no mínimo:
     - Algum dos 23 padrões de projeto GoF;
     - Tratamento de exceções.
 
