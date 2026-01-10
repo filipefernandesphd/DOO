@@ -81,42 +81,54 @@ public class Player implements ia.Player {
     /*
     * Verifica as jogadas do tabuleiro e salva (pontuações), tanto do jogador quanto do adversário
     */
-    private void verificarJogadasDoTabuleiro(){
-        for(int i=0; i < this.tab.length; i++){              // loop linhas tabuleiro
-            for(int j=0; j < this.tab.length; j++){          // loop colunas tabuleiro
-                
-                // loop linhas situação vitória
-                for(int k=0; k < this.LINHAS.length; k++){   
-                    if(this.LINHAS[k][0] == i && this.LINHAS[k][1] == j){
-                        // incrementar pontuação
-                        (this.tab[i][j].equals(this.simboloadversario)? this.linhaspontuadasadversario:this.linhaspontuadasjogador).add(new int[]{i,j});
+    private void verificarJogadasDoTabuleiro() {
+        // MUITO IMPORTANTE: limpar para não acumular entre rodadas
+        linhaspontuadasjogador.clear();
+        colunaspontuadasjogador.clear();
+        diagonaispontuadasjogador.clear();
+        linhaspontuadasadversario.clear();
+        colunaspontuadasadversario.clear();
+        diagonaispontuadasadversario.clear();
+
+        for (int i = 0; i < this.tab.length; i++) {
+            for (int j = 0; j < this.tab[i].length; j++) {
+
+                // ignora vazio
+                if (this.tab[i][j].equals(" ")) continue;
+
+                // ignora qualquer coisa que não seja jogador/adversário (segurança)
+                if (!this.tab[i][j].equals(this.simbolojogador) && !this.tab[i][j].equals(this.simboloadversario)) continue;
+
+                // agora sim: decide se é do adversário ou do próprio jogador
+                boolean ehAdversario = this.tab[i][j].equals(this.simboloadversario);
+
+                // LINHAS
+                if (true) { // só para manter seu estilo; pode remover
+                    for (int k = 0; k < this.LINHAS.length; k++) {
+                        if (this.LINHAS[k][0] == i && this.LINHAS[k][1] == j) {
+                            (ehAdversario ? linhaspontuadasadversario : linhaspontuadasjogador).add(new int[]{i, j});
+                        }
                     }
                 }
 
-                // loop colunas situação vitória
-                for(int k=0; k < this.COLUNAS.length; k++){   
-                    if(this.COLUNAS[k][0] == i && this.COLUNAS[k][1] == j){
-                        // incrementar pontuação
-                        (this.tab[i][j].equals(this.simboloadversario) ? this.colunaspontuadasadversario : this.colunaspontuadasjogador).add(new int[]{i,j});                        
+                // COLUNAS
+                for (int k = 0; k < this.COLUNAS.length; k++) {
+                    if (this.COLUNAS[k][0] == i && this.COLUNAS[k][1] == j) {
+                        (ehAdversario ? colunaspontuadasadversario : colunaspontuadasjogador).add(new int[]{i, j});
                     }
                 }
 
-                // diagonais situação de vitória
-                // diagonal primária
-                if(i==j){
-                    (this.tab[i][j].equals(this.simboloadversario) ? this.diagonaispontuadasadversario : this.diagonaispontuadasjogador).add(new int[]{i,j});
+                // DIAGONAL PRINCIPAL
+                if (i == j) {
+                    (ehAdversario ? diagonaispontuadasadversario : diagonaispontuadasjogador).add(new int[]{i, j});
                 }
 
-                // diagonal secundária
-                if(i==0 && j==2){
-                    (this.tab[i][j].equals(this.simboloadversario) ? this.diagonaispontuadasadversario : this.diagonaispontuadasjogador).add(new int[]{i,j});
-                }
-
-                if(i==2 && j==0){
-                    (this.tab[i][j].equals(this.simboloadversario) ? this.diagonaispontuadasadversario : this.diagonaispontuadasjogador).add(new int[]{i,j});
+                // DIAGONAL SECUNDÁRIA (forma correta e simples)
+                if (i + j == 2) {
+                    (ehAdversario ? diagonaispontuadasadversario : diagonaispontuadasjogador).add(new int[]{i, j});
                 }
             }
-        }  
+        }
     }
 
     /*
@@ -172,22 +184,28 @@ public class Player implements ia.Player {
         boolean um = true;
         boolean dois = true;
 
-        if(maiorFrequencia>=2){
-            // loop linhas situação vitória
-            for (int[] pos : linhaspontuadas) {
-                if(pos[0] == linhaMaisFrequente){
-                    if(pos[1] == 0){
-                        zero = false; 
-                    }else if(pos[1] == 1){
-                        um = false;
-                    }else{
-                        dois = false;
-                    }
-                }
-            }
+        // if(maiorFrequencia>=2){
+        //     // loop linhas situação vitória
+        //     for (int[] pos : linhaspontuadas) {
+        //         if(pos[0] == linhaMaisFrequente){
+        //             if(pos[1] == 0){
+        //                 zero = false; 
+        //             }else if(pos[1] == 1){
+        //                 um = false;
+        //             }else{
+        //                 dois = false;
+        //             }
+        //         }
+        //     }
+        // }
+        // return new int[]{linhaMaisFrequente,coluna};
+
+        if (maiorFrequencia >= 2) {
+            if (zero) coluna = 0;
+            else if (um) coluna = 1;
+            else if (dois) coluna = 2;
         }
-        
-        return new int[]{linhaMaisFrequente,coluna};
+        return (coluna != -1) ? new int[]{linhaMaisFrequente, coluna} : null;
     }
     
     /*
@@ -221,22 +239,28 @@ public class Player implements ia.Player {
         boolean um = true;
         boolean dois = true;
 
-        if(maiorFrequencia >=2){
-            // loop linhas situação vitória
-            for (int[] pos : colunaspontuadas) {
-                if(pos[1] == colunaMaisFrequente){
-                    if(pos[0] == 0){
-                        zero = false; 
-                    }else if(pos[0] == 1){
-                        um = false;
-                    }else{
-                        dois = false;
-                    }
-                }
-            }
-        }
+        // if(maiorFrequencia >=2){
+        //     // loop linhas situação vitória
+        //     for (int[] pos : colunaspontuadas) {
+        //         if(pos[1] == colunaMaisFrequente){
+        //             if(pos[0] == 0){
+        //                 zero = false; 
+        //             }else if(pos[0] == 1){
+        //                 um = false;
+        //             }else{
+        //                 dois = false;
+        //             }
+        //         }
+        //     }
+        // }
+        // return new int[]{linha,colunaMaisFrequente};
 
-        return new int[]{linha,colunaMaisFrequente};
+        if (maiorFrequencia >= 2) {
+            if (zero) linha = 0;
+            else if (um) linha = 1;
+            else if (dois) linha = 2;
+        }
+        return (linha != -1) ? new int[]{linha, colunaMaisFrequente} : null;
     }
     
     /*
@@ -301,13 +325,52 @@ public class Player implements ia.Player {
         return this.verificarTabuleiroVazio() ? new int[]{1,1} : null;
     }
 
+
+    /**
+     * Escolhe uma jogada válida de forma aleatória entre as posições livres do tabuleiro.
+     *
+     * O método percorre o tabuleiro atual e coleta todas as posições que não estão
+     * ocupadas nem pelo jogador nem pelo adversário. Em seguida, seleciona
+     * aleatoriamente uma dessas posições e a retorna.
+     *
+     * @return um array {@code {i, j}} representando a posição escolhida aleatoriamente,
+     *         ou {@code null} caso não exista nenhuma posição livre no tabuleiro
+     */
+    private int[] jogarAleatoriamente() {
+        List<int[]> livres = new ArrayList<>();
+
+        // Varre o tabuleiro e coleta posições livres
+        for (int i = 0; i < 3; i++) {
+            for (int j = 0; j < 3; j++) {
+                String v = this.tab[i][j];
+
+                // Considera livre se não for nem do jogador nem do adversário
+                if (this.tab[i][j].equals(" ")) {
+                    livres.add(new int[]{i, j});
+                }
+            }
+        }
+
+        // Se não há casas livres, não há jogada possível
+        if (livres.isEmpty()) {
+            return null; // ou lance exceção, ou trate fora
+        }
+
+        // Escolhe uma posição aleatória dentre as livres
+        int idx = ThreadLocalRandom.current().nextInt(livres.size());
+        return livres.get(idx);
+    }
+
+    private boolean estaLivre(int[] jogada) {
+        return jogada != null && this.tab[jogada[0]][jogada[1]].equals(" ");
+    }
     // -----------------------------------------------
 
     // Métodos públicos ------------------------------
     /*
     * Realiza a jogada no tabuleiro (board) na posição indicada
     * @param board Objeto tabuleiro
-    * @return Retorna a coordenada da jogada. Ex: {i,j}, sendo i linha e j coluna
+    * @return retorna a coordenada da jogada. Ex: {i,j}, sendo i linha e j coluna
     */
     public int[] jogar(String[][] tabuleiro) {
         this.tab = tabuleiro;
@@ -318,9 +381,31 @@ public class Player implements ia.Player {
         if(this.verificarTabuleiroVazio()){
             int v = (int) (Math.random() * 2);
             jogada = (v==0) ? this.jogarNoCantoQuandoTabVazio() : this.jogarNoCentroQuandoTabVazio();
-        }else{
-            this.verificarJogadasDoTabuleiro();
+        }else{ // Definir o restante da estratégia aqui
             
+            // Verifica as jogadas no tabuleiro a partir da 3ª jogada
+            this.verificarJogadasDoTabuleiro();
+
+            int[] sugestao;
+
+            sugestao = (this.linhaspontuadasjogador.size() >= 2)
+                    ? this.definirTerceiraJogadaLinha(this.linhaspontuadasjogador)
+                    : this.definirTerceiraJogadaLinha(this.linhaspontuadasadversario);
+            if (sugestao != null) jogada = sugestao;
+
+            sugestao = (this.colunaspontuadasjogador.size() >= 2)
+                    ? this.definirTerceiraJogadaColuna(this.colunaspontuadasjogador)
+                    : this.definirTerceiraJogadaColuna(this.colunaspontuadasadversario);
+            if (sugestao != null) jogada = sugestao;
+
+            sugestao = (this.diagonaispontuadasjogador.size() >= 2)
+                    ? this.definirTerceiraJogadaDiagonal(this.diagonaispontuadasjogador)
+                    : this.definirTerceiraJogadaDiagonal(this.diagonaispontuadasadversario);
+            if (sugestao != null) jogada = sugestao;
+        }
+
+        if (!estaLivre(jogada)) {
+            jogada = jogarAleatoriamente(); // deve retornar só posições " "
         }
 
         return jogada;

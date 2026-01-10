@@ -11,17 +11,18 @@ public class Game implements IGame {
     private String simboloPlayer2 = "O";    // Símbolo jogador 2
     private Board board;                    // Tabuleiro
     private boolean gaming = false;         // Status do jogo
+    private int partidas = 0;               // Controla a qtd de partidas
 
     // Construtor ----------------------------
     public Game(Player player1, Player player2){
         this.player1 = player1;
         this.player2 = player2;
 
-        this.player1.setSimboloJogador(simboloPlayer1);
-        this.player1.setSimboloAdversario(simboloPlayer2);
+        this.player1.setSimboloJogador(this.simboloPlayer1);
+        this.player1.setSimboloAdversario(this.simboloPlayer2);
 
-        this.player2.setSimboloJogador(simboloPlayer2);
-        this.player2.setSimboloAdversario(simboloPlayer1);
+        this.player2.setSimboloJogador(this.simboloPlayer2);
+        this.player2.setSimboloAdversario(this.simboloPlayer1);
     }
 
     // Getters and Setters ----------------------------
@@ -44,11 +45,113 @@ public class Game implements IGame {
 
     /*
     * Seleciona o jogador da vez
+    * 
     * @param partidas é o número da partida atual
     */
-    private Player selecionarJogador(int partidas){
-        return (partidas % 2 == 1) ? this.player1 : this.player2;
+    private Player selecionarJogador(){
+        return (this.partidas % 2 == 1) ? this.player1 : this.player2;
     }
+
+    private String verificarLinhasJogador() {
+        String retorno = "";
+
+        // Verifica o símbolo do jogador
+        String simbolo = this.selecionarJogador().getSimboloJogador();
+
+        // TODO: Mudar essa implementação para um loop
+        if( 
+            this.board.getBoard()[0][0] == simbolo &&
+            this.board.getBoard()[0][1] == simbolo &&
+            this.board.getBoard()[0][2] == simbolo
+        ){
+            retorno = simbolo;
+        } else if (
+            this.board.getBoard()[1][0] == simbolo &&
+            this.board.getBoard()[1][1] == simbolo &&
+            this.board.getBoard()[1][2] == simbolo
+        ){
+            retorno = simbolo;
+        } else if (
+            this.board.getBoard()[2][0] == simbolo &&
+            this.board.getBoard()[2][1] == simbolo &&
+            this.board.getBoard()[2][2] == simbolo
+        ){
+            retorno = simbolo;
+        }
+
+        return retorno;
+    }
+
+    private String verificarColunasJogador(){
+        String retorno = "";
+
+        // Verifica o símbolo do jogador
+        String simbolo = this.selecionarJogador().getSimboloJogador();
+
+        // TODO: Mudar essa implementação para um loop
+        if(
+            this.board.getBoard()[0][0] == simbolo &&
+            this.board.getBoard()[1][0] == simbolo &&
+            this.board.getBoard()[2][0] == simbolo
+        ){
+            retorno = simbolo;
+        } else if (
+            this.board.getBoard()[0][1] == simbolo &&
+            this.board.getBoard()[1][1] == simbolo &&
+            this.board.getBoard()[2][1] == simbolo
+        ){
+            retorno = simbolo;
+        } else if (
+            this.board.getBoard()[0][2] == simbolo &&
+            this.board.getBoard()[1][2] == simbolo &&
+            this.board.getBoard()[2][2] == simbolo
+        ){
+            retorno = simbolo;
+        }
+
+        return retorno;
+    }
+
+    private String verificarDiagonaisJogador(){
+        String retorno = "";
+        
+        // Verifica o símbolo do jogador
+        String simbolo = this.selecionarJogador().getSimboloJogador();
+
+        // diagonal principal
+        int contador = 0;
+        for (int i = 0; i < this.board.getBoard().length; i++) {
+            contador++;
+            if(this.board.getBoard()[i][i] == simbolo) {
+                if(contador == 3) {
+                    // System.out.println("O jogador " + this.jogadorDaVez.getNome() + " venceu!");
+                    // this.board.showBoard();
+                    // this.gaming = false;   
+                    retorno = simbolo;
+                }
+            }else{
+                contador = 0;
+            }
+        }
+
+        // diagonal secundária
+        contador = 0;
+        for (int i = 0; i < this.board.getBoard().length; i++) {
+            contador++;
+            if(this.board.getBoard()[i][(this.board.getBoard().length-1)-i] == simbolo) {
+                if(contador == 3) {
+                    // System.out.println("O jogador " + this.jogadorDaVez.getNome() + " venceu!");
+                    // this.board.showBoard();
+                    // this.gaming = false;   
+                    retorno = simbolo;
+                }
+            }else{
+                contador = 0;   
+            }
+        }
+        return retorno;
+    }
+
     // ------------------------------------------------
 
     // Métodos públicos ----------------------------
@@ -66,43 +169,121 @@ public class Game implements IGame {
         // Mensagem de início
         this.mensagemInicioJogo();
 
-        int partidas = 0;       // Controla a qtd de partidas
-        Player jodadorDaVez;    // Controla quem é o jogador da partida
+        Player jogadorDaVez;    // Controla quem é o jogador da partida
         int[] jogadarealizada;  // Recebe a jogada realizada na partida
         
-        while (gaming) {
-            partidas++;
-            this.board.showBoard();
-
+        while (this.gaming) {
+            this.partidas++;
+            
             // Seleciona o jogador da vez
-            jodadorDaVez = this.selecionarJogador(partidas);  
+            jogadorDaVez = this.selecionarJogador();  
+            
+            System.out.println("Partida: #" + this.partidas);
+            System.out.println("Jogador da vez: "+jogadorDaVez.getNome()+" ("+jogadorDaVez.getSimboloJogador()+")");
 
-            // Jogador realizada sua jogada e retorna as coordenadas
-            jogadarealizada = jodadorDaVez.jogar(this.board.getBoard());
+            // Loop interno: garante que o jogador só sai da partida com uma jogada válida
+            while (true) {
+                // Jogador realizada sua jogada e retorna as coordenadas
+                jogadarealizada = jogadorDaVez.jogar(this.board.getBoard());
 
-            // Atualiza o tabuleiro com a jogada realizada
-            this.board.update(jogadarealizada, jodadorDaVez.getSimboloJogador());
+                // Segurança contra null
+                if (jogadarealizada == null || jogadarealizada.length < 2) {
+                    System.out.println("Jogada inválida (null). Tente novamente.");
+                    continue; // pede outra jogada sem contar nova partida
+                }
 
-            // System.out.println("Jogada realizada: " + jogadarealizada[0]+""+jogadarealizada[1]);
+                System.out.println("Jogada escolhida: " + "linha="+jogadarealizada[0]+"\tcoluna="+jogadarealizada[1]);
 
-            // Mostra o tabuleiro com a jogada escolhida
-            this.board.showBoard();
+                String status = this.verificarJogada(jogadarealizada);
 
-            // TODO
-            // this.verificaJogada(simboloPlayer1)
+                switch(status){
+                    case "repetir":
+                         // Jogador tentou jogar em posição já feita
+                        System.out.println("ALERTA! Tentativa de sobrescrita de jogada!");
+                        System.out.println("O jogador "+jogadorDaVez.getNome()+" tentou substituir jogada já realizada. Por favor, tente novamente.");
+                        System.out.println();
+                        continue;
 
-            gaming = false;
+                    case "novajogada":
+                        // Atualizar o tabuleiro com a jogada realizada
+                        this.board.update(jogadarealizada, jogadorDaVez.getSimboloJogador());
+
+                        // Mostrar o tabuleiro com a jogada escolhida
+                        this.board.showBoard();
+
+                        break; // sai do switch e vai sair do loop interno logo abaixo
+
+                    case "velha":
+                        System.out.println("velha");
+                        this.gaming = false;
+                        break;
+
+                    default:
+                        if (status.equals(this.simboloPlayer1) || status.equals(this.simboloPlayer2)) {
+                            System.out.println((jogadorDaVez.getNome() + " venceu !!!").toUpperCase());
+                        }
+                        this.gaming = false;
+                        break;
+                }
+
+                // Sai do loop interno quando:
+                // - jogada foi aplicada ("novajogada"), ou
+                // - o jogo terminou ("velha" ou vencedor)
+                break;
+            }
         }
 
     }
 
     /*
-    * Verifica a jogada atual
-    * Retorna "novajogada" se há mais jogadas e não houve vencedor
-    * Retorna "velha" se deu empate
-    * Retorna "X" ou "O" caso tenha um vencedor
+    * Verifica o estado do jogo após a realização de uma jogada.
+    *
+    * @param jogada a coordenada da jogada no formato {@code {x, y}}
+    *   Pré-condição: assume-se que a posição é válida e está dentro dos limites do tabuleiro.
+    * 
+    * @return retorna uma {@code String} indicando o estado do jogo:
+    *   - {@code "repetir"} se o jogador tentar sobrescrever jogada
+    *   - {@code "novajogada"} se ainda há jogadas possíveis e não houve vencedor
+    *   - {@code "velha"} se o jogo terminou em empate
+    *   - {@code "X"} ou {@code "O"} caso algum jogador tenha vencido
     */
-    public String verificaJogada(String jogada){ return null;}
+    public String verificarJogada(int[] jogada){
+        // int linha = jogada.charAt(0) - '0'; // 0
+        // int coluna = jogada.charAt(1) - '0'; // 1
+        String retorno = "";
+        int linha = jogada[0];  
+        int coluna = jogada[1];
+        String simbolo = null;
+
+        for (int i = 0; i < this.board.getBoard().length; i++) {
+            for (int j = 0; j < this.board.getBoard().length; j++) {              
+                
+                // Verifica se a posição não possui jogada
+                if(this.board.getBoard()[linha][coluna] != this.simboloPlayer1 && this.board.getBoard()[linha][coluna] != this.simboloPlayer2) {
+                    // Verifica o símbolo do jogador da vez
+                    simbolo = this.selecionarJogador().getSimboloJogador();
+                    
+                    // Atualiza a posição com o símbolo do jogador da vez
+                    // this.board.getBoard()[linha][coluna] = simbolo;
+
+                    retorno = "novajogada";
+                }else if (this.board.getBoard()[linha][coluna] == this.simboloPlayer1 || this.board.getBoard()[linha][coluna] == this.simboloPlayer2){ // Se sim, deve jogar novamente
+                    retorno = "repetir";
+                }
+
+                // Retorna o status da jogada
+                // Verificar se o jogador da vez venceu
+                // Verificar linhas, colunas e diagonais
+                if(this.verificarLinhasJogador() == simbolo || this.verificarColunasJogador() == simbolo || this.verificarDiagonaisJogador() == simbolo) {
+                    retorno = simbolo;
+                }else if (this.partidas == 9) { // verifica se deu velha
+                    retorno = "velha";
+                }
+            }
+        }
+
+        return retorno;
+    }
 
     /*
     * Retorna 1 quando houver um vencedor

@@ -7,12 +7,18 @@ public interface IGame {
     public void start();
 
     /*
-    * Verifica a jogada atual
-    * Retorna "novajogada" se há mais jogadas e não houve vencedor
-    * Retorna "velha" se deu empate
-    * Retorna "X" ou "O" caso tenha um vencedor
+    * Verifica o estado do jogo após a realização de uma jogada.
+    *
+    * @param jogada a coordenada da jogada no formato {@code {x, y}}
+    *   Pré-condição: assume-se que a posição é válida e está dentro dos limites do tabuleiro.
+    * 
+    * @return retorna uma {@code String} indicando o estado do jogo:
+    *   - {@code "repetir"} se o jogador tentar sobrescrever jogada
+    *   - {@code "novajogada"} se ainda há jogadas possíveis e não houve vencedor
+    *   - {@code "velha"} se o jogo terminou em empate
+    *   - {@code "X"} ou {@code "O"} caso algum jogador tenha vencido
     */
-    String verificaJogada(String jogada);
+    String verificarJogada(int[] jogada);
 
     /*
     * Retorna 1 quando houver um vencedor
