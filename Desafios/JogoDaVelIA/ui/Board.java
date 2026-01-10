@@ -40,6 +40,15 @@ public class Board {
     // Métodos públicos ======================================
     // =======================================================
     /*
+    * Atualizar tabuleiro com a jogada passada
+    * @param int[] coordenadas: linha e coluna da jogada
+    * @param String simbolo: símbolo do jogador (X ou O)
+    */
+    public void update(int[] coordenadas, String simbolo){
+        this.board[coordenadas[0]][coordenadas[1]] = simbolo;
+    }
+
+    /*
     * Mostra o board no terminal para o usuário
     */
     public void showBoard(){
