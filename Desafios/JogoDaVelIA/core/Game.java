@@ -214,11 +214,24 @@ public class Game implements IGame {
                         break; // sai do switch e vai sair do loop interno logo abaixo
 
                     case "velha":
-                        System.out.println("velha");
+                        // Atualizar o tabuleiro com a jogada realizada
+                        this.board.update(jogadarealizada, jogadorDaVez.getSimboloJogador());
+
+                        // Mostrar o tabuleiro com a jogada escolhida
+                        this.board.showBoard();
+
+                        System.out.println("DEU VELHA!");
+                        
                         this.gaming = false;
                         break;
 
                     default:
+                        // Atualizar o tabuleiro com a jogada realizada
+                        this.board.update(jogadarealizada, jogadorDaVez.getSimboloJogador());
+
+                        // Mostrar o tabuleiro com a jogada escolhida
+                        this.board.showBoard();
+
                         if (status.equals(this.simboloPlayer1) || status.equals(this.simboloPlayer2)) {
                             System.out.println((jogadorDaVez.getNome() + " venceu !!!").toUpperCase());
                         }
@@ -231,6 +244,8 @@ public class Game implements IGame {
                 // - o jogo terminou ("velha" ou vencedor)
                 break;
             }
+            
+            System.out.println();
         }
 
     }
@@ -284,12 +299,5 @@ public class Game implements IGame {
 
         return retorno;
     }
-
-    /*
-    * Retorna 1 quando houver um vencedor
-    * Retorna 0 quando não houver um vencedor
-    * Esse método é chamado quando há empate ou quando chega ao final do jogo sem vencedor 
-    */
-   public boolean repetirJogo(){ return true; }
    // -----------------------------------------------
 }

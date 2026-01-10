@@ -19,11 +19,4 @@ public interface IGame {
     *   - {@code "X"} ou {@code "O"} caso algum jogador tenha vencido
     */
     String verificarJogada(int[] jogada);
-
-    /*
-    * Retorna 1 quando houver um vencedor
-    * Retorna 0 quando não houver um vencedor
-    * Esse método é chamado quando há empate ou quando chega ao final do jogo sem vencedor 
-    */
-   boolean repetirJogo();
 }
