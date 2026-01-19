@@ -1,13 +1,18 @@
 import core.Game;
 
-import ia.Filipe.*;
+import ia.*;
 
 public class App {
     public static void main(String[] args) {
-        Player jogador1 = new ia.Filipe.Player("FILIPE");
-        Player jogador2 = new ia.Filipe.Player("JOSÉ");
+        // Minha implementação
+        // Player jogador1 = new ia.Filipe.Player("FILIPE");
+        // Player jogador2 = new ia.Filipe.Player("JOSÉ");
 
-        Game game = new Game(jogador1, jogador2);
+        // Combate
+        ia.Player jogador1 = new ia.gabriel.Player("Gabriel");
+        ia.Player jogador2 = new ia.Itaney.IaNey("Itaney");
+
+        Game game = new Game(jogador2, jogador1);
         game.start();
     }
 }
