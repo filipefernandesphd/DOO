@@ -6,8 +6,22 @@ Hoje, 21 de janeiro de 2059, você foi encarregado de implementar um protótipo 
 
 Obrigatoriamente, esse sistema bancário deve atender os requisitos abaixo:
 
+### Banco
+- Classe dentro do pacote `Banco` e com o mesmo nome
+- Classe definida como `final`
+- Atributo público, `static` e `final` do tipo String: NOMEBANCO. Seu valor é "Nova Chance"
+- Atributo privado e `static` do tipo ArrayList, contendo objetos do tipo Agencia: agencias
+- Atributo privado e `static` do tipo ArrayList, contendo objetos do tipo Cliente: clientes
+- Métodos públicos e `static`
+  - `getAgencias()`: deve retornar a lista de agências
+  - `setAgencia(Agencia agencia)`: deve adicionar uma nova agência à lista de agências
+  - `setAgencia(ArrayList<Agencia> novasagencias)`: deve adicionar uma nova lista de agências à lista de agências da classe. *DICA:* use o método `addAll()`
+  - `getClientes()`: deve retornar a lista de clientes
+  - `setCliente(Cliente cliente)`: deve adicionar um novo cliente à lista de clientes
+  - `setCliente(ArrayList<Cliente> novosclientes)`: deve adicionar uma nova lista de clientes à lista de clientes da classe. *DICA:* use o método `addAll()`
+
 ### Agência
-- Classe dentro do pacote `Agencia`
+- Classe dentro do pacote `Agencia` e com mesmo nome
 - Atributos privados do tipo String: cidade, estado, codigoagencia
 - Atributo privado do tipo lista: clientes (é uma lista de objetos do tipo cliente)
 - Método construtor com os parâmetros cidade, estado e codigoagencia
@@ -53,7 +67,7 @@ interface IAgencia {
 ```
 
 ### Conta
-- Classe dentro do pacote `Conta`
+- Classe dentro do pacote `Conta` e com mesmo nome
 - Atributos privados e do tipo String: codigoagencia e conta
 - Atributo privado e do tipo inteiro: digito (é o dígito verificador da conta)
 - Método construtor com o parâmetro codigoagencia
@@ -98,6 +112,7 @@ interface IConta {
 - Há dois tipos de clientes: pessoa física e jurídica. Ambas são compostas por atributos e métodos quem devem ser herdados por uma classe abstrata
 
 #### Classe Abstrata
+- Classe com o nome de `Cliente`
 - Atributo protegido do tipo Conta: conta
 - Atributo protegido do String Conta: nome
 - Atributo protegido do tipo Double: saldo
@@ -121,6 +136,7 @@ interface ICliente {
 ```
 
 #### Pessoa Física
+- Classe com o nome de `ClientePF`
 - Atributos privados do tipo String: CPF e datanascimento
 - Método construtor com os parâmetros: nome, CPF, datanascimento e saldo
 - Getters e Setters
@@ -137,6 +153,7 @@ public interface IClientePF {
 ```
 
 #### Pessoa Jurídica
+- Classe com o nome de `ClientePJ`
 - Atributos privados do tipo String: CNPJ e dataregistro
 - Método construtor com os parâmetros: nome, CNPJ, dataregistro e saldo
 - Getters e Setters
@@ -152,10 +169,9 @@ public interface IClientePJ {
 } 
 ```
 
-### App.java
-- A partir da linha 47, faça a implementação conforme a opção do menu
-- Opção 0: deve mostrar de todas as agências o nome, conta e saldo da conta dos clientes
-- Opção 1: o objetivo é realizar a transferência entre contas. Por isso é fundamental que a opção anterior seja implementada. O fluxo de informações deve ser o seguinte:
+### Menu
+- Classe dentro do pacote `UI`
+- A classe `Menu` deve conter a estrutura padrão abaixo, porém deve implementar o método `realizarTransferencia` com o seguinte fluxo:
   - Informe a conta de origem: 
   - Informe o valor a ser transferido:
   - Informe a conta de destino: 
@@ -165,12 +181,216 @@ public interface IClientePJ {
   - [nome do cliente de origem] transferiu [valor da transferência] para [nome do cliente de destino]
   - Saldo atualizado de [nome do cliente de origem]: [saldo do cliente]
   - Saldo atualizado de [nome do cliente de destino]: [saldo do cliente]
-- Opção 9: o programa deve ser finalizado
+```java
+package UI;
 
+import java.util.ArrayList;
+import java.util.Scanner;
+
+import Agencia.*;
+import Relatorio.*;
+import Usuario.*;
+import Banco.*;
+
+public class Menu {
+    private final Scanner scanner = new Scanner(System.in);
+    private int opcao;
+    private boolean terminal = true;
+    private Relatorio<Agencia> relAgencias;
+    private Relatorio<Cliente> relClientes;
+
+    public Menu(ArrayList<Agencia> agencias, ArrayList<Cliente> clientes){
+        this.relAgencias = new Relatorio<Agencia>(agencias, new FormatadorAgencia());
+        this.relClientes = new Relatorio<Cliente>(clientes, new FormatadorCliente());
+    }
+
+    public void iniciar(){
+        while(this.terminal){
+            this.cabecalho();
+            
+            switch (this.opcao) {
+                case 0:
+                    System.out.println(this.relClientes.gerar());
+                    break;
+
+                case 1:
+                    System.out.println(this.relAgencias.gerar());
+                    break;
+
+                case 2:
+                    realizarTransferencia();
+                    break;
+
+                case 9:
+                    this.scanner.close();
+                    this.terminal = false;
+                    break;
+            }
+        }
+    }
+
+    private void cabecalho(){
+        System.out.println("============================================================");
+        System.out.println("Bem-vindo ao BANCO "+Banco.NOMEBANCO.toUpperCase());
+        System.out.println("============================================================");
+
+        System.out.println("Escolha uma opção abaixo:");
+        System.out.println("0 - Listar clientes do banco");
+        System.out.println("1 - Listar agências do banco");
+        System.out.println("2 - Realizar transferências");
+        System.out.println("9 - Para sair");
+
+        System.out.print("Digite sua opção: ");
+        this.opcao = this.scanner.nextInt();
+    }
+
+    private void realizarTransferencia(){  /* implementação */  }
+}
+```
+
+### Relatório
+- As classes devem estar dentro do pacote `Relatorio`
+
+#### Formatador
+- A interface `Formatador<T>` deve ter o seguinte código
+```java
+/**
+ * Definir cabeçalho padrão do relatório
+ * @return cabeçalho
+ */
+public String cabecalho();
+
+/**
+ * Converte T em String
+ * @param obj objetivo do tipo T
+ * @return T convertido em String
+ */
+public String formatar(T obj);
+```
+
+#### Formatador Agência
+- Classe com o nome de `FormatadorAgencia`
+- Deve implementar os métodos da interface `Formatador<T>`
+- `String cabecalho()` deve produzir a saída:
+```text
+RELATÓRIO DE AGÊNCIAS
+---------------------------------------------------------
+Código          Cidade                  Estado
+```
+- `String formatar(Agencia obj)` deve produzir a saída:
+```text
+123             Manhuaçu                Minas Gerais
+456             Belo Horizonte          Minas Gerais
+878             Juiz de Fora            Minas Gerais
+321             Itaperuna               Rio de Janeiro
+171             Rio de Janeiro          Rio de Janeiro
+```
+
+#### Formatador Cliente
+- Classe com o nome de `FormatadorCliente`
+- Deve implementar os métodos da interface `Formatador<T>`
+- `String cabecalho()` deve produzir a saída:
+```text
+RELATÓRIO DE CLIENTES
+---------------------------------------------------------
+Código          Nome                    Saldo
+```
+- `String formatar(Cliente obj)` deve produzir a saída:
+```text
+12022-5(*)         José das Couves         100.0
+32100-0(*)         Maria das Flores                0.0
+32100-1(*)         Loja das Roupas         10100.5
+```
+(*) o código deve ser gerado automaticamente
+
+
+#### Relatorio
+- Classe com nome de `Relatorio`, porém, deve ser genérica, ou seja, use `<T>`
+- Atributos privados `final`
+  - tipo `ArrayList<T>`: itens
+  - tipo `Formatador<T>`: formatador
+- Método construtor com um parâmetro do tipo `ArrayList<T>` e outro do tipo `Formatador<T>`
+- Método público `String gerar()` deve ter a seguinte implementação
+```java
+String r = "";
+
+// Cabeçalho
+r += formatador.cabecalho();
+r += "---------------------------------------------------------\n";
+
+for (T item : itens) {
+    r += formatador.formatar(item) + "\n";
+}
+return r;
+```
 
 ### Critérios de Pontuação
-- Implementação conforme os requisitos de 
-  - **Agência**: 1 pt 
-  - **Clientes**: 1.5 pt
-  - **Conta**: 1 pt
-  - **App.java**: 0.5 pt
+- A avaliação será da seguinte forma:
+  - Execução da linha **31** em `App.java` sem erros e comportamento conforme o esperado: **0.8pt**
+  - Execução da linha **53** em `App.java` sem erros e comportamento conforme o esperado: **0.8pt**
+  - Funcionamento conforme o esperado da opção **0** do menu: **0.7pt**
+  - Funcionamento conforme o esperado da opção **1** do menu: **0.7pt**
+  - Funcionamento conforme o esperado da opção **2** do menu: **1pt**
+
+#### App.java
+```java
+import Usuario.*;
+import Agencia.*;
+import Banco.*;
+import UI.Menu;
+
+import java.util.ArrayList;
+
+public class App {
+    public static void main(String[] args) {
+        // Cadastrar agências
+        // Minas Gerais
+        Agencia agenciaMnu = new Agencia("Manhuaçu", "Minas Gerais", "123");
+        Agencia agenciaBh = new Agencia("Belo Horizonte", "Minas Gerais", "456");
+        Agencia agenciaJf = new Agencia("Juiz de Fora", "Minas Gerais", "878");
+        // Subgrupo de agências (apenas de Minas Gerais)
+        ArrayList<Agencia> agenciasMG = new ArrayList<Agencia>();
+        agenciasMG.add(agenciaMnu);
+        agenciasMG.add(agenciaBh);
+        agenciasMG.add(agenciaJf);
+
+        // Rio de Janeiro
+        Agencia agenciaIta = new Agencia("Itaperuna", "Rio de Janeiro", "321");
+        Agencia agenciaRj = new Agencia("Rio de Janeiro", "Rio de Janeiro", "171");
+
+        // Vincular agências ao banco
+        Banco.setAgencia(agenciasMG);
+        Banco.setAgencia(agenciaIta);
+        Banco.setAgencia(agenciaRj);
+
+        // CORREÇÃO DA IMPLEMENTAÇÃO
+        // Correcao.corrigirBancoAgencias(Banco.getAgencias());
+
+        // Cadastrar clientes
+        Cliente jose = new ClientePF("José das Couves","123456789","01/01/2010",100.0);
+        agenciaMnu.cadastrarCliente(jose);
+
+        Cliente maria = new ClientePF("Maria das Flores","98765432","30/10/2020",0.0);
+        agenciaIta.cadastrarCliente(maria);
+
+        Cliente lojadasroupas = new ClientePJ("Loja das Roupas", "12345678/0001-9", "27/02/2040",10100.50);
+        agenciaIta.cadastrarCliente(lojadasroupas); 
+
+        // Subgrupo de clientes (pessoa física)
+        ArrayList<Cliente> clientesPF = new ArrayList<Cliente>();
+        clientesPF.add(jose);
+        clientesPF.add(maria);
+        
+        // Vincular clientes ao banco
+        Banco.setCliente(clientesPF);
+        Banco.setCliente(lojadasroupas);
+
+        // CORREÇÃO DA IMPLEMENTAÇÃO
+        // Correcao.corrigirBancoClientesContas(Banco.getClientes());
+
+        // Menu
+        Menu menu = new Menu(Banco.getAgencias(), Banco.getClientes());
+        menu.iniciar();
+    }
+}
+```
