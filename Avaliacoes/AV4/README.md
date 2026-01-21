@@ -6,6 +6,9 @@ Hoje, 21 de janeiro de 2059, você foi encarregado de implementar um protótipo 
 
 Obrigatoriamente, esse sistema bancário deve atender os requisitos abaixo:
 
+### App.java
+- Principal arquivo da aplicação. Seu código está no final da página.
+
 ### Banco
 - Classe dentro do pacote `Banco` e com o mesmo nome
 - Classe definida como `final`
