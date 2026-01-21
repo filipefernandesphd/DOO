@@ -28,7 +28,7 @@ public class App {
         Banco.setAgencia(agenciaRj);
 
         // CORREÇÃO DA IMPLEMENTAÇÃO
-        // Correcao.corrigirBancoAgencias(Banco.getAgencias());
+        Correcao.corrigirBancoAgencias(Banco.getAgencias());
 
         // Cadastrar clientes
         Cliente jose = new ClientePF("José das Couves","123456789","01/01/2010",100.0);
@@ -50,7 +50,7 @@ public class App {
         Banco.setCliente(lojadasroupas);
 
         // CORREÇÃO DA IMPLEMENTAÇÃO
-        // Correcao.corrigirBancoClientesContas(Banco.getClientes());
+        Correcao.corrigirBancoClientesContas(Banco.getClientes());
 
         // Menu
         Menu menu = new Menu(Banco.getAgencias(), Banco.getClientes());
