@@ -2,12 +2,18 @@ import br.com.comercio.produto.*;
 import br.com.comercio.usuario.*;
 import br.com.comercio.carrinho.*;
 
+// Comando para gerar o Javadoc: javadoc -d doc -sourcepath src -subpackages br.com.comercio
+
 public class App {
     public static void main(String[] args) throws Exception {
 
         /**
          * CLIENTES
          */
+
+        // ===============================================
+        // BLOCO 1 
+        // ===============================================
 
         // Criar cliente
         Usuario cliente1 = new Usuario("Fulano de Tal", "fulano@email.com");
@@ -25,9 +31,15 @@ public class App {
         System.out.println(cliente1.getEmail());
         System.out.println(cliente2.getEmail());
 
+        // FIM DO BLOCO 1
+
         /**
          * PRODUTOS INDIVIDUAIS
          */
+
+        // ===============================================
+        // BLOCO 2 
+        // ===============================================
 
         // Cria produtos individuais
         Produto produto1 = new Produto("Produto AA", 10.0, 100.0);
@@ -58,9 +70,15 @@ public class App {
         System.out.println(produto2.getEstoque());    
         System.out.println(produto3.getEstoque());
 
+        // FIM DO BLOCO 2
+
         /**
          * KIT DE PRODUTOS
          */
+
+        // ===============================================
+        // BLOCO 3 
+        // ===============================================
 
         // Cria kit de produtos
         KitProduto kit1 = new KitProduto("Kit 1");
@@ -74,6 +92,12 @@ public class App {
         kit1.adicionarProduto(produto2);
         kit1.adicionarProduto(produto3);
 
+        // FIM DO BLOCO 3
+
+        // ===============================================
+        // BLOCO 4 
+        // ===============================================
+
         // Setters e Getters do preço do kit de produtos
         // kit1.setPrecoProduto(100.0); // Deve lançar uma exceção ao descomentar esta linha
         System.out.println(kit1.getPrecoProduto());
@@ -81,6 +105,12 @@ public class App {
         // Setters e Getters do estoque do kit de produtos
         // kit1.setEstoque(50.0); // Deve lançar uma exceção ao descomentar esta linha
         // System.out.println(kit1.getEstoque()); // Deve lançar uma exceção ao descomentar esta linha
+
+        // FIM DO BLOCO 4
+
+        // ===============================================
+        // BLOCO 5 
+        // ===============================================
 
         // Retorna os produtos do kit de produtos
         System.out.println("Produto no kit:");
@@ -101,13 +131,25 @@ public class App {
         IProduto produtoBuscado = kit1.buscarProduto(produto2);
         System.out.println(produtoBuscado.getNomeProduto());
 
+        // FIM DO BLOCO 5
+
+        // ===============================================
+        // BLOCO 6 
+        // ===============================================
+
         // Lança exceção ao buscar um produto que não está no kit de produtos
         IProduto produtoNaoExistente = kit1.buscarProduto(produto1);
         // System.out.println(produtoNaoExistente.getNomeProduto()); // Deve lançar uma exceção ao descomentar esta linha
 
+        // FIM DO BLOCO 6
+
         /**
          * CARRINHO DE COMPRAS
          */
+
+        // ===============================================
+        // BLOCO 7 
+        // ===============================================
 
         // Cria carrinho de compras
         Carrinho carrinho1 = new Carrinho(cliente1);
@@ -120,10 +162,16 @@ public class App {
         carrinho1.adicionarProduto(produto1, 2);
         carrinho1.adicionarProduto(kit1, 1);
 
+        // FIM DO BLOCO 7
+
         // Retorna os itens do carrinho
         for(ItemCarrinho item : carrinho1.getItens()){
             System.out.println("Item no carrinho: " + item.getProduto().getNomeProduto() + " - Quantidade: " + item.getQuantidade());
         }
+
+        // ===============================================
+        // BLOCO 8 
+        // ===============================================
 
         // Muda a quantidade de um produto no carrinho
         carrinho1.mudarQuantidadeProduto(produto1, 5);
@@ -136,5 +184,7 @@ public class App {
 
         // Retorna o preço total do carrinho
         System.out.println("Preço total do carrinho: " + carrinho1.getPrecoTotalCarrinho());
+        
+        // FIM DO BLOCO 8
     }
 }
