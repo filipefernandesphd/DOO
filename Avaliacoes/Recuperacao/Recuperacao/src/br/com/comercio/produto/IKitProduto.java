@@ -6,7 +6,7 @@ import java.util.List;
  * Interface que define as operações para kits de produtos.
  * Seu principal objetivo é permitir a manipulação de múltiplos produtos como um único conjunto.
  */
-interface IKitProduto {
+public interface IKitProduto {
     /**
      * Adiciona um produto ao kit de produtos.
      * @param produto que será adicionado ao kit de produtos.

@@ -2,7 +2,7 @@ package br.com.comercio.produto;
 
 /**
  * Classe que representa um produto individual.
- * Esta classe estende a classe abstrata KitProdutoAbstrato e implementa os métodos definidos na interface IProduto.
+ * Esta classe estende a classe abstrata {@link KitProdutoAbstrato} e implementa os métodos definidos na interface {@link IProduto}.
  */
 public class Produto extends KitProdutoAbstrato {
     /**
@@ -21,36 +21,42 @@ public class Produto extends KitProdutoAbstrato {
      * Retorna o nome do produto.
      * @return uma String contendo o nome do produto.
      */
+    @Override
     public String getNomeProduto(){ return this.nomeProduto; }
 
     /**
      * Define o nome do produto.
      * @param nomeProduto String que definirá o nome do produto.
      */
+    @Override
     public void setNomeProduto(String nomeProduto){ this.nomeProduto = nomeProduto; }
 
     /**
      * Retorna o preço do produto.
      * @return um Double contendo o preço do produto.
      */
+    @Override
     public Double getPrecoProduto(){ return this.precoProduto; }
 
     /**
      * Define o preço do produto.
      * @param precoProduto Double que definirá o preço do produto.
      */
+    @Override
     public void setPrecoProduto(Double precoProduto){ this.precoProduto = precoProduto; } 
         
     /**
      * Retorna o estoque do produto.
      * @return um Double contendo o estoque do produto.
      */
+    @Override
     public Double getEstoque(){ return this.estoque; }
 
     /**
      * Define o estoque do produto.
      * @param estoque Double que definirá o estoque do produto.
      */
+    @Override
     public void setEstoque(Double estoque){
         try {
             this.estoque = estoque;

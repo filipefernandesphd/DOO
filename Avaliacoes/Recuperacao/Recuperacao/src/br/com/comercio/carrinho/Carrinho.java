@@ -7,7 +7,7 @@ import br.com.comercio.produto.IProduto;
 import br.com.comercio.usuario.*;
 
 /**
- * Implementação da interface ICarrinho representando um carrinho de compras.
+ * Implementação da interface {@link ICarrinho} representando um carrinho de compras.
  * Seu principal objetivo é gerenciar os produtos adicionados ao carrinho por um cliente específico.
  */
 public class Carrinho implements ICarrinho {
@@ -29,18 +29,21 @@ public class Carrinho implements ICarrinho {
      * Retorna o cliente associado ao carrinho.
      * @return um objeto Usuario representando o cliente.
      */
+    @Override
     public Usuario getCliente() { return cliente; }
 
     /**
      * Define o cliente associado ao carrinho.
      * @param cliente objeto Usuario que definirá o cliente.
      */
+    @Override
     public void setCliente(Usuario cliente) { this.cliente = cliente; }
 
     /**
      * Retorna a lista de itens no carrinho.
      * @return uma lista de objetos ItemCarrinho representando os itens no carrinho.
      */
+    @Override
     public List<ItemCarrinho> getItens() { return itens; }
 
     /**
@@ -48,6 +51,7 @@ public class Carrinho implements ICarrinho {
      * @param produto objeto IProduto que será adicionado ao carrinho.
      * @param quantidade inteiro representando a quantidade do produto a ser adicionada.
      */
+    @Override
     public void adicionarProduto(IProduto produto, int quantidade){
         this.itens.add(new ItemCarrinho(produto, quantidade));
     }
@@ -56,6 +60,7 @@ public class Carrinho implements ICarrinho {
      * Remove um produto do carrinho.
      * @param produto objeto IProduto que será removido do carrinho.
      */
+    @Override
     public void removerProduto(IProduto produto){
         for (ItemCarrinho itemCarrinho : itens) {
             if (itemCarrinho.getProduto().equals(produto)) {
@@ -70,6 +75,7 @@ public class Carrinho implements ICarrinho {
      * @param produto objeto IProduto cuja quantidade será alterada.
      * @param novaQuantidade inteiro representando a nova quantidade do produto.
      */
+    @Override
     public void mudarQuantidadeProduto(IProduto produto, int novaQuantidade){
         for (ItemCarrinho itemCarrinho : itens) {
             if (itemCarrinho.getProduto().equals(produto)) {
@@ -83,6 +89,7 @@ public class Carrinho implements ICarrinho {
      * Retorna o preço total do carrinho.
      * @return um double representando o preço total do carrinho.
      */
+    @Override
     public double getPrecoTotalCarrinho(){
         for (ItemCarrinho itemCarrinho : itens) {
             this.precoTotalCarrinho += itemCarrinho.getPrecoItemTotal();

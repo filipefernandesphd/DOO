@@ -7,7 +7,7 @@ import br.com.comercio.produto.IProduto;
  * Seu principal objetivo é gerenciar o produto e a quantidade associada a esse item,
  * bem como calcular o preço total do item com base na quantidade.
  */
-interface IItemCarrinho {
+public interface IItemCarrinho {
     /**
      * Retorna o produto associado ao item do carrinho.
      * @return um objeto IProduto representando o produto.

@@ -3,7 +3,7 @@ package br.com.comercio.usuario;
 /** Interface que define os métodos para manipular usuários.
  * Seu principal objetivo é fornecer uma estrutura para obter e definir
  */
-interface IUsuario {
+public interface IUsuario {
     /**
      * Retorna o nome do usuário.
      * @return uma String contendo o nome do usuário.

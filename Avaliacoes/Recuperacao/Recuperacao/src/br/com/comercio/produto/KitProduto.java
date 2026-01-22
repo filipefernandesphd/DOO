@@ -5,7 +5,7 @@ import java.util.ArrayList;
 
 /**
  * Classe que representa um kit de produtos.
- * Esta classe estende a classe abstrata KitProdutoAbstrato e implementa os métodos definidos na interface IKitProduto.
+ * Esta classe estende a classe abstrata {@link KitProdutoAbstrato} e implementa os métodos definidos na interface {@link IKitProduto}.
  */
 public class KitProduto extends KitProdutoAbstrato implements IKitProduto {
     private List<IProduto> produtosNoKit; // Lista para armazenar os produtos do kit
@@ -27,18 +27,21 @@ public class KitProduto extends KitProdutoAbstrato implements IKitProduto {
      * Retorna o nome do kit de produtos.
      * @return uma String contendo o nome do kit de produtos.
      */
+    @Override
     public String getNomeProduto(){ return this.nomeProduto; }
 
     /**
      * Define o nome do kit de produtos.
      * @param nomeProduto String que definirá o nome do kit de produtos.
      */
+    @Override
     public void setNomeProduto(String nomeProduto){ this.nomeProduto = nomeProduto; }
 
     /**
      * Retorna o preço do kit de produtos.
      * @return um Double contendo o preço do kit de produtos.
      */
+    @Override
     public Double getPrecoProduto(){
         if(this.produtosNoKit == null || this.produtosNoKit.isEmpty()){
             throw new IllegalStateException("O kit de produtos está vazio.");
@@ -53,8 +56,9 @@ public class KitProduto extends KitProdutoAbstrato implements IKitProduto {
 
     /**
      * Este método lança uma exceção, pois kits de produtos não possuem preço individual.
-     * @param precoProduto
+     * @param precoProduto Double que definirá o preço do kit de produtos.
      */
+    @Override
     public void setPrecoProduto(Double precoProduto){
         throw new UnsupportedOperationException("Kits de produtos não possuem preço individual.");
     }
@@ -62,14 +66,16 @@ public class KitProduto extends KitProdutoAbstrato implements IKitProduto {
     /**
      * Este método lança uma exceção, pois kits de produtos não possuem estoque individual.
      */
+    @Override
     public Double getEstoque(){
         throw new UnsupportedOperationException("Kits de produtos não possuem estoque individual.");
     }
 
     /**
      * Este método lança uma exceção, pois kits de produtos não possuem estoque individual.
-     * @param estoque 
+     * @param estoque Double que definirá o estoque do kit de produtos.
      */
+    @Override
     public void setEstoque(Double estoque){
         throw new UnsupportedOperationException("Kits de produtos não possuem estoque individual.");
     }
@@ -82,6 +88,7 @@ public class KitProduto extends KitProdutoAbstrato implements IKitProduto {
      * Adiciona um produto ao kit de produtos.
      * @param produto que será adicionado ao kit de produtos.
      */
+    @Override
     public void adicionarProduto(IProduto produto){
         try {
             this.produtosNoKit.add(produto);
@@ -94,6 +101,7 @@ public class KitProduto extends KitProdutoAbstrato implements IKitProduto {
      * Remove um produto do kit de produtos.
      * @param produto que será removido do kit de produtos.
      */
+    @Override
     public void removerProduto(IProduto produto){
         try {
             this.produtosNoKit.remove(produto);
@@ -107,6 +115,7 @@ public class KitProduto extends KitProdutoAbstrato implements IKitProduto {
      * @param produto que será buscado no kit de produtos.
      * @return o produto encontrado no kit de produtos. Retorna null se o produto não for encontrado.
      */
+    @Override
     public IProduto buscarProduto(IProduto produto){     
         for(IProduto p : this.produtosNoKit){
             if(p.equals(produto)){
@@ -118,8 +127,9 @@ public class KitProduto extends KitProdutoAbstrato implements IKitProduto {
 
     /**
      * Obtém a lista de produtos do kit de produtos.
-     * @return uma List<IProduto> contendo os produtos do kit de produtos. Retorna null se o kit não conter produtos.
+     * @return uma {@code List<IProduto>} contendo os produtos do kit de produtos. Retorna null se o kit não conter produtos.
      */
+    @Override
     public List<IProduto> obterProdutosDoKit(){
         try {
             return this.produtosNoKit;
@@ -128,5 +138,4 @@ public class KitProduto extends KitProdutoAbstrato implements IKitProduto {
             return null;
         }
     }
-    
 }

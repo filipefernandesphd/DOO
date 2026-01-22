@@ -11,7 +11,7 @@ import br.com.comercio.usuario.Usuario;
  * permitindo adicionar, remover e alterar a quantidade de produtos,
  * bem como calcular o preço total dos itens no carrinho.
  */
-interface ICarrinho {
+public interface ICarrinho {
     /**
      * Retorna o cliente associado ao carrinho.
      * @return um objeto Usuario representando o cliente.
