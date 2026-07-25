@@ -10,6 +10,7 @@ themeConfig:
   variant: minimal
 mdc: true
 routerMode: hash
+preloadImages: false
 biblio:
   filename: references.bib
   show_full_bib: true
@@ -18,7 +19,6 @@ layout: academic-cover
 ---
 
 ---
-
 layout: section
 index: "01"
 title: Informações Gerais
@@ -26,7 +26,6 @@ title: Informações Gerais
 ---
 
 ---
-
 layout: default
 title: Sobre o Programa Analítico
 
@@ -70,7 +69,6 @@ Art. 37 [@RAG2018]
 - **EXAME FINAL**: opcional ao discente com nota >= 4,0 **E** nota < 6,0 **E** frequência >= 75%
 
 ---
-
 layout: section
 index: "02"
 title: Informações da Disciplina
@@ -157,7 +155,6 @@ Disponível em [https://filipefernandesphd.github.io/DOO/2026.2/](https://filipe
 <font size=4pt><i>Datas disponíveis em <a href="https://filipefernandesphd.github.io/DOO/2026.2/" target="_blank">https://filipefernandesphd.github.io/DOO/2026.2/</a></i></font>
 
 ---
-
 layout: section
 index: "03"
 title: Projeto Final
@@ -185,14 +182,12 @@ title: Projeto Final
   - Realmente resolve o problema
 
 ---
-
 layout: quote
 quote: Até que ponto podemos confiar nas LLMs para auxiliar no desenvolvimento orientado a objetos?
 
 ---
 
 ---
-
 layout: default
 title: Formato
 
@@ -261,7 +256,6 @@ title: Exemplos
   - O método pode ser o mesmo, mas os materiais devem ser diferentes
 
 ---
-
 layout: section
 index: "04"
 kicker: Exemplo
@@ -270,7 +264,6 @@ title: Avaliação de Qualidade de Código Java gerado por Large Language Models
 ---
 
 ---
-
 kicker: Avaliação de Qualidade de Código Java gerado por Large Language Models
 title:
 
@@ -284,7 +277,6 @@ title:
   - QP3: se existe diferença na **complexidade cognitiva** dos códigos gerados por LLMs
 
 ---
-
 kicker: Avaliação de Qualidade de Código Java gerado por Large Language Models
 title: Material e Métodos
 
@@ -298,16 +290,14 @@ title: Material e Métodos
 - Tarefas automatizadas com Python e Selenium
 
 ---
-
 kicker: Avaliação de Qualidade de Código Java gerado por Large Language Models
 title: Prompts utilizados
 
 ---
 
-<img src="./images/leetcode.png" />
+![Captura da plataforma LeetCode](./images/leetcode.png)
 
 ---
-
 kicker: Avaliação de Qualidade de Código Java gerado por Large Language Models
 title:
 
@@ -315,10 +305,9 @@ title:
 
 # Resultado (QP1 - Assertividade)
 
-<img src="./images/assertividade_1.png" />
+![Resultado de assertividade — comparação entre modelos](./images/assertividade_1.png)
 
 ---
-
 kicker: Avaliação de Qualidade de Código Java gerado por Large Language Models
 title:
 
@@ -326,10 +315,9 @@ title:
 
 # Resultado (QP1 - Assertividade)
 
-<img src="./images/assertividade_2.png" />
+![Resultado de assertividade — distribuição por dificuldade](./images/assertividade_2.png)
 
 ---
-
 kicker: Avaliação de Qualidade de Código Java gerado por Large Language Models
 title:
 
@@ -337,10 +325,9 @@ title:
 
 # Resultado (QP1 - Assertividade)
 
-<img src="./images/assertividade_3.png" />
+![Resultado de assertividade — síntese comparativa](./images/assertividade_3.png)
 
 ---
-
 kicker: Avaliação de Qualidade de Código Java gerado por Large Language Models
 title:
 
@@ -348,10 +335,9 @@ title:
 
 # Resultado (QP2 - Complexidade Ciclomática)
 
-<img src="./images/complexidade_ciclomática.png"/>
+![Resultado de complexidade ciclomática](./images/complexidade_ciclomática.png)
 
 ---
-
 kicker: Avaliação de Qualidade de Código Java gerado por Large Language Models
 title:
 
@@ -359,10 +345,9 @@ title:
 
 # Resultado (QP3 - Complexidade Cognitiva)
 
-<img src="./images/complexidade_cognitiva.png"/>
+![Resultado de complexidade cognitiva](./images/complexidade_cognitiva.png)
 
 ---
-
 kicker: Avaliação de Qualidade de Código Java gerado por Large Language Models
 title: Discussão
 
@@ -376,7 +361,6 @@ title: Discussão
   - Complexidades e assertividades medianas
 
 ---
-
 kicker: Avaliação de Qualidade de Código Java gerado por Large Language Models
 title: Conclusão
 
@@ -386,7 +370,6 @@ title: Conclusão
 - ChatGPT é melhor para entendimento e legibilidade do código
 
 ---
-
 layout: section
 index: "05"
 title: Acordos Pedagógicos
@@ -413,7 +396,6 @@ title: Acordos Pedagógicos
 - Implementação dos conceitos OO com Java
 
 ---
-
 layout: default
 title: Referências
 
@@ -422,7 +404,6 @@ title: Referências
 <BiblioList />
 
 ---
-
 layout: feature
 kicker: Encerramento
 title: Obrigado!
