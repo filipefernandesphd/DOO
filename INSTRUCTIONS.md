@@ -230,7 +230,7 @@ O script sempre clona esse endereço por SSH em uma área temporária, faz
 checkout do SHA declarado em `course.config.json/slides/templateRevision` e
 copia somente os arquivos operacionais. O clone completo e seu `.git` nunca
 entram na pasta da aula. A revisão atualmente fixada é
-`1db486dba3cdb9dcae70fdfa806a5627eabf05ae`.
+`408f5a6c6c580ceca97d8462d75a207738bc2f41`.
 
 Depois:
 
