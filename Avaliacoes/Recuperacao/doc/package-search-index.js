@@ -1,1 +1,0 @@
-packageSearchIndex = [{"l":"All Packages","u":"allpackages-index.html"},{"l":"br.com.comercio.carrinho"},{"l":"br.com.comercio.produto"},{"l":"br.com.comercio.usuario"}];updateSearchResults();

@@ -1,0 +1,435 @@
+---
+theme: slidev-theme-tahta
+addons:
+  - slidev-addon-citations
+title: Programa Analítico
+aspectRatio: 4/3
+info: |
+  Visão geral da disciplina Desenvolvimento Orientado a Objetos - 2026/2.
+themeConfig:
+  variant: minimal
+mdc: true
+routerMode: hash
+biblio:
+  filename: references.bib
+  show_full_bib: true
+  show_id: false
+layout: academic-cover
+---
+
+---
+
+layout: section
+index: "01"
+title: Informações Gerais
+
+---
+
+---
+
+layout: default
+title: Sobre o Programa Analítico
+
+---
+
+- Art. 9º §2º \[...\] deverá ser feito pelos professores \[...\] levando-se em consideração o PPC, devendo conter [@RAG2018]:
+
+|                                                                                                                                  |                                                                |
+| -------------------------------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------- |
+| Curso, semestre letivo, disciplina, código, carga horária e pré-requisitos                                                       | Número de horas e aulas previstas por semestre                 |
+| Período de execução e nome do(s) professor(es)                                                                                   | Metodologia                                                    |
+| Ementa                                                                                                                           | Recursos didáticos                                             |
+| Objetivos                                                                                                                        | Avaliação                                                      |
+| Conteúdo programático discriminando a quantidade de aulas por conteúdo, separando as aulas teóricas e práticas, quando aplicável | Bibliografia básica (mínimo de 3) e complementar (mínimo de 5) |
+
+---
+
+## title: Sobre o Programa Analítico
+
+- Art. 9º §1º \[...\] deverá ser apresentado aos discentes **na primeira aula da disciplina** [@RAG2018]
+- Art. 9 §3º \[...\] **poderão ser modificados** a partir de demandas identificadas no decorrer da disciplina [@RAG2018]
+
+---
+
+## title: Informações do Curso
+
+- Curso: Bacharelado em Sistemas de Informação
+- Modalidade de oferta: Presencial
+- Área de conhecimento: Computação
+- Turno de oferta: Integral
+- Número de períodos: 8
+
+---
+
+## title: Regras para Aprovação ou Reprovação
+
+Art. 37 [@RAG2018]
+
+- **APROVADO**: nota da disciplina >= 6,0 **E** frequência >= 75%
+- **REPROVADO**: nota da disciplina < 4,0 **OU** frequência < 75%
+- **EXAME FINAL**: opcional ao discente com nota >= 4,0 **E** nota < 6,0 **E** frequência >= 75%
+
+---
+
+layout: section
+index: "02"
+title: Informações da Disciplina
+
+---
+
+---
+
+## title: Informações da Disciplina
+
+- Período: 2º semestre
+- Natureza: obrigatória
+- Código: INF03068
+- Carga-horária: 60 horas
+- Número de aulas: 80 aulas
+- Pré-requisito: Algoritmos e Lógica de Programação
+
+---
+
+## title: Objetivo
+
+Capacitar os estudantes a implementarem os principais conceitos da **Orientação a Objetos (OO)** necessários em qualquer linguagem OO.
+
+---
+
+## title: Metodologia
+
+- Aulas Expositivas (TDH)
+  - **T**eoria
+  - **D**esenvolvimento
+  - **H**ands-on
+- Aprendizagem baseada em projetos (trabalho final)
+- Avaliação manuscrita (papel e caneta)
+
+---
+
+## title: Recursos Didáticos
+
+- **Avisos, frequência e envio de atividades**: SIGAA
+- **Materiais**: [https://filipefernandesphd.com/teaching](https://filipefernandesphd.com/teaching)
+- **Recursos em sala de aula**: computador, datashow, lousa e pincéis, tablet, slides, vscode, dentre outros recursos digitais
+
+---
+
+## title: Bibliografias
+
+| Bibliografia Básica                                                                                                                                                              | Bibliografia Complementar                                                                                                                                                       |
+| -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| WAZLAWICK, Raul S. Análise e Design Orientados a Objetos para Sistemas de Informação: Modelagem com UML, OCL e IFML.Rio de Janeiro: Grupo GEN, 2014. E-book. ISBN 9788595153653. | SCHILDT, Herbert. Java para iniciantes. Porto Alegre: Bookman, 2015. E-book. ISBN 9788582603376.                                                                                |
+| BEZERRA, Eduardo. Princípios de análise e projeto de sistemas com UML. 3. ed. Rio de Janeiro: Elsevier, 2015. 398 p. ISBN 978-85-352-2626-3.                                     | FOWLER, Martin. UML Essencial. Porto Alegre: Bookman, 2011. E-book. ISBN 9788560031382.                                                                                         |
+| DEITEL, Paul; DEITEL, Harvey. Java: como programar. 10. ed. São Paulo: Pearson, 2017. 934 p. ISBN 978-85-430-0479-2.                                                             | LARMAN, Craig. Utilizando UML e Padrões. Porto Alegre: Bookman, 2011. E-book. ISBN 9788577800476.                                                                               |
+|                                                                                                                                                                                  | GÓES, Wilson Moraes. Aprenda UML por meio de estudos de caso. 1. ed. São Paulo: Novatec, 2014. 287 p. ISBN 978-85-7522-346-8.                                                   |
+|                                                                                                                                                                                  | SILVEIRA, Paulo et al. Introdução à arquitetura e design de software: uma visão sobre a plataforma Java. 1. ed. Rio de Janeiro: Elsevier , 2012. 257 p. ISBN 978-85-352-5029-9. |
+
+---
+
+## title: Ementa
+
+- Introdução à orientação a objetos e UML
+- Conceito de classe: classe interna e interna anônima, atributos e métodos
+- Instanciação de objetos
+- Encapsulamento
+- Tratamento de exceções
+- Herança
+- Abstração de dados e polimorfismo
+- Interfaces
+- Desenvolvimento básico de algoritmos utilizando linguagens de programação orientadas a objetos
+
+---
+
+## title: Cronograma
+
+Disponível em [https://filipefernandesphd.github.io/DOO/2026.2/](https://filipefernandesphd.github.io/DOO/2026.2/)
+
+---
+
+## title: Avaliações
+
+- **Avaliação 1**: 1pt _(papel e caneta)_
+- **Avaliação 2**: 2pts _(papel e caneta)_
+- **Avaliação 3**: 3pts _(papel e caneta)_
+- **Projeto Final**: 4pts
+
+<font size=4pt><i>Datas disponíveis em <a href="https://filipefernandesphd.github.io/DOO/2026.2/" target="_blank">https://filipefernandesphd.github.io/DOO/2026.2/</a></i></font>
+
+---
+
+layout: section
+index: "03"
+title: Projeto Final
+
+---
+
+---
+
+## title: Objetivos
+
+- Dominar os conceitos de Orientação a Objetos
+- Aprender a utilizar LLMs de forma crítica e responsável
+- Aplicar uma metodologia experimental simples para analisar evidências
+
+---
+
+## title: Motivação
+
+- IA na construção software é fato
+- O ponto é: **"usar IA de forma consiente"**
+- A régua aumentou:
+  - Não aceitar a primeira resposta
+  - Avaliar se a solução está correta
+  - Segue boas práticas
+  - Realmente resolve o problema
+
+---
+
+layout: quote
+quote: Até que ponto podemos confiar nas LLMs para auxiliar no desenvolvimento orientado a objetos?
+
+---
+
+---
+
+layout: default
+title: Formato
+
+---
+
+- Relatório Técnico: 3,5 pts
+- Apresentação: 0,5 pt
+
+---
+
+## title: Relatório Técnico (1)
+
+- **Template**: [SBC em LaTeX](https://www.sbc.org.br/wp-content/uploads/2024/07/modelosparapublicaodeartigos.zip) (usar Overleaf)
+- **Seções**: Resumo, Objetivo Geral e Específicos, Materiais e Métodos, Resultados, Discussão, Conclusão e Referências
+- **LLMs**: mínimo de 3 LLMs
+- **Tamanho mínimo da amostra**: 15 participantes, 30 códigos, 10 projetos em repositórios
+
+---
+
+## title: Relatório Técnico (2)
+
+- **Limite**: 10 a 12 páginas, além das referências
+- **Acesso aos artefatos**: disponibilizar todos os artefatos utilizados em repositório do GitHub e citá-lo (com link) no relatório técnico
+- **Entrega**: um arquivo **.zip** com
+  - o projeto completo do Overleaf zipado
+  - o projeto do GitHub zipado
+  - o pdf da versão final do relatório
+
+---
+
+## title: Apresentação
+
+- Apresentação do trabalho
+- Até 5 min
+
+---
+
+## title: Escopo
+
+- Tópicos relacionados com a ementa, mas não limitados a:
+  - Diagramas de classes UML
+  - Classes, atributos e métodos
+  - Instanciação de objetos
+  - Encapsulamento
+  - Tratamento de exceções
+  - Herança
+  - Abstração de dados e polimorfismo
+  - Interfaces
+  - Desenvolvimento de algoritmos
+
+<!-- ---
+title: Exemplos
+---
+* Avaliação do Desempenho de LLMs na Conversão de Diagramas UML para Código Java
+* Avaliação da Qualidade de Código Java Gerado por LLMs para Modelagem de Classes
+* Um Estudo Comparativo sobre Encapsulamento em Código Java Gerado por LLMs
+* Avaliação de LLMs na Implementação de Polimorfismo em Java -->
+
+---
+
+## title: Sugestão
+
+- Encontre um artigo no Google Scholar: _LLM/IA + Java/orientação a objetos_
+- Analise o método experimental: LLMs, métricas, ferramentas etc.
+- Adapte para o escopo do trabalho
+  - O método pode ser o mesmo, mas os materiais devem ser diferentes
+
+---
+
+layout: section
+index: "04"
+kicker: Exemplo
+title: Avaliação de Qualidade de Código Java gerado por Large Language Models
+
+---
+
+---
+
+kicker: Avaliação de Qualidade de Código Java gerado por Large Language Models
+title:
+
+---
+
+- **Referência**: Oliveira et al. (2025) [@oliveria2025avaliacaoqualidadecodigo]
+- **Objetivo**: investigar o impacto dos LLMs na qualidade do software gerado
+- **Questões de Pesquisa**:
+  - QP1: se existe diferença na **assertividade** dos códigos gerados por LLMs
+  - QP2: se existe diferença na **complexidade ciclomática** dos códigos gerados por LLMs
+  - QP3: se existe diferença na **complexidade cognitiva** dos códigos gerados por LLMs
+
+---
+
+kicker: Avaliação de Qualidade de Código Java gerado por Large Language Models
+title: Material e Métodos
+
+---
+
+- 204 problemas de códigos extraídos da plataforma LeetCode
+  - 56 fáceis; 104 médios; e 44 difíceis
+- LeetCode e SonarQube para avaliação da qualidade do código
+- LLMs: DeepSeek, ChatGPT e Gemini
+- GitHub Models para acesso aos LLMs
+- Tarefas automatizadas com Python e Selenium
+
+---
+
+kicker: Avaliação de Qualidade de Código Java gerado por Large Language Models
+title: Prompts utilizados
+
+---
+
+<img src="./images/leetcode.png" />
+
+---
+
+kicker: Avaliação de Qualidade de Código Java gerado por Large Language Models
+title:
+
+---
+
+# Resultado (QP1 - Assertividade)
+
+<img src="./images/assertividade_1.png" />
+
+---
+
+kicker: Avaliação de Qualidade de Código Java gerado por Large Language Models
+title:
+
+---
+
+# Resultado (QP1 - Assertividade)
+
+<img src="./images/assertividade_2.png" />
+
+---
+
+kicker: Avaliação de Qualidade de Código Java gerado por Large Language Models
+title:
+
+---
+
+# Resultado (QP1 - Assertividade)
+
+<img src="./images/assertividade_3.png" />
+
+---
+
+kicker: Avaliação de Qualidade de Código Java gerado por Large Language Models
+title:
+
+---
+
+# Resultado (QP2 - Complexidade Ciclomática)
+
+<img src="./images/complexidade_ciclomática.png"/>
+
+---
+
+kicker: Avaliação de Qualidade de Código Java gerado por Large Language Models
+title:
+
+---
+
+# Resultado (QP3 - Complexidade Cognitiva)
+
+<img src="./images/complexidade_cognitiva.png"/>
+
+---
+
+kicker: Avaliação de Qualidade de Código Java gerado por Large Language Models
+title: Discussão
+
+---
+
+- Gemini 2.5 Pro
+  - Melhor desempenho em assertividade (82,35%)
+  - Porém maior Complexidade Ciclomática e Cognitiva, e mais Code Smells
+- Modelos do ChatGPT
+  - Mais concisos
+  - Complexidades e assertividades medianas
+
+---
+
+kicker: Avaliação de Qualidade de Código Java gerado por Large Language Models
+title: Conclusão
+
+---
+
+- Gemini 2.5 Pro é melhor quando a assertividade é mais importante que a qualidade do código
+- ChatGPT é melhor para entendimento e legibilidade do código
+
+---
+
+layout: section
+index: "05"
+title: Acordos Pedagógicos
+
+---
+
+---
+
+## title: Acordos Pedagógicos (1)
+
+- Respeitar a autoridade do professor
+- Manter ordem em sala e respeito aos colegas
+- Reposições de sábados: período vespertino (curso integral)
+- Assinatura da lista é imprescindível para o lançamento da presença
+- Aprovação conforme normas institucionais
+- Responsabilidade do discente em cumprir regras e prazos
+- Bom senso na permanência em sala de aula
+
+---
+
+## title: Acordos Pedagógicos (2)
+
+- Uso obrigatório do Visual Studio Code (VS Code)
+- Implementação dos conceitos OO com Java
+
+---
+
+layout: default
+title: Referências
+
+---
+
+<BiblioList />
+
+---
+
+layout: feature
+kicker: Encerramento
+title: Obrigado!
+columns: 2
+features:
+
+- { icon: "lucide:globe", desc: filipefernandesphd.com }
+- { icon: "lucide:instagram", desc: "@filipfernandesphd" }
+
+---

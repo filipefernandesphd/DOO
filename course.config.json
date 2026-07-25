@@ -1,0 +1,36 @@
+{
+  "$schema": "./course.config.schema.json",
+  "schemaVersion": 1,
+  "course": {
+    "name": "Desenvolvimento Orientado a Objetos",
+    "acronym": "DOO",
+    "code": "INF03068",
+    "program": "Bacharelado em Sistemas de Informação",
+    "institution": {
+      "name": "IF Sudeste MG",
+      "campus": "Manhuaçu",
+      "url": "https://www.ifsudestemg.edu.br/manhuacu"
+    },
+    "modality": "Presencial",
+    "workloadHours": 60,
+    "instructor": {
+      "name": "Filipe Fernandes, PhD",
+      "url": "https://filipefernandesphd.com/"
+    }
+  },
+  "repository": {
+    "provider": "github",
+    "owner": "filipefernandesphd",
+    "name": "DOO",
+    "url": "https://github.com/filipefernandesphd/DOO"
+  },
+  "site": {
+    "currentSemester": "2026.2",
+    "locale": "pt-BR",
+    "timezone": "America/Sao_Paulo"
+  },
+  "slides": {
+    "templateRepository": "git@github.com:filipefernandesphd/my-slidev-template.git",
+    "templateRevision": "408f5a6c6c580ceca97d8462d75a207738bc2f41"
+  }
+}

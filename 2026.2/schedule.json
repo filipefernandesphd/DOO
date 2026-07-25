@@ -1,0 +1,360 @@
+{
+  "$schema": "../schedule.schema.json",
+  "schemaVersion": 1,
+  "semester": "2026.2",
+  "source": {
+    "tab": "Program"
+  },
+  "entries": [
+    {
+      "day": "Segunda",
+      "date": "03/08/2026",
+      "module": "MD0: Apresentação da disciplina",
+      "topic": "Apresentação da disciplina",
+      "id": "aula-00"
+    },
+    {
+      "day": "Quarta",
+      "date": "05/08/2026",
+      "module": "MD1: Fundamentos",
+      "topic": "Da programação procedural para programação orientada a objetos",
+      "id": "aula-01"
+    },
+    {
+      "day": "Segunda",
+      "date": "10/08/2026",
+      "module": "",
+      "topic": "10 - Dia de São Lourenço - Padroeiro de Manhuaçu",
+      "id": ""
+    },
+    {
+      "day": "Quarta",
+      "date": "12/08/2026",
+      "module": "",
+      "topic": "Estado, comportamento e identidade de um objeto",
+      "id": "aula-02"
+    },
+    {
+      "day": "Segunda",
+      "date": "17/08/2026",
+      "module": "",
+      "topic": "Classes, atributos e métodos",
+      "id": "aula-03"
+    },
+    {
+      "day": "Quarta",
+      "date": "19/08/2026",
+      "module": "",
+      "topic": "Instanciação de objetos e método construtor",
+      "id": "aula-04"
+    },
+    {
+      "day": "Segunda",
+      "date": "24/08/2026",
+      "module": "",
+      "topic": "Lista de objetos",
+      "id": "aula-05"
+    },
+    {
+      "day": "Quarta",
+      "date": "26/08/2026",
+      "module": "",
+      "topic": "Introdução à UML e hands-on",
+      "id": "aula-06"
+    },
+    {
+      "day": "Sábado",
+      "date": "29/08/2026",
+      "module": "",
+      "topic": "[AULA CANCELADA]",
+      "id": ""
+    },
+    {
+      "day": "Segunda",
+      "date": "31/08/2026",
+      "module": "",
+      "topic": "Hands-on",
+      "id": "aula-07"
+    },
+    {
+      "day": "Segunda",
+      "date": "",
+      "module": "",
+      "topic": "[REPOSIÇÃO] Hands-on",
+      "id": "aula-08"
+    },
+    {
+      "day": "Quarta",
+      "date": "02/09/2026",
+      "module": "",
+      "topic": "AVALILAÇÃO",
+      "id": ""
+    },
+    {
+      "day": "Segunda",
+      "date": "07/09/2026",
+      "module": "",
+      "topic": "07 - Indepêndencia do Brasil",
+      "id": ""
+    },
+    {
+      "day": "Quarta",
+      "date": "09/09/2026",
+      "module": "",
+      "topic": "[AULA CANCELADA]",
+      "id": ""
+    },
+    {
+      "day": "Sábado",
+      "date": "12/09/2026",
+      "module": "",
+      "topic": "[AULA CANCELADA]",
+      "id": ""
+    },
+    {
+      "day": "Segunda",
+      "date": "14/09/2026",
+      "module": "",
+      "topic": "[AULA CANCELADA]",
+      "id": ""
+    },
+    {
+      "day": "Quarta",
+      "date": "16/09/2026",
+      "module": "",
+      "topic": "[AULA CANCELADA]",
+      "id": ""
+    },
+    {
+      "day": "Segunda",
+      "date": "21/09/2026",
+      "module": "",
+      "topic": "[AULA CANCELADA]",
+      "id": ""
+    },
+    {
+      "day": "Quarta",
+      "date": "23/09/2026",
+      "module": "",
+      "topic": "[AULA CANCELADA]",
+      "id": ""
+    },
+    {
+      "day": "Sábado",
+      "date": "26/09/2026",
+      "module": "",
+      "topic": "Atividade de Informática",
+      "id": ""
+    },
+    {
+      "day": "Segunda",
+      "date": "28/09/2026",
+      "module": "MD2: Encapsulamento",
+      "topic": "Modificadores de acesso e introdução à herança",
+      "id": "aula-09"
+    },
+    {
+      "day": "Quarta",
+      "date": "30/09/2026",
+      "module": "",
+      "topic": "Métodos getters e setters",
+      "id": "aula-10"
+    },
+    {
+      "day": "Sábado",
+      "date": "03/10/2026",
+      "module": "",
+      "topic": "[AULA CANCELADA]",
+      "id": ""
+    },
+    {
+      "day": "Segunda",
+      "date": "05/10/2026",
+      "module": "",
+      "topic": "Modificadores de estado: static e final",
+      "id": "aula-11"
+    },
+    {
+      "day": "Quarta",
+      "date": "07/10/2026",
+      "module": "MD3: Tipos de relacionamentos",
+      "topic": "Multiplicidade, agregação e composição",
+      "id": "aula-12"
+    },
+    {
+      "day": "Segunda",
+      "date": "12/10/2026",
+      "module": "",
+      "topic": "12 - Nossa Senhora Aparecida",
+      "id": ""
+    },
+    {
+      "day": "Quarta",
+      "date": "14/10/2026",
+      "module": "",
+      "topic": "Correção da avaliação e Herança",
+      "id": "aula-13"
+    },
+    {
+      "day": "Segunda",
+      "date": "19/10/2026",
+      "module": "",
+      "topic": "Polimorfismo, sobrescrita e sobrecarga de métodos",
+      "id": "aula-14"
+    },
+    {
+      "day": "Quarta",
+      "date": "21/10/2026",
+      "module": "",
+      "topic": "Hands-on",
+      "id": "aula-15"
+    },
+    {
+      "day": "Segunda",
+      "date": "26/10/2026",
+      "module": "MD4: Abstração",
+      "topic": "AVALILAÇÃO",
+      "id": ""
+    },
+    {
+      "day": "Quarta",
+      "date": "28/10/2026",
+      "module": "",
+      "topic": "28 - Dia do Servidor Público",
+      "id": ""
+    },
+    {
+      "day": "Segunda",
+      "date": "02/11/2026",
+      "module": "",
+      "topic": "02 - Finados",
+      "id": ""
+    },
+    {
+      "day": "Quarta",
+      "date": "04/11/2026",
+      "module": "",
+      "topic": "Classes abstratas e interfaces",
+      "id": "aula-16"
+    },
+    {
+      "day": "Segunda",
+      "date": "09/11/2026",
+      "module": "",
+      "topic": "Tratamento de exceções",
+      "id": "aula-17"
+    },
+    {
+      "day": "Quarta",
+      "date": "11/11/2026",
+      "module": "",
+      "topic": "Classes internas e classes internas anônimas",
+      "id": "aula-18"
+    },
+    {
+      "day": "Quarta",
+      "date": "11/11/2026",
+      "module": "",
+      "topic": "[REPOSIÇÃO] Hands-on",
+      "id": ""
+    },
+    {
+      "day": "Segunda",
+      "date": "16/11/2026",
+      "module": "",
+      "topic": "Desenvolvimento de algoritmos",
+      "id": "aula-19"
+    },
+    {
+      "day": "Segunda",
+      "date": "",
+      "module": "",
+      "topic": "[REPOSIÇÃO] Hands-on",
+      "id": ""
+    },
+    {
+      "day": "Quarta",
+      "date": "18/11/2026",
+      "module": "",
+      "topic": "Desenvolvimento de algoritmos",
+      "id": "aula-20"
+    },
+    {
+      "day": "Quarta",
+      "date": "",
+      "module": "",
+      "topic": "[REPOSIÇÃO] Hands-on",
+      "id": ""
+    },
+    {
+      "day": "Segunda",
+      "date": "23/11/2026",
+      "module": "MD5: Trabalho final",
+      "topic": "Entrega de relatório e hands-on",
+      "id": ""
+    },
+    {
+      "day": "Quarta",
+      "date": "25/11/2026",
+      "module": "",
+      "topic": "AVALIAÇÃO",
+      "id": ""
+    },
+    {
+      "day": "Sábado",
+      "date": "28/11/2026",
+      "module": "",
+      "topic": "Atividade de Informática",
+      "id": ""
+    },
+    {
+      "day": "Segunda",
+      "date": "30/11/2026",
+      "module": "",
+      "topic": "Apresentação",
+      "id": ""
+    },
+    {
+      "day": "Quarta",
+      "date": "02/12/2026",
+      "module": "",
+      "topic": "Apresentação",
+      "id": ""
+    },
+    {
+      "day": "Sábado",
+      "date": "05/12/2026",
+      "module": "",
+      "topic": "[AULA CANCELADA]",
+      "id": ""
+    },
+    {
+      "day": "Segunda",
+      "date": "07/12/2026",
+      "module": "",
+      "topic": "Correção da avaliação",
+      "id": ""
+    },
+    {
+      "day": "Quarta",
+      "date": "09/12/2026",
+      "module": "",
+      "topic": "Revisão",
+      "id": ""
+    },
+    {
+      "day": "Quarta",
+      "date": "09/12/2026",
+      "module": "",
+      "topic": "[REPOSIÇÃO] Revisão",
+      "id": ""
+    },
+    {
+      "day": "Segunda",
+      "date": "14/12/2026",
+      "module": "",
+      "topic": "Revisão",
+      "id": ""
+    }
+  ]
+}
