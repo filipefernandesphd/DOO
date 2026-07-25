@@ -378,21 +378,77 @@ title: Acordos Pedagógicos
 ---
 title: Acordos Pedagógicos (1)
 ---
-
-- Respeitar a autoridade do professor
-- Manter ordem em sala e respeito aos colegas
-- Reposições de sábados: período vespertino (curso integral)
-- Assinatura da lista é imprescindível para o lançamento da presença
-- Aprovação conforme normas institucionais
-- Responsabilidade do discente em cumprir regras e prazos
-- Bom senso na permanência em sala de aula
+- **Respeito acima de tudo** [@regulamento_conduta_discente]:
+  - Ao professor
+  - Aos colegas da turma
+  - Todos em geral
 
 ---
 title: Acordos Pedagógicos (2)
 ---
+- **Registro da frequência**:
+  - **Obrigatoriamente** através da lista de presença
+  - Bom senso na permanência em sala de aula
 
-- Uso obrigatório do Visual Studio Code (VS Code)
-- Implementação dos conceitos OO com Java
+- **Aprovação**:
+  - Conforme normas institucionais [@RAG2018]
+
+---
+title: Acordos Pedagógicos (3)
+---
+- **Reposições do curso (oferta integral)** [@PPCBSI2025]:
+  - Período vespertino, conforme definido no [cronograma](https://filipefernandesphd.github.io/DOO/2026.2/)
+
+---
+title: Acordos Pedagógicos (4)
+---
+- **Direitos e deveres do discente** [@regulamento_conduta_discente]:
+  - Art. 15 inciso I: "*Conhecer e cumprir as diretrizes no Regulamento de Conduta Discente do IF Sudeste MG e demais regulamentos e normas institucionais*"
+  - Art. 19: "*O ato de indisciplina se caracterizará pelo não cumprimento de um ou mais incisos constantes no *art. 15* ou a prática de um ou mais incisos constantes no art. 16*"
+
+**Acesse o [Chatbot não oficial](https://filipefernandesphd.com/teaching) para obter mais informações**
+
+---
+title: Acordos Pedagógicos (5)
+---
+
+- **Materiais**:
+  - Uso **obrigatório** dos materiais informados pelo professor
+
+---
+layout: section
+index: "06"
+title: Gravação das aulas
+---
+
+---
+title: Gravação das aulas (1)
+---
+- Iniciativa **exclusivamente** do Prof. Filipe Fernandes
+
+- Registro **exclusivamente** do Prof. Filipe Fernandes:
+  - Tela do computador
+  - Imagem e voz
+
+- **A imagem, voz ou identificação dos estudantes não serão gravadas intencionalmente**
+
+---
+title: Gravação das aulas (2)
+---
+
+- **Objetivos**:
+  - Produção de conteúdo educacional de autoria do Prof. Filipe Fernandes
+  - Disponibilização de **material de apoio** para os estudantes da disciplina
+    - Trasmissão ao vivo no [YouTube e outras plataformas](https://filipefernandesphd.com/)
+
+---
+title: Gravação das aulas (3)
+---
+- **IMPORTANTE!**
+  * As transmissões ao vivo e as gravações são uma **iniciativa exclusiva do professor**, destinada ao apoio aos estudos e à produção de conteúdo educacional
+  * **Não** configuram modalidade institucional de ensino
+  * **Não** substituem as aulas presenciais
+  * É **vedada** a utilização das transmissões ao vivo ou das gravações como justificativa para faltas às aulas presenciais
 
 ---
 layout: default
