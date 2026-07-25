@@ -42,15 +42,14 @@ title: Sobre o Programa Analítico
 | Conteúdo programático discriminando a quantidade de aulas por conteúdo, separando as aulas teóricas e práticas, quando aplicável | Bibliografia básica (mínimo de 3) e complementar (mínimo de 5) |
 
 ---
-
-## title: Sobre o Programa Analítico
-
+title: Sobre o Programa Analítico
+---
 - Art. 9º §1º \[...\] deverá ser apresentado aos discentes **na primeira aula da disciplina** [@RAG2018]
 - Art. 9 §3º \[...\] **poderão ser modificados** a partir de demandas identificadas no decorrer da disciplina [@RAG2018]
 
 ---
-
-## title: Informações do Curso
+title: Informações do Curso
+---
 
 - Curso: Bacharelado em Sistemas de Informação
 - Modalidade de oferta: Presencial
@@ -59,8 +58,8 @@ title: Sobre o Programa Analítico
 - Número de períodos: 8
 
 ---
-
-## title: Regras para Aprovação ou Reprovação
+title: Regras para Aprovação ou Reprovação
+---
 
 Art. 37 [@RAG2018]
 
@@ -76,8 +75,8 @@ title: Informações da Disciplina
 ---
 
 ---
-
-## title: Informações da Disciplina
+title: Informações da Disciplina
+---
 
 - Período: 2º semestre
 - Natureza: obrigatória
@@ -87,14 +86,14 @@ title: Informações da Disciplina
 - Pré-requisito: Algoritmos e Lógica de Programação
 
 ---
-
-## title: Objetivo
+title: Objetivo
+---
 
 Capacitar os estudantes a implementarem os principais conceitos da **Orientação a Objetos (OO)** necessários em qualquer linguagem OO.
 
 ---
-
-## title: Metodologia
+title: Metodologia
+---
 
 - Aulas Expositivas (TDH)
   - **T**eoria
@@ -104,16 +103,16 @@ Capacitar os estudantes a implementarem os principais conceitos da **Orientaçã
 - Avaliação manuscrita (papel e caneta)
 
 ---
-
-## title: Recursos Didáticos
+title: Recursos Didáticos
+---
 
 - **Avisos, frequência e envio de atividades**: SIGAA
 - **Materiais**: [https://filipefernandesphd.com/teaching](https://filipefernandesphd.com/teaching)
 - **Recursos em sala de aula**: computador, datashow, lousa e pincéis, tablet, slides, vscode, dentre outros recursos digitais
 
 ---
-
-## title: Bibliografias
+title: Bibliografias
+---
 
 | Bibliografia Básica                                                                                                                                                              | Bibliografia Complementar                                                                                                                                                       |
 | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
@@ -124,8 +123,8 @@ Capacitar os estudantes a implementarem os principais conceitos da **Orientaçã
 |                                                                                                                                                                                  | SILVEIRA, Paulo et al. Introdução à arquitetura e design de software: uma visão sobre a plataforma Java. 1. ed. Rio de Janeiro: Elsevier , 2012. 257 p. ISBN 978-85-352-5029-9. |
 
 ---
-
-## title: Ementa
+title: Ementa
+---
 
 - Introdução à orientação a objetos e UML
 - Conceito de classe: classe interna e interna anônima, atributos e métodos
@@ -138,14 +137,14 @@ Capacitar os estudantes a implementarem os principais conceitos da **Orientaçã
 - Desenvolvimento básico de algoritmos utilizando linguagens de programação orientadas a objetos
 
 ---
-
-## title: Cronograma
+title: Cronograma
+---
 
 Disponível em [https://filipefernandesphd.github.io/DOO/2026.2/](https://filipefernandesphd.github.io/DOO/2026.2/)
 
 ---
-
-## title: Avaliações
+title: Avaliações
+---
 
 - **Avaliação 1**: 1pt _(papel e caneta)_
 - **Avaliação 2**: 2pts _(papel e caneta)_
@@ -162,16 +161,16 @@ title: Projeto Final
 ---
 
 ---
-
-## title: Objetivos
+title: Objetivos
+---
 
 - Dominar os conceitos de Orientação a Objetos
 - Aprender a utilizar LLMs de forma crítica e responsável
 - Aplicar uma metodologia experimental simples para analisar evidências
 
 ---
-
-## title: Motivação
+title: Motivação
+---
 
 - IA na construção software é fato
 - O ponto é: **"usar IA de forma consiente"**
@@ -197,8 +196,8 @@ title: Formato
 - Apresentação: 0,5 pt
 
 ---
-
-## title: Relatório Técnico (1)
+title: Relatório Técnico (1)
+---
 
 - **Template**: [SBC em LaTeX](https://www.sbc.org.br/wp-content/uploads/2024/07/modelosparapublicaodeartigos.zip) (usar Overleaf)
 - **Seções**: Resumo, Objetivo Geral e Específicos, Materiais e Métodos, Resultados, Discussão, Conclusão e Referências
@@ -206,8 +205,8 @@ title: Formato
 - **Tamanho mínimo da amostra**: 15 participantes, 30 códigos, 10 projetos em repositórios
 
 ---
-
-## title: Relatório Técnico (2)
+title: Relatório Técnico (2)
+---
 
 - **Limite**: 10 a 12 páginas, além das referências
 - **Acesso aos artefatos**: disponibilizar todos os artefatos utilizados em repositório do GitHub e citá-lo (com link) no relatório técnico
@@ -217,15 +216,15 @@ title: Formato
   - o pdf da versão final do relatório
 
 ---
-
-## title: Apresentação
+title: Apresentação
+---
 
 - Apresentação do trabalho
 - Até 5 min
 
 ---
-
-## title: Escopo
+title: Escopo
+---
 
 - Tópicos relacionados com a ementa, mas não limitados a:
   - Diagramas de classes UML
@@ -247,8 +246,8 @@ title: Exemplos
 * Avaliação de LLMs na Implementação de Polimorfismo em Java -->
 
 ---
-
-## title: Sugestão
+title: Sugestão
+---
 
 - Encontre um artigo no Google Scholar: _LLM/IA + Java/orientação a objetos_
 - Analise o método experimental: LLMs, métricas, ferramentas etc.
@@ -377,8 +376,8 @@ title: Acordos Pedagógicos
 ---
 
 ---
-
-## title: Acordos Pedagógicos (1)
+title: Acordos Pedagógicos (1)
+---
 
 - Respeitar a autoridade do professor
 - Manter ordem em sala e respeito aos colegas
@@ -389,8 +388,8 @@ title: Acordos Pedagógicos
 - Bom senso na permanência em sala de aula
 
 ---
-
-## title: Acordos Pedagógicos (2)
+title: Acordos Pedagógicos (2)
+---
 
 - Uso obrigatório do Visual Studio Code (VS Code)
 - Implementação dos conceitos OO com Java
