@@ -153,6 +153,12 @@ title: Cronograma
 Disponível em [https://filipefernandesphd.github.io/DOO/2026.2/](https://filipefernandesphd.github.io/DOO/2026.2/)
 
 ---
+title: Atendimento
+---
+- Quintas-feiras de 13h às 17h
+- Agendamento: [https://forms.gle/2VPe4UfohKUxa7Du9](https://forms.gle/2VPe4UfohKUxa7Du9)
+
+---
 title: Avaliações
 ---
 
