@@ -68,6 +68,16 @@ Art. 37 [@RAG2018]
 - **EXAME FINAL**: opcional ao discente com nota >= 4,0 **E** nota < 6,0 **E** frequência >= 75%
 
 ---
+title: Regras para Frequência
+---
+- Art. 36. A frequência às aulas e as demais atividades acadêmicas serão obrigatórias [@RAG2018]
+- §1º Casos aceitos para **abono de faltas**:
+  - Alunos reservistas
+  - Oficial ou Aspirante-a-Oficial da Reserva, convocado para o serviço ativo
+  - Aluno com representação que tenha participado de reuniões da Comissão Nacional de Avaliação da Educação Superior – CONAES
+- O registro da frequência é por aula (45min) e **não** por dia
+
+---
 layout: section
 index: "02"
 title: Informações da Disciplina
