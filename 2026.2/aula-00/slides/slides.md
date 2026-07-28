@@ -27,7 +27,7 @@ title: Sobre Mim
 ---
 layout: image
 side: right
-image: /vertical_profile.png
+image: ./vertical_profile.png
 title: Filipe Fernandes
 ---
 **Pessoal:**
@@ -45,7 +45,7 @@ title: Filipe Fernandes
 ---
 layout: image
 side: right
-image: /quantum_metaverse.png
+image: ./quantum_metaverse.png
 title: Atuação
 ---
 - **Pesquisador**:
