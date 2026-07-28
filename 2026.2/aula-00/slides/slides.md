@@ -21,8 +21,58 @@ layout: academic-cover
 ---
 layout: section
 index: "01"
-title: Informações Gerais
+title: Sobre Mim
+---
 
+---
+layout: image
+side: right
+image: /vertical_profile.png
+title: Filipe Fernandes
+---
+**Pessoal:**
+- Itaperuna/RJ
+- Baterista que toca outros instrumentos
+- Design Inteligente
+- CEO de startup futura
+
+**Profissional:**
+- IF Sudeste MG - Campus Manhuaçu (out/2016 - Atual)
+- Mestrado e Doutorado - COPPE/UFRJ (2014 - 2023)
+- Pós-doutorado - UFMG (2025 - 2026)
+- Especialista em Computação Quântica - SENAI/CIMATEC (2025 - 2026)
+
+---
+layout: image
+side: right
+image: /quantum_metaverse.png
+title: Atuação
+---
+- **Pesquisador**:
+  - Quantum Software Engineering (QSE)
+  - Metaverse Engineering
+  - AI4SE e SE4AI
+
+- **Coodenador de projetos de pesquisa:**
+  - IF Sudeste MG
+  - FAPEMIG
+
+- Líder do **LIPES**
+
+- **Steering Committee**: [I Workshop Brasileiro de Engenharia de Software Quântico (WQSE)](https://wqseworkshop.github.io/WQSE2026/organization.html)
+
+- **Editor Assistente**: SBC Reviews
+
+- **Comitê de programa**: conferências nacionais e internacionais
+
+- **Revisor**: revistas científicas nacionais e internacionais
+
+
+
+---
+layout: section
+index: "02"
+title: Informações Gerais
 ---
 
 ---
@@ -79,7 +129,7 @@ title: Regras para Frequência
 
 ---
 layout: section
-index: "02"
+index: "03"
 title: Informações da Disciplina
 
 ---
@@ -171,7 +221,7 @@ title: Avaliações
 
 ---
 layout: section
-index: "03"
+index: "04"
 title: Projeto Final
 ---
 
@@ -271,7 +321,7 @@ title: Sugestão
 
 ---
 layout: section
-index: "04"
+index: "05"
 kicker: Exemplo
 title: Avaliação de Qualidade de Código Java gerado por Large Language Models
 
@@ -385,7 +435,7 @@ title: Conclusão
 
 ---
 layout: section
-index: "05"
+index: "06"
 title: Acordos Pedagógicos
 
 ---
@@ -432,7 +482,7 @@ title: Acordos Pedagógicos (5)
 
 ---
 layout: section
-index: "06"
+index: "07"
 title: Gravação das aulas
 ---
 
