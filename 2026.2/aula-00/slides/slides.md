@@ -146,10 +146,31 @@ title: Informações da Disciplina
 - Pré-requisito: Algoritmos e Lógica de Programação
 
 ---
+title: Por que estudar Orientação a Objetos? (1)
+kicker: Motivação
+---
+- Modelar problemas reais com classes, objetos e UML
+- 7 das top 10 linguagens suportam OO (índice TIOBE de Julho/2026) [@tiobe_index]
+  - Python, C++, Java, C#, JavaScript, .NET e R
+- Construção de sistemas *organizados*, *reutilizáveis* e *fáceis de manter*
+
+---
+title: Por que estudar Orientação a Objetos? (2)
+kicker: Motivação
+---
+- Base para outras disciplinas e projetos mais avançados
+  - Linguagem de Programação I
+  - Estruturas de Dados I
+  - Tópicos Avançados em Desenvolvimento de Software
+  - Tópicos Avançados em Pesquisa Operacional
+  - Introdução ao Python
+  - Padrões de Projeto
+
+---
 title: Objetivo
 ---
 
-Capacitar os estudantes a implementarem os principais conceitos da **Orientação a Objetos (OO)** necessários em qualquer linguagem OO.
+Capacitar os estudantes a implementarem os principais conceitos da **Orientação a Objetos (OO)** necessários em qualquer linguagem OO
 
 ---
 title: Metodologia
