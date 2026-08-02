@@ -173,9 +173,15 @@ title: Objetivo
 Capacitar os estudantes a implementarem os principais conceitos da **Orientação a Objetos (OO)** necessários em qualquer linguagem OO
 
 ---
-title: Metodologia
+title: Metodologia (1)
 ---
+- **Preparação**: primeiros 15min
+- **Aula**: restante do tempo 
+- **Encerramento**: últimos 15min
 
+---
+title: Metodologia (2)
+---
 - Aulas Expositivas (TDH)
   - **T**eoria
   - **D**esenvolvimento
