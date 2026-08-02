@@ -1,9 +1,10 @@
 # Instruções de uso do repositório
 
 Este documento explica como o professor organizará e publicará os materiais de
-uma disciplina. O repositório atual é uma instância dessa base: seus dados
-acadêmicos públicos ficam em `course.config.json`, nos READMEs e nos slides,
-enquanto a automação funciona da mesma forma para qualquer disciplina.
+uma disciplina. Este repositório é a base reutilizável e inclui uma instância
+mínima de exemplo. Em cada repositório criado a partir dela, os dados acadêmicos
+públicos ficam em `course.config.json`, nos READMEs e nos slides, enquanto a
+automação funciona da mesma forma para qualquer disciplina.
 
 ## Estado atual
 
@@ -34,6 +35,7 @@ Decisões do projeto:
 | Página do semestre | Combina a prosa de`AAAA.S/README.md` com o cronograma canônico de `AAAA.S/schedule.json`.  |
 | Página da aula     | É gerada pela estrutura de`AAAA.S/aula-NN/`.                                                 |
 | Slides              | Abrem dentro do GitHub Pages.                                                                   |
+| Ativos do semestre  | A pasta opcional `AAAA.S/assets/` é publicada no mesmo caminho para uso pelos slides.           |
 | Outros materiais    | Abrem no GitHub, na mesma revisão do site.                                                     |
 | HTML                | Fica apenas no artefato`_site/`; não é editado ou commitado.                                |
 | Branches            | Toda branch é verificada; somente a branch padrão publica.                                    |
@@ -73,6 +75,7 @@ automação, isso é um defeito de reutilização.
 ├── 2026.2/
 │   ├── README.md
 │   ├── schedule.json
+│   ├── assets/
 │   ├── aula-00/
 │   │   ├── README.md
 │   │   ├── slides/
@@ -217,6 +220,7 @@ O comando:
 - recusar uma pasta que já existe;
 - criar `2026.2/aula-01/slides/`;
 - copiar os arquivos operacionais do template Slidev;
+- adicionar a configuração local que serve os ativos compartilhados no preview;
 - registrar a revisão do template;
 - não copiar um repositório Git aninhado.
 
@@ -230,7 +234,7 @@ O script sempre clona esse endereço por SSH em uma área temporária, faz
 checkout do SHA declarado em `course.config.json/slides/templateRevision` e
 copia somente os arquivos operacionais. O clone completo e seu `.git` nunca
 entram na pasta da aula. A revisão atualmente fixada é
-`408f5a6c6c580ceca97d8462d75a207738bc2f41`.
+`1db486dba3cdb9dcae70fdfa806a5627eabf05ae`.
 
 Depois:
 
@@ -350,6 +354,34 @@ Na página pública:
 Não duplique esses materiais em `_site/`. Não coloque dados pessoais de
 estudantes, respostas privadas, credenciais ou conteúdo sem licença adequada
 em uma branch que será integrada à branch padrão.
+
+### Ativos compartilhados pelos slides
+
+Para compartilhar imagens e outros arquivos entre os decks de um semestre,
+coloque-os na pasta opcional do semestre:
+
+```text
+2026.2/assets/qrcode-avaliacao.png
+```
+
+Em um deck localizado em `2026.2/aula-NN/slides/slides.md`, use:
+
+```yaml
+---
+layout: image
+side: right
+image: ../../assets/qrcode-avaliacao.png
+title: Avaliação
+---
+```
+
+O build copia a pasta para `_site/2026.2/assets/`. Arquivos ocultos, links
+simbólicos e arquivos de infraestrutura não são aceitos. Todo conteúdo dessa
+pasta é público; não coloque nela avaliações, soluções, credenciais ou dados
+pessoais. Como o caminho compartilhado pertence ao site completo, confira-o
+com `npm run build` e `npm run preview`. O preview direto do Slidev também
+serve esses arquivos; reinicie o servidor depois de adicionar ou atualizar
+`slides/vite.config.ts`.
 
 ## Como revisar os slides localmente
 
@@ -474,8 +506,9 @@ node scripts/sync-schedule-links.mjs --check
 
 ### Um material comum abriu no Pages
 
-Isso indica erro no gerador. Somente `slides/` pode receber link do Pages; os
-demais recursos devem apontar para `github.com/.../tree/<sha>/...` ou
+Isso indica erro no gerador, exceto quando o arquivo está na pasta explícita
+`AAAA.S/assets/`. Slides e ativos compartilhados do semestre abrem no Pages;
+os demais recursos devem apontar para `github.com/.../tree/<sha>/...` ou
 `github.com/.../blob/<sha>/...`.
 
 ### O workflow não executou em uma branch antiga
@@ -497,6 +530,7 @@ partir da branch padrão antes de continuar.
 - [ ] `node scripts/sync-schedule-links.mjs --check` passou.
 - [ ] Toda aula contém `slides/`.
 - [ ] `academic.config.ts` e o título de `slides.md` foram atualizados.
+- [ ] Os arquivos em `AAAA.S/assets/` são públicos e aparecem no mesmo caminho em `_site/`.
 - [ ] Atividades e materiais não foram copiados para `_site/`.
 - [ ] Nenhuma nota do professor foi publicada.
 - [ ] Não há `.env`, credencial ou dado pessoal no commit.

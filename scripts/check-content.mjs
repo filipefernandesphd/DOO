@@ -21,6 +21,7 @@ const REQUIRED_SLIDE_FILES = [
   "global-top.vue",
   "slides.md",
   "style.css",
+  "vite.config.ts",
 ];
 const REQUIRED_SLIDE_DIRECTORIES = ["components", "layouts"];
 const FORBIDDEN_CONTENT_NAMES = new Set([".git", "node_modules", "_site"]);
@@ -31,6 +32,25 @@ const FORBIDDEN_SLIDE_ROOT_NAMES = new Set([
   "package.json",
   "prompts",
   "skills",
+]);
+const FORBIDDEN_PUBLIC_ASSET_NAMES = new Set([
+  ".env",
+  ".git",
+  ".gitignore",
+  "AGENTS.md",
+  "INSTRUCTIONS.md",
+  "README.md",
+  "_site",
+  "dist",
+  "node_modules",
+  "package-lock.json",
+  "package.json",
+  "pnpm-lock.yaml",
+  "tsconfig.json",
+  "vite.config.js",
+  "vite.config.mjs",
+  "vite.config.ts",
+  "yarn.lock",
 ]);
 
 export class ContentError extends Error {
@@ -540,6 +560,35 @@ async function assertNoSymlinksOrInfrastructure(directory, root) {
   }
 }
 
+async function validateSemesterAssets(root, semester) {
+  const directory = path.join(root, semester, "assets");
+  if (!(await pathExists(directory))) {
+    return;
+  }
+  await assertRealDirectory(directory, `${semester}/assets`);
+
+  async function walk(parent) {
+    for (const entry of await readdir(parent, { withFileTypes: true })) {
+      const target = path.join(parent, entry.name);
+      const relative = path.relative(root, target);
+      const info = await lstat(target);
+      assert(!info.isSymbolicLink(), `${relative}: link simbólico não é permitido.`);
+      assert(
+        !entry.name.startsWith(".") &&
+          !FORBIDDEN_PUBLIC_ASSET_NAMES.has(entry.name),
+        `${relative}: arquivo não permitido nos ativos publicados.`,
+      );
+      if (info.isDirectory()) {
+        await walk(target);
+      } else {
+        assert(info.isFile(), `${relative}: arquivo regular esperado.`);
+      }
+    }
+  }
+
+  await walk(directory);
+}
+
 async function discoverSemesters(root) {
   const semesters = [];
   for (const entry of await readdir(root, { withFileTypes: true })) {
@@ -622,6 +671,18 @@ async function validateSlideStructure(root, semester, lesson, revision) {
       `${semester}/${lesson}/slides/${name}: arquivo vazio.`,
     );
   }
+  const expectedViteConfig = await readFile(
+    path.join(root, "site", "templates", "slidev.vite.config.ts"),
+    "utf8",
+  );
+  const actualViteConfig = await readFile(
+    path.join(slidesDirectory, "vite.config.ts"),
+    "utf8",
+  );
+  assert(
+    actualViteConfig === expectedViteConfig,
+    `${semester}/${lesson}/slides/vite.config.ts: configuração local desatualizada.`,
+  );
   const slides = await readFile(path.join(slidesDirectory, "slides.md"), "utf8");
   assert(
     /^---[ \t]*\r?\n/u.test(slides),
@@ -722,6 +783,7 @@ async function inspectGitIndex(root, semesters) {
 async function validateSemester(root, semester, scheduleSchema, config) {
   const directory = path.join(root, semester);
   await assertNoSymlinksOrInfrastructure(directory, root);
+  await validateSemesterAssets(root, semester);
   const readmePath = path.join(directory, "README.md");
   const schedulePath = path.join(directory, "schedule.json");
   await assertRealFile(readmePath, `${semester}/README.md`);

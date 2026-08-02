@@ -60,7 +60,8 @@ o deploy da branch padrão.
 | Demais conteúdos | Os READMEs, as fontes Slidev e os materiais versionados são fontes de verdade. |
 | HTML | Os `index.html` são gerados em `_site/`; não são editados nem commitados. |
 | Materiais comuns | Permanecem no GitHub e recebem links para a revisão publicada. |
-| Slides | São o único conteúdo de cada aula servido diretamente pelo Pages. |
+| Ativos do semestre | Arquivos explícitos em `AAAA.S/assets/` são publicados no mesmo caminho no Pages para uso compartilhado pelos slides. |
+| Slides | Os decks e os ativos explícitos do semestre são os únicos conteúdos pedagógicos servidos diretamente pelo Pages. |
 | Repositório e URL | A instância declara owner, repositório e URL em `course.config.json`; SHA, branch padrão e base path de Pages são derivados do ambiente. |
 | Gerador | Um gerador Node.js estático e determinístico, sem SPA e sem servidor em produção. |
 | Dependências Slidev | Uma instalação npm compartilhada na raiz compila cada deck em um processo separado. |
@@ -90,6 +91,7 @@ Não remova essa proteção sem uma solicitação explícita que reconheça que:
 │   ├── assets/
 │   │   └── site.css
 │   └── templates/
+│       └── slidev.vite.config.ts
 ├── scripts/
 │   ├── build-site.mjs
 │   ├── check-content.mjs
@@ -102,6 +104,8 @@ Não remova essa proteção sem uma solicitação explícita que reconheça que:
 ├── 2026.2/
 │   ├── README.md
 │   ├── schedule.json
+│   ├── assets/
+│   │   └── imagem-compartilhada.png
 │   ├── aula-00/
 │   │   ├── README.md
 │   │   ├── slides/
@@ -111,7 +115,8 @@ Não remova essa proteção sem uma solicitação explícita que reconheça que:
 │   │   │   ├── global-top.vue
 │   │   │   ├── layouts/
 │   │   │   ├── slides.md
-│   │   │   └── style.css
+│   │   │   ├── style.css
+│   │   │   └── vite.config.ts
 │   │   ├── atividades/
 │   │   └── materiais_de_apoio/
 │   └── aula-01/
@@ -137,6 +142,8 @@ _site/
 ├── assets/
 ├── 2026.2/
 │   ├── index.html
+│   ├── assets/
+│   │   └── imagem-compartilhada.png
 │   ├── aula-00/
 │   │   ├── index.html
 │   │   └── slides/
@@ -310,8 +317,15 @@ O gerador deve inspecionar somente as entradas imediatas de `aula-NN/`.
   sair da raiz do repositório.
 
 Atividades, códigos, avaliações e materiais de apoio não devem ser copiados
-para `_site/`. O build publica somente HTML gerado, CSS/ativos explícitos do
-site e os builds dos slides.
+para `_site/`. A exceção explícita é `AAAA.S/assets/`, destinada a imagens e
+outros ativos públicos compartilhados pelos decks do semestre. O build copia
+essa árvore para `_site/AAAA.S/assets/`, rejeitando links simbólicos, arquivos
+ocultos, arquivos de infraestrutura e entradas que não sejam arquivos regulares
+ou diretórios reais. Todo arquivo colocado ali deve ser considerado público.
+
+De um deck em `AAAA.S/aula-NN/slides/`, um ativo do semestre é referenciado por
+`../../assets/nome-do-arquivo.ext`. O caminho é resolvido no site publicado;
+para revisá-lo localmente, gere o site completo e use `npm run preview`.
 
 ## Contrato do site
 
@@ -327,8 +341,9 @@ O gerador deve:
 8. tornar tabelas largas navegáveis em telas pequenas;
 9. ordenar resultados de forma determinística;
 10. criar `.nojekyll` e uma página `404.html`;
-11. verificar links internos depois do build;
-12. provar que nenhum material não autorizado foi copiado ao artefato.
+11. copiar a pasta opcional `AAAA.S/assets/` para o mesmo caminho no artefato;
+12. verificar links internos depois do build;
+13. provar que nenhum material não autorizado foi copiado ao artefato.
 
 Derive a URL e o caminho-base de `actions/configure-pages` e dos metadados do
 GitHub. Se o repositório for criado para outra disciplina, renomeado ou ganhar
@@ -354,6 +369,8 @@ Ao criar uma aula:
 
 - copie do template somente `academic.config.ts`, `components/`,
   `global-top.vue`, `layouts/`, `slides.md` e `style.css`;
+- copie `site/templates/slidev.vite.config.ts`, pertencente a esta base, como
+  `slides/vite.config.ts` para servir `AAAA.S/assets/` no preview direto;
 - registre o SHA usado em `slides/.slidev-template-revision`;
 - não copie o `.git`, `node_modules`, `dist`, prompts, skills ou o `AGENTS.md`
   do template;
@@ -397,6 +414,13 @@ Regras:
 - copie o resultado para `_site/AAAA.S/aula-NN/slides/`;
 - falhe o build se qualquer deck falhar;
 - teste tanto a abertura direta quanto o botão e o teclado para avançar slides.
+
+No modo de desenvolvimento, `slides/vite.config.ts` deve servir somente
+arquivos regulares existentes em `AAAA.S/assets/` sob `/assets/`, impedir
+travessia de diretório e permanecer idêntico ao template versionado em
+`site/templates/slidev.vite.config.ts`. Assim, a referência
+`../../assets/arquivo.ext` funciona tanto no servidor direto do Slidev quanto
+no site completo publicado.
 
 ## Automação do GitHub
 
@@ -549,6 +573,7 @@ Uma mudança que afeta o site só está concluída quando:
 - cada deck foi gerado com a base correta e sem notas;
 - todos os links internos do artefato resolvem;
 - links de recursos comuns apontam ao GitHub no SHA publicado;
+- cada `AAAA.S/assets/` existente foi copiada para o mesmo caminho em `_site/`;
 - `_site/` não contém atividades, soluções, `.env`, `.git` ou `node_modules`;
 - o HTML final é revisado em pelo menos uma tela estreita e uma larga;
 - apenas arquivos do escopo foram modificados;

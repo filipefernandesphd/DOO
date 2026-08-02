@@ -40,6 +40,12 @@ const INFRASTRUCTURE_NAMES = new Set([
   "vite.config.ts",
   "yarn.lock",
 ]);
+const FORBIDDEN_PUBLIC_ASSET_NAMES = new Set([
+  ...INFRASTRUCTURE_NAMES,
+  ".env",
+  ".git",
+  ".gitignore",
+]);
 
 function fail(message) {
   throw new Error(message);
@@ -245,6 +251,49 @@ async function assertNoSymlinks(parent, displayPath = path.relative(ROOT, parent
       await assertNoSymlinks(target, relative);
     }
   }
+}
+
+async function assertPublishableAssets(
+  parent,
+  displayPath = path.relative(ROOT, parent),
+) {
+  const entries = await readdir(parent, { withFileTypes: true });
+
+  for (const entry of entries) {
+    const target = path.join(parent, entry.name);
+    const relative = path.join(displayPath, entry.name);
+    const stats = await lstat(target);
+
+    if (stats.isSymbolicLink()) {
+      fail(`Link simbólico não permitido nos ativos publicados: ${relative}`);
+    }
+    if (entry.name.startsWith(".") || FORBIDDEN_PUBLIC_ASSET_NAMES.has(entry.name)) {
+      fail(`Arquivo não permitido nos ativos publicados: ${relative}`);
+    }
+    if (stats.isDirectory()) {
+      await assertPublishableAssets(target, relative);
+    } else if (!stats.isFile()) {
+      fail(`Ativo publicado deve ser arquivo regular ou diretório: ${relative}`);
+    }
+  }
+}
+
+async function publishSemesterAssets(semester) {
+  const source = path.join(ROOT, semester, "assets");
+  if (!(await pathExists(source))) {
+    return;
+  }
+
+  const stats = await lstat(source);
+  if (stats.isSymbolicLink() || !stats.isDirectory()) {
+    fail(`${semester}/assets deve ser um diretório real.`);
+  }
+
+  await assertPublishableAssets(source);
+  await cp(source, path.join(OUTPUT_DIR, semester, "assets"), {
+    recursive: true,
+    force: false,
+  });
 }
 
 function escapeHtml(value) {
@@ -992,6 +1041,9 @@ async function auditArtifact(semesters) {
       "A aula",
     );
     const allowed = new Set(["index.html", ...lessons]);
+    if (await pathExists(path.join(ROOT, semester, "assets"))) {
+      allowed.add("assets");
+    }
     const unexpected = (await readdir(semesterDir)).filter((entry) => !allowed.has(entry));
     if (unexpected.length > 0) {
       fail(`Conteúdo não autorizado em _site/${semester}: ${unexpected.join(", ")}`);
@@ -1082,6 +1134,7 @@ async function main() {
         title: extractTitle(semesterReadme, `${config.course.name} — ${semesterLabel}`),
       }),
     );
+    await publishSemesterAssets(semester);
 
     const lessons = await discoverDirectories(semesterDir, LESSON_PATTERN, "A aula");
     for (const lesson of lessons.sort(codePointCompare)) {

@@ -561,3 +561,12 @@ features:
 - { icon: "lucide:instagram", desc: "@filipfernandesphd" }
 
 ---
+
+---
+layout: two-cols
+title: Avaliação da Experiência de Aprendizagem
+---
+- **[Seu feedback é muito importante!](https://forms.gle/CMfL5oTm235FfuH59)**
+- Obtenha o código da avaliação
+::right::
+<img src="../../assets/qrcode-avaliacao.png"/>

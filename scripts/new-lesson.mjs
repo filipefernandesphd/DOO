@@ -32,6 +32,7 @@ const TEMPLATE_FILES = [
 ];
 const TEMPLATE_DIRECTORIES = ["components", "layouts"];
 const FORBIDDEN_TEMPLATE_NAMES = new Set([".git", "dist", "node_modules"]);
+const LOCAL_VITE_CONFIG = path.join("site", "templates", "slidev.vite.config.ts");
 
 function assert(condition, message) {
   if (!condition) {
@@ -130,7 +131,7 @@ function runGit(args, cwd) {
   });
 }
 
-async function prepareSlides(templateDirectory, stagingDirectory, revision) {
+async function prepareSlides(root, templateDirectory, stagingDirectory, revision) {
   const slidesDirectory = path.join(stagingDirectory, "slides");
   await mkdir(slidesDirectory);
 
@@ -156,6 +157,14 @@ async function prepareSlides(templateDirectory, stagingDirectory, revision) {
       verbatimSymlinks: true,
     });
   }
+
+  const viteConfig = path.join(root, LOCAL_VITE_CONFIG);
+  await assertRealFile(viteConfig, LOCAL_VITE_CONFIG);
+  await cp(viteConfig, path.join(slidesDirectory, "vite.config.ts"), {
+    errorOnExist: true,
+    force: false,
+    preserveTimestamps: true,
+  });
 
   await writeFile(
     path.join(slidesDirectory, ".slidev-template-revision"),
@@ -249,6 +258,7 @@ export async function createLesson(options) {
 
     await mkdir(stagingDirectory);
     await prepareSlides(
+      root,
       templateDirectory,
       stagingDirectory,
       checkedOutRevision,
