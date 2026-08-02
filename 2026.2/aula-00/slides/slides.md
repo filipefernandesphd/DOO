@@ -545,6 +545,12 @@ title: Referências
 <BiblioList />
 
 ---
+layout: quote
+quote: Não podemos voltar atrás e mudar o começo, mas podemos começar agora e mudar o final
+author: C.S. Lewis
+---
+
+---
 layout: feature
 kicker: Encerramento
 title: Obrigado!
