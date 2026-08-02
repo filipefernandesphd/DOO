@@ -21,7 +21,7 @@ Repositório de apoio às aulas da disciplina.
 |---|---|---|---|
 | Segunda | 03/08/2026 | MD0: Apresentação da disciplina | [Apresentação da disciplina](aula-00/) |
 | Quarta | 05/08/2026 | MD1: Fundamentos | Da programação procedural para programação orientada a objetos |
-| Segunda | 10/08/2026 |  | 10 - Dia de São Lourenço - Padroeiro de Manhuaçu |
+| Segunda | 10/08/2026 |  | [AULA CANCELADA] 10 - Dia de São Lourenço - Padroeiro de Manhuaçu |
 | Quarta | 12/08/2026 |  | Estado, comportamento e identidade de um objeto |
 | Segunda | 17/08/2026 |  | Classes, atributos e métodos |
 | Quarta | 19/08/2026 |  | Instanciação de objetos e método construtor |
@@ -30,8 +30,8 @@ Repositório de apoio às aulas da disciplina.
 | Sábado | 29/08/2026 |  | [AULA CANCELADA] |
 | Segunda | 31/08/2026 |  | Hands-on |
 | Segunda |  |  | [REPOSIÇÃO] Hands-on |
-| Quarta | 02/09/2026 |  | AVALILAÇÃO |
-| Segunda | 07/09/2026 |  | 07 - Indepêndencia do Brasil |
+| Quarta | 02/09/2026 |  | AVALIAÇÃO 1 |
+| Segunda | 07/09/2026 |  | [AULA CANCELADA] 07 - Indepêndencia do Brasil |
 | Quarta | 09/09/2026 |  | [AULA CANCELADA] |
 | Sábado | 12/09/2026 |  | [AULA CANCELADA] |
 | Segunda | 14/09/2026 |  | [AULA CANCELADA] |
@@ -44,13 +44,13 @@ Repositório de apoio às aulas da disciplina.
 | Sábado | 03/10/2026 |  | [AULA CANCELADA] |
 | Segunda | 05/10/2026 |  | Modificadores de estado: static e final |
 | Quarta | 07/10/2026 | MD3: Tipos de relacionamentos | Multiplicidade, agregação e composição |
-| Segunda | 12/10/2026 |  | 12 - Nossa Senhora Aparecida |
+| Segunda | 12/10/2026 |  | [AULA CANCELADA] 12 - Nossa Senhora Aparecida |
 | Quarta | 14/10/2026 |  | Correção da avaliação e Herança |
 | Segunda | 19/10/2026 |  | Polimorfismo, sobrescrita e sobrecarga de métodos |
 | Quarta | 21/10/2026 |  | Hands-on |
-| Segunda | 26/10/2026 | MD4: Abstração | AVALILAÇÃO |
-| Quarta | 28/10/2026 |  | 28 - Dia do Servidor Público |
-| Segunda | 02/11/2026 |  | 02 - Finados |
+| Segunda | 26/10/2026 | MD4: Abstração | AVALIAÇÃO 2 |
+| Quarta | 28/10/2026 |  | [AULA CANCELADA] 28 - Dia do Servidor Público |
+| Segunda | 02/11/2026 |  | [AULA CANCELADA] 02 - Finados |
 | Quarta | 04/11/2026 |  | Classes abstratas e interfaces |
 | Segunda | 09/11/2026 |  | Tratamento de exceções |
 | Quarta | 11/11/2026 |  | Classes internas e classes internas anônimas |
@@ -60,7 +60,7 @@ Repositório de apoio às aulas da disciplina.
 | Quarta | 18/11/2026 |  | Desenvolvimento de algoritmos |
 | Quarta |  |  | [REPOSIÇÃO] Hands-on |
 | Segunda | 23/11/2026 | MD5: Trabalho final | Entrega de relatório e hands-on |
-| Quarta | 25/11/2026 |  | AVALIAÇÃO |
+| Quarta | 25/11/2026 |  | AVALIAÇÃO 3 |
 | Sábado | 28/11/2026 |  | Atividade de Informática |
 | Segunda | 30/11/2026 |  | Apresentação |
 | Quarta | 02/12/2026 |  | Apresentação |
