@@ -8,17 +8,10 @@
   "entries": [
     {
       "day": "Segunda",
-      "date": "03/08/2026",
+      "date": "05/08/2026",
       "module": "MD0: Apresentação da disciplina",
       "topic": "Apresentação da disciplina",
       "id": "aula-00"
-    },
-    {
-      "day": "Quarta",
-      "date": "05/08/2026",
-      "module": "MD1: Fundamentos",
-      "topic": "Da programação procedural para programação orientada a objetos",
-      "id": "aula-01"
     },
     {
       "day": "Segunda",
@@ -30,37 +23,37 @@
     {
       "day": "Quarta",
       "date": "12/08/2026",
-      "module": "",
-      "topic": "Estado, comportamento e identidade de um objeto",
-      "id": "aula-02"
+      "module": "MD1: Fundamentos",
+      "topic": "Da programação procedural para programação orientada a objetos",
+      "id": "aula-01"
     },
     {
       "day": "Segunda",
       "date": "17/08/2026",
       "module": "",
-      "topic": "Classes, atributos e métodos",
-      "id": "aula-03"
+      "topic": "Estado, comportamento e identidade de um objeto",
+      "id": "aula-02"
     },
     {
       "day": "Quarta",
       "date": "19/08/2026",
       "module": "",
-      "topic": "Instanciação de objetos e método construtor",
-      "id": "aula-04"
+      "topic": "Classes, atributos e métodos",
+      "id": "aula-03"
     },
     {
       "day": "Segunda",
       "date": "24/08/2026",
       "module": "",
-      "topic": "Lista de objetos",
-      "id": "aula-05"
+      "topic": "Instanciação de objetos e método construtor",
+      "id": "aula-04"
     },
     {
       "day": "Quarta",
       "date": "26/08/2026",
       "module": "",
-      "topic": "Introdução à UML e hands-on",
-      "id": "aula-06"
+      "topic": "Lista de objetos",
+      "id": "aula-05"
     },
     {
       "day": "Sábado",
@@ -73,15 +66,15 @@
       "day": "Segunda",
       "date": "31/08/2026",
       "module": "",
-      "topic": "Hands-on",
-      "id": "aula-07"
+      "topic": "Introdução à UML e hands-on",
+      "id": "aula-06"
     },
     {
       "day": "Segunda",
-      "date": "",
+      "date": "31/08/2026",
       "module": "",
       "topic": "[REPOSIÇÃO] Hands-on",
-      "id": "aula-08"
+      "id": "aula-07"
     },
     {
       "day": "Quarta",
@@ -151,14 +144,14 @@
       "date": "28/09/2026",
       "module": "MD2: Encapsulamento",
       "topic": "Modificadores de acesso e introdução à herança",
-      "id": "aula-09"
+      "id": "aula-08"
     },
     {
       "day": "Quarta",
       "date": "30/09/2026",
       "module": "",
       "topic": "Métodos getters e setters",
-      "id": "aula-10"
+      "id": "aula-09"
     },
     {
       "day": "Sábado",
@@ -172,14 +165,14 @@
       "date": "05/10/2026",
       "module": "",
       "topic": "Modificadores de estado: static e final",
-      "id": "aula-11"
+      "id": "aula-10"
     },
     {
       "day": "Quarta",
       "date": "07/10/2026",
       "module": "MD3: Tipos de relacionamentos",
       "topic": "Multiplicidade, agregação e composição",
-      "id": "aula-12"
+      "id": "aula-11"
     },
     {
       "day": "Segunda",
@@ -193,21 +186,21 @@
       "date": "14/10/2026",
       "module": "",
       "topic": "Correção da avaliação e Herança",
-      "id": "aula-13"
+      "id": "aula-12"
     },
     {
       "day": "Segunda",
       "date": "19/10/2026",
       "module": "",
       "topic": "Polimorfismo, sobrescrita e sobrecarga de métodos",
-      "id": "aula-14"
+      "id": "aula-13"
     },
     {
       "day": "Quarta",
       "date": "21/10/2026",
       "module": "",
       "topic": "Hands-on",
-      "id": "aula-15"
+      "id": "aula-14"
     },
     {
       "day": "Segunda",
@@ -235,27 +228,27 @@
       "date": "04/11/2026",
       "module": "",
       "topic": "Classes abstratas e interfaces",
-      "id": "aula-16"
+      "id": "aula-15"
     },
     {
       "day": "Segunda",
       "date": "09/11/2026",
       "module": "",
       "topic": "Tratamento de exceções",
-      "id": "aula-17"
+      "id": "aula-16"
     },
     {
       "day": "Quarta",
       "date": "11/11/2026",
       "module": "",
       "topic": "Classes internas e classes internas anônimas",
-      "id": "aula-18"
+      "id": "aula-17"
     },
     {
       "day": "Quarta",
       "date": "11/11/2026",
       "module": "",
-      "topic": "[REPOSIÇÃO] Hands-on",
+      "topic": "[REPOSIÇÃO - 4 AULAS] Hands-on",
       "id": ""
     },
     {
@@ -263,13 +256,13 @@
       "date": "16/11/2026",
       "module": "",
       "topic": "Desenvolvimento de algoritmos",
-      "id": "aula-19"
+      "id": ""
     },
     {
       "day": "Segunda",
-      "date": "",
+      "date": "16/11/2026",
       "module": "",
-      "topic": "[REPOSIÇÃO] Hands-on",
+      "topic": "[REPOSIÇÃO 4 - AULAS] Hands-on",
       "id": ""
     },
     {
@@ -277,13 +270,13 @@
       "date": "18/11/2026",
       "module": "",
       "topic": "Desenvolvimento de algoritmos",
-      "id": "aula-20"
+      "id": ""
     },
     {
       "day": "Quarta",
-      "date": "",
+      "date": "18/11/2026",
       "module": "",
-      "topic": "[REPOSIÇÃO] Hands-on",
+      "topic": "[REPOSIÇÃO 4 - AULAS] Hands-on",
       "id": ""
     },
     {
@@ -346,12 +339,19 @@
       "day": "Quarta",
       "date": "09/12/2026",
       "module": "",
-      "topic": "[REPOSIÇÃO] Revisão",
+      "topic": "[REPOSIÇÃO - 2 AULAS] Revisão",
       "id": ""
     },
     {
       "day": "Segunda",
       "date": "14/12/2026",
+      "module": "",
+      "topic": "Revisão",
+      "id": ""
+    },
+    {
+      "day": "Quarta",
+      "date": "16/12/2026",
       "module": "",
       "topic": "Revisão",
       "id": ""
