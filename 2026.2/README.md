@@ -21,8 +21,8 @@ Repositório de apoio às aulas da disciplina.
 |---|---|---|---|
 | Segunda | 05/08/2026 | MD0: Apresentação da disciplina | [Apresentação da disciplina](aula-00/) |
 | Segunda | 10/08/2026 |  | [AULA CANCELADA] 10 - Dia de São Lourenço - Padroeiro de Manhuaçu |
-| Quarta | 12/08/2026 | MD1: Fundamentos | Da programação procedural para programação orientada a objetos |
-| Segunda | 17/08/2026 |  | Estado, comportamento e identidade de um objeto |
+| Quarta | 12/08/2026 | MD1: Fundamentos | [Da programação procedural para programação orientada a objetos](aula-01/) |
+| Segunda | 17/08/2026 |  | [Estado, comportamento e identidade de um objeto](aula-02/) |
 | Quarta | 19/08/2026 |  | Classes, atributos e métodos |
 | Segunda | 24/08/2026 |  | Instanciação de objetos e método construtor |
 | Quarta | 26/08/2026 |  | Lista de objetos |
