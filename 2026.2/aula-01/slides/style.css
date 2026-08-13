@@ -39,6 +39,32 @@
   font-size: var(--academic-reference-font-size);
 }
 
+.aula-01-code-large {
+  font-size: 1.35rem !important;
+  line-height: 1.45 !important;
+}
+
+.aula-01-classification-image {
+  display: block;
+  width: 100%;
+  max-height: 29rem;
+  object-fit: contain;
+}
+
+.aula-01-classification-image--centered {
+  width: auto;
+  max-width: 100%;
+  margin-inline: auto;
+}
+
+.aula-01-evaluation-qrcode {
+  display: block;
+  width: min(100%, 24rem);
+  max-height: 28rem;
+  margin-inline: auto;
+  object-fit: contain;
+}
+
 /* O rodapé acadêmico substitui o rodapé nativo do tema. */
 .slidev-layout .foot {
   display: none !important;

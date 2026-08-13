@@ -1,7 +1,7 @@
 ---
 theme: slidev-theme-tahta
 title: Da programação procedural para a orientação a objetos
-aspectRatio: 4/3
+aspectRatio: 16/10
 info: |
   Da programação procedural para a orientação a objetos.
 themeConfig:
@@ -66,7 +66,7 @@ kicker: Paradigma Procedural
 title: Exemplo
 ---
 
-```java
+```java {class:'aula-01-code-large'}
 public class Main {
 
     // Função que exibe um caractere por linha
@@ -88,7 +88,7 @@ kicker: Paradigma Procedural
 title: Outro exemplo
 ---
 
-````md magic-move
+````md magic-move {at:1}
 ```java
 public class Main {
     public static void main(String[] args) {
@@ -171,36 +171,46 @@ title: O que é um <em>objeto?</em>
 layout: diagram
 ---
 
-<Figure
+<img
+  class="aula-01-classification-image"
   src="../../assets/objetos-para-classificar.png"
   alt="Objetos cotidianos apresentados para uma atividade de classificação"
 />
 
 ---
-layout: image
-side: right
-image: ../../assets/objetos-para-classificar.png
-title: Alguns objetos possuem <em>semelhanças?</em>
----
-
----
 layout: two-cols
-title: Podemos <em>agrupá-los?</em>
+title: Alguns objetos possuem <em>semelhanças?</em>
 ---
 
 ::right::
 
-<Figure
+<img
+  class="aula-01-classification-image"
   src="../../assets/objetos-para-classificar.png"
   alt="Objetos cotidianos apresentados para uma atividade de classificação"
 />
 
 ---
-layout: image
-side: right
-image: ../../assets/objetos-para-classificar.png
+layout: default
+title: Podemos <em>agrupá-los?</em>
+---
+
+<img
+  class="aula-01-classification-image aula-01-classification-image--centered"
+  src="../../assets/objetos-para-classificar.png"
+  alt="Objetos cotidianos apresentados para uma atividade de classificação"
+/>
+
+---
+layout: default
 title: Quais aspectos foram analisados para <em>agrupá-los?</em>
 ---
+
+<img
+  class="aula-01-classification-image aula-01-classification-image--centered"
+  src="../../assets/objetos-para-classificar.png"
+  alt="Objetos cotidianos apresentados para uma atividade de classificação"
+/>
 
 ---
 layout: define
@@ -212,16 +222,38 @@ points:
 ---
 
 ---
-layout: reference
+layout: default
 kicker: Conclusão
 title: O que vimos
-items:
-  - term: Paradigma
-    desc: forma de pensar e organizar uma solução
-  - term: Orientação a objetos
-    desc: solução organizada em objetos
-  - term: Objeto
-    desc: identidade, estado e comportamento
-  - term: Classe
-    desc: propriedades comuns a um conjunto de objetos
 ---
+
+- **Paradigma:** forma de pensar e organizar uma solução
+- **Orientação a objetos:** solução organizada em objetos
+- **Objeto:** identidade, estado e comportamento
+- **Classe:** propriedades comuns a um conjunto de objetos
+
+---
+layout: feature
+kicker: Encerramento
+title: Obrigado!
+columns: 2
+features:
+  - { icon: "lucide:globe", desc: filipefernandesphd.com }
+  - { icon: "lucide:instagram", desc: "@filipfernandesphd" }
+---
+
+---
+layout: two-cols
+title: Avaliação da Experiência de Aprendizagem
+---
+
+- **[Seu feedback é muito importante!](https://forms.gle/CMfL5oTm235FfuH59)**
+- Obtenha o código da avaliação
+
+::right::
+
+<img
+  class="aula-01-evaluation-qrcode"
+  src="../../assets/qrcode-avaliacao.png"
+  alt="QR code da avaliação da experiência de aprendizagem"
+/>
