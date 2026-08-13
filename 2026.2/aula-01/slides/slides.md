@@ -3,8 +3,7 @@ theme: slidev-theme-tahta
 title: Da programação procedural para a orientação a objetos
 aspectRatio: 4/3
 info: |
-  Introdução à mudança de paradigma da programação procedural para a
-  programação orientada a objetos, com exemplos em Java.
+  Da programação procedural para a orientação a objetos.
 themeConfig:
   variant: minimal
   lang: pt-BR
@@ -14,311 +13,215 @@ layout: academic-cover
 ---
 
 ---
-layout: lead
-index: "01"
-kicker: Mudança de perspectiva
-title: Você já sabe programar. Agora vai <em>enxergar</em> o problema de outro jeito.
-subtitle: O código continua sendo Java; a forma de organizar ideias muda.
+layout: default
+kicker: Ementa
+title: Algoritmos e Lógica de Programação
 ---
 
----
-layout: agenda
-kicker: Rota da aula
-title: Do fluxo de instruções para um mundo de objetos
-items:
-  - topic: Reconhecer
-    desc: como o paradigma procedural organiza um programa
-  - topic: Modelar
-    desc: objetos, propriedades e categorias
-  - topic: Abstrair
-    desc: escolher o que importa em cada contexto
-  - topic: Comparar
-    desc: duas formas de representar o mesmo problema
----
-
----
-layout: define
-kicker: Ponto de partida
-term: Paradigma
-definition: Uma forma de <span class="accent2">pensar, organizar e resolver</span> problemas com programas.
-points:
-  - A linguagem oferece recursos; o paradigma orienta como combiná-los
-  - Um novo paradigma amplia seu repertório, não apaga o que você já sabe
----
-
----
-layout: code-explain
-kicker: O jeito que você já conhece
-title: No procedural, os dados e as ações aparecem separados
-notes:
-  - <strong>Dados</strong> guardam a situação atual do programa.
-  - <strong>Função</strong> recebe os dados e calcula a mudança.
-  - <strong>Fluxo</strong> diz em que ordem tudo acontece.
----
-
-```java {1-2|4-6|8-10}
-int velocidade = 0;
-String modelo = "Urbana";
-
-static int acelerar(int velocidade) {
-    return velocidade + 10;
-}
-
-velocidade = acelerar(velocidade);
-System.out.println(velocidade);
-```
-
-<!-- Pergunte: onde está o dado? Onde está a ação? Quem coordena a ordem? -->
-
----
-layout: vs
-kicker: Duas lentes
-title: O mesmo problema pode ser organizado de modos diferentes
-label: ou
-left:
-  title: Procedural
-  items:
-    - Começa pelas tarefas
-    - Dados circulam entre funções
-    - O fluxo conduz a solução
-right:
-  title: Orientado a objetos
-  items:
-    - Começa pelas entidades
-    - Dados e comportamentos ficam juntos
-    - Objetos colaboram na solução
----
-
----
-layout: statement
-kicker: A virada
-title: Em vez de perguntar apenas “qual é o próximo passo?”, perguntamos “quem deve fazer isso?”
----
-
----
-layout: statement
-kicker: Olhar para o mundo
-title: Na natureza, tudo pode ser pensado como objeto — se conseguimos identificar e descrever.
----
-
----
-layout: define
-kicker: Ideia central
-term: Objeto
-definition: Qualquer coisa que possa ser <span class="accent2">identificada e descrita</span> por meio de suas propriedades.
-points:
-  - Pode ser concreto, como uma bicicleta
-  - Pode ser conceitual, como uma conta bancária
-  - Existe dentro do contexto que estamos modelando
----
-
----
-layout: diagram
-kicker: Olhar de modelagem
-title: Quais objetos pertencem aos mesmos grupos?
-note: Não existe uma única resposta: o critério escolhido faz parte da modelagem.
----
-
-<Figure
-  src="../../assets/objetos-para-classificar.png"
-  alt="Doze objetos cotidianos organizados sem rótulos para uma atividade de classificação"
-  caption="Em duplas: nomeiem os grupos e justifiquem as propriedades compartilhadas."
-/>
-
-<!--
-[Sources]
-- Imagem original gerada por IA para esta aula, sem ativos externos.
-
-Evite revelar uma única resposta. Grupos plausíveis incluem meios de transporte,
-plantas e utensílios, mas o critério adotado é parte da discussão.
--->
-
----
-layout: define
-kicker: Padrões que percebemos
-term: Categoria
-definition: Objetos que compartilham <span class="accent2">propriedades semelhantes</span> podem ser agrupados.
-points:
-  - O nome do grupo comunica uma ideia comum
-  - As semelhanças dependem do critério escolhido
-  - Na programação OO, uma classe descreve um tipo de objeto
----
-
----
-layout: panels
-kicker: Um objeto, várias leituras
-title: A categoria muda quando o critério muda
-panels:
-  - icon: lucide:bike
-    title: Transporte
-    items:
-      - bicicleta
-      - carro
-      - ônibus
-  - icon: lucide:leaf
-    title: Seres vivos
-    items:
-      - samambaia
-      - cacto
-      - girassol
-  - icon: lucide:package
-    title: Objetos fabricados
-    items:
-      - bicicleta
-      - caneca
-      - cadeira
----
+- Conceitos fundamentais sobre algoritmos
+- Noções de lógica matemática
+- Noções de uma linguagem de programação
+- Variáveis
+- Estruturas de seleção e repetição
+- Funções, vetores e matrizes
 
 ---
 layout: default
-kicker: Espaço reservado
-title: Exemplos para discutir em sala
-ghost: "?"
+kicker: Algoritmos e Lógica de Programação
+title: Habilidades
 ---
 
-<!-- Slide propositalmente livre para o professor inserir imagens de exemplos. -->
+- Definir variáveis
+- Definir funções
+- Trabalhar com operadores aritméticos, de comparação e lógicos
+- Usar condicionais, loops e desvios
 
 ---
-layout: define
-kicker: Habilidade essencial
-term: Abstração
-definition: Considerar apenas o que é <span class="accent2">relevante no contexto</span>.
-points:
-  - Não é ignorar detalhes ao acaso
-  - É escolher detalhes que ajudam a resolver o problema atual
-  - Outro contexto pode exigir outra representação do mesmo objeto
----
-
----
-layout: columns
-kicker: Contexto decide
-title: A mesma pessoa, abstrações diferentes
-columns:
-  - title: Biblioteca
-    items:
-      - matrícula
-      - livros emprestados
-      - data de devolução
-  - title: Jogo
-    items:
-      - apelido
-      - energia
-      - pontuação
-  - title: Restaurante
-    items:
-      - número da mesa
-      - pedido
-      - valor da conta
----
-
----
-layout: statement
-kicker: Pergunta de abstração
-title: A cor dos olhos é importante para uma biblioteca? E para um criador de avatares?
----
-
----
-layout: code
-kicker: A nova organização
-title: O objeto reúne dados e ações que fazem sentido juntos
----
-
-```java
-class Bicicleta {
-    String modelo;
-    int velocidade;
-
-    void acelerar() {
-        velocidade += 10;
-    }
-}
-```
-
-<!-- Antecipe classe sem esgotar o tema. A próxima aula nomeará estado, comportamento e identidade. -->
-
----
-layout: columns
-kicker: Modelo mental
-title: A categoria descreve; cada objeto concretiza
-columns:
-  - title: Classe Bicicleta
-    items:
-      - descreve modelo e velocidade
-      - oferece o comportamento acelerar
-      - organiza o que é comum
-  - title: Bicicleta azul
-    items:
-      - modelo Urbana
-      - velocidade 0
-      - identidade própria
-  - title: Bicicleta vermelha
-    items:
-      - modelo Trilha
-      - velocidade 20
-      - identidade própria
----
-
----
-layout: compare
-kicker: Mesmo problema, outra estrutura
-title: A mudança está no centro da organização
-columns: [Pergunta, Procedural, Orientado a objetos]
-rows:
-  - metric: Ponto de partida
-    before: O que o programa faz?
-    after: Quem participa do problema?
-  - metric: Organização
-    before: Funções e dados
-    after: Objetos com responsabilidades
-  - metric: Colaboração
-    before: Chamadas em sequência
-    after: Mensagens entre objetos
+layout: bigtype
+kicker: Objetivo
+title: Criar <em>algoritmos!</em>
 ---
 
 ---
 layout: bigtype
-kicker: Conclusão 1
-title: OO não é só uma nova sintaxe. É uma nova forma de <em>modelar</em>.
+title: O que são <em>algoritmos?</em>
 ---
 
 ---
-layout: steps
-kicker: Conclusão 2
-title: O caminho que percorremos
-steps:
-  - title: Identificar
-    desc: reconhecer objetos no contexto
-    icon: lucide:scan-search
-  - title: Descrever
-    desc: selecionar propriedades relevantes
-    icon: lucide:list-filter
-  - title: Agrupar
-    desc: encontrar semelhanças e categorias
-    icon: lucide:boxes
-  - title: Colaborar
-    desc: distribuir responsabilidades
-    icon: lucide:network
+layout: define
+kicker: Definição
+term: Algoritmo
+definition: Uma <span class="accent2">sequência finita e ordenada de passos</span> para resolver um problema.
 ---
 
 ---
-layout: default
-kicker: Verificação de saída
-title: Explique em 30 segundos
+layout: bigtype
+kicker: Paradigma
+title: Paradigma <em>Procedural</em>
 ---
 
-<v-clicks>
+---
+layout: code
+kicker: Paradigma Procedural
+title: Exemplo
+---
 
-- Um objeto que você observou hoje
-- Duas propriedades relevantes em um contexto escolhido
-- Uma propriedade que você descartaria nesse mesmo contexto
-- Uma diferença entre pensar proceduralmente e pensar em objetos
+```java
+public class Main {
 
-</v-clicks>
+    // Função que exibe um caractere por linha
+    static void mostrarCaracteres(String texto) {
+        for (int i = 0; i < texto.length(); i++) {
+            System.out.println(texto.charAt(i));
+        }
+    }
 
-<!-- Peça respostas curtas de diferentes estudantes; use as divergências para reforçar que abstração depende do contexto. -->
+    public static void main(String[] args) {
+        mostrarCaracteres("JAVA");
+    }
+}
+```
 
 ---
-layout: end
-title: Todo objeto tem estado, comportamento e identidade
-subtitle: Vamos traduzir essas três ideias para código Java.
+layout: code
+kicker: Paradigma Procedural
+title: Outro exemplo
+---
+
+````md magic-move
+```java
+public class Main {
+    public static void main(String[] args) {
+        // Cria o leitor de dados
+        // Lê o nome
+        // Lê a data de nascimento
+        // Cria as datas
+        // Calcula a idade
+        // Exibe o resultado
+        // Fecha o leitor
+    }
+}
+```
+
+```java
+import java.util.Scanner;
+import java.time.LocalDate;
+import java.time.Period;
+public class Main {
+    public static void main(String[] args) {
+        // Cria o leitor de dados
+        Scanner scanner = new Scanner(System.in);
+        // Lê o nome
+        System.out.print("Informe seu nome: ");
+        String nome = scanner.nextLine();
+        // Lê a data de nascimento
+        System.out.print("Informe o ano de nascimento: ");
+        int ano = scanner.nextInt();
+        System.out.print("Informe o mês de nascimento: ");
+        int mes = scanner.nextInt();
+        System.out.print("Informe o dia de nascimento: ");
+        int dia = scanner.nextInt();
+        // Cria as datas
+        LocalDate nascimento = LocalDate.of(ano, mes, dia);
+        LocalDate hoje = LocalDate.now();
+        // Calcula a idade
+        int idade = Period.between(nascimento, hoje).getYears();
+        // Exibe o resultado
+        System.out.println(nome + " tem " + idade + " anos de idade.");
+        // Fecha o leitor
+        scanner.close();
+    }
+}
+```
+````
+
+---
+layout: bigtype
+title: O que muda no Paradigma de <em>Orientação a Objetos?</em>
+---
+
+---
+layout: statement
+title: <em>Paradigma</em> é uma forma de pensar e organizar a maneira como um problema será resolvido.
+---
+
+---
+layout: vs
+kicker: Duas formas de organizar a solução
+label: ou
+left:
+  title: Paradigma Procedural
+  items:
+    - Sequência de procedimentos
+    - Instruções
+right:
+  title: Paradigma Orientado a Objetos
+  items:
+    - Objetos
+    - Características
+    - Comportamentos
+---
+
+---
+layout: bigtype
+title: O que é um <em>objeto?</em>
+---
+
+---
+layout: diagram
+---
+
+<Figure
+  src="../../assets/objetos-para-classificar.png"
+  alt="Objetos cotidianos apresentados para uma atividade de classificação"
+/>
+
+---
+layout: image
+side: right
+image: ../../assets/objetos-para-classificar.png
+title: Alguns objetos possuem <em>semelhanças?</em>
+---
+
+---
+layout: two-cols
+title: Podemos <em>agrupá-los?</em>
+---
+
+::right::
+
+<Figure
+  src="../../assets/objetos-para-classificar.png"
+  alt="Objetos cotidianos apresentados para uma atividade de classificação"
+/>
+
+---
+layout: image
+side: right
+image: ../../assets/objetos-para-classificar.png
+title: Quais aspectos foram analisados para <em>agrupá-los?</em>
+---
+
+---
+layout: define
+kicker: Definições
+term: Objeto
+definition: Unidade com <span class="accent2">identidade, estado e comportamento</span>, que compartilha propriedades com objetos da mesma classe.
+points:
+  - <strong>Classe:</strong> estrutura que define as propriedades comuns a um conjunto de objetos.
+---
+
+---
+layout: reference
+kicker: Conclusão
+title: O que vimos
+items:
+  - term: Paradigma
+    desc: forma de pensar e organizar uma solução
+  - term: Orientação a objetos
+    desc: solução organizada em objetos
+  - term: Objeto
+    desc: identidade, estado e comportamento
+  - term: Classe
+    desc: propriedades comuns a um conjunto de objetos
 ---
