@@ -23,13 +23,20 @@
     {
       "day": "Quarta",
       "date": "12/08/2026",
+      "module": "",
+      "topic": "[AULA CANCELADA]",
+      "id": ""
+    },
+    {
+      "day": "Segunda",
+      "date": "12/08/2026",
       "module": "MD1: Fundamentos",
       "topic": "Da programação procedural para programação orientada a objetos",
       "id": "aula-01"
     },
     {
       "day": "Segunda",
-      "date": "17/08/2026",
+      "date": "12/08/2026",
       "module": "",
       "topic": "Estado, comportamento e identidade de um objeto",
       "id": "aula-02"
@@ -73,7 +80,7 @@
       "day": "Segunda",
       "date": "31/08/2026",
       "module": "",
-      "topic": "[REPOSIÇÃO] Hands-on",
+      "topic": "[REPOSIÇÃO - 4 AULAS] Hands-on",
       "id": "aula-07"
     },
     {
@@ -339,7 +346,7 @@
       "day": "Quarta",
       "date": "09/12/2026",
       "module": "",
-      "topic": "[REPOSIÇÃO - 2 AULAS] Revisão",
+      "topic": "[REPOSIÇÃO - 4 AULAS] Revisão",
       "id": ""
     },
     {
