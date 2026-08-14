@@ -66,7 +66,16 @@ kicker: Paradigma Procedural
 title: Exemplo
 ---
 
-```java {class:'aula-01-code-large'}
+````md magic-move
+```java
+public class Main {
+
+    // Função que exibe um caractere por linha
+
+    // Chamada da função
+}
+```
+```java
 public class Main {
 
     // Função que exibe um caractere por linha
@@ -76,11 +85,13 @@ public class Main {
         }
     }
 
+    // Chamada da função
     public static void main(String[] args) {
         mostrarCaracteres("JAVA");
     }
 }
 ```
+````
 
 ---
 layout: code
@@ -88,7 +99,7 @@ kicker: Paradigma Procedural
 title: Outro exemplo
 ---
 
-````md magic-move {at:1}
+````md magic-move
 ```java
 public class Main {
     public static void main(String[] args) {
@@ -102,7 +113,6 @@ public class Main {
     }
 }
 ```
-
 ```java
 import java.util.Scanner;
 import java.time.LocalDate;
