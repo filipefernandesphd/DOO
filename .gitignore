@@ -225,6 +225,9 @@ dist
 
 # IAs
 CLAUDE.md
+prompts/
+AGENTS.md
+INSTRUCTIONS.md
 
 # Site gerado
 _site/
