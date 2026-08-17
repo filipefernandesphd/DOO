@@ -226,6 +226,7 @@ dist
 # IAs
 CLAUDE.md
 prompts/
+skills/
 AGENTS.md
 INSTRUCTIONS.md
 
