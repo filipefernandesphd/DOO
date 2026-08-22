@@ -38,8 +38,8 @@ term: Instanciação
 definition: É quando o molde da classe vira um <span class="accent2">objeto de verdade</span> na memória.
 points:
   - A classe descreve como o objeto será
-  - O operador new cria uma nova instância
-  - Cada instância mantém seus próprios dados
+  - O operador <span class="accent2">new</span> cria uma nova instância
+  - Cada instância mantém seus próprios dados (<em>estado</em>)
 ---
 
 ---
@@ -58,22 +58,25 @@ kicker: Exemplo concreto
 title: Dois objetos da mesma classe
 ---
 
-```java[font=extralarge]
+```java[font=large]
 class Jogador {
   String apelido;
 }
 
-Jogador jogador1 = new Jogador();
-Jogador jogador2 = new Jogador();
+class Main {
+  public static void main(String[] args)
+    Jogador jogador1 = new Jogador();
+    Jogador jogador2 = new Jogador();
 
-jogador1.apelido = "Byte";
-jogador2.apelido = "Pixel";
+    jogador1.apelido = "Byte";
+    jogador2.apelido = "Pixel";
+}
 ```
 
 ---
 layout: statement
 kicker: Ideia-chave
-title: Uma classe pode gerar vários objetos, cada um com seu próprio estado.
+title: Uma classe pode gerar vários objetos, cada um com seu próprio estado
 ---
 
 ---
@@ -86,9 +89,9 @@ title: Método Construtor
 layout: define
 kicker: Sem complicação
 term: Método construtor
-definition: É a configuração inicial que roda <span class="accent2">automaticamente</span> quando o objeto nasce.
+definition: É a <span class="accent2">configuração inicial</span> que roda automaticamente quando o objeto nasce.
 points:
-  - Tem exatamente o mesmo nome da classe
+  - <span class="accent2">Tem exatamente o mesmo nome da classe</span>
   - Não declara tipo de retorno, nem mesmo void
   - Recebe os dados necessários para iniciar o objeto
 ---
@@ -96,7 +99,6 @@ points:
 ---
 layout: code
 kicker: Sintaxe
-title: Declarando um construtor
 ---
 
 ```java[font=extralarge]
@@ -114,10 +116,9 @@ class Cliente {
 ---
 layout: code
 kicker: Exemplo concreto
-title: Instanciando com valores iniciais
 ---
 
-```java[font=extralarge]
+```java[font=large]
 class Cliente {
   String nome;
   int idade;
@@ -168,7 +169,7 @@ panels:
       - Exiba os parâmetros recebidos
 ---
 
----
+<!-- ---
 layout: default
 kicker: Implemente
 title: Critérios para concluir
@@ -182,7 +183,7 @@ title: Critérios para concluir
 - Instancie pelo menos um objeto de cada classe
 - Confira no console os valores informados
 
-</v-clicks>
+</v-clicks> -->
 
 ---
 layout: section
@@ -192,17 +193,15 @@ title: Hands-on
 
 ---
 layout: default
-kicker: Desafio
-title: Enunciado padrão
+kicker: Hands-on
+title: Faça para cada domínio
 ---
 
-Para cada cenário:
-
-1. Implemente a classe e seus atributos.
-2. Crie um construtor que receba todos os valores iniciais.
-3. Atribua os parâmetros aos atributos usando `this`.
-4. Exiba no console os valores recebidos pelo construtor.
-5. Instancie dois objetos com dados diferentes.
+- Implemente a classe e seus atributos.
+- Crie um construtor que receba todos os valores iniciais.
+- Atribua os parâmetros aos atributos usando `this`.
+- Exiba no console os valores recebidos pelo construtor.
+- Instancie dois objetos com dados diferentes.
 
 ---
 layout: panels
@@ -224,6 +223,11 @@ panels:
     items:
       - Classe Produto
       - nome, preço e estoque
+  - icon: "lucide:send"
+    title: Mensagens
+    items:
+      - Classe Mensagem
+      - id, remetente, destinatário, mensagem
 ---
 
 ---

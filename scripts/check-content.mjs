@@ -9,6 +9,11 @@ import { pathToFileURL } from "node:url";
 
 const execFileAsync = promisify(execFile);
 
+const REPOSITORY_MARKERS = [
+  "course.config.json",
+  "course.config.schema.json",
+  "package.json",
+];
 const SEMESTER_PATTERN = /^[0-9]{4}\.[12]$/u;
 const SEMESTER_LIKE_PATTERN = /^[0-9]{4}\./u;
 const LESSON_PATTERN = /^aula-[0-9]{2}$/u;
@@ -93,8 +98,13 @@ export async function findRepositoryRoot(start = process.cwd()) {
 
   for (;;) {
     if (
-      (await pathExists(path.join(candidate, "course.config.json"))) &&
-      (await pathExists(path.join(candidate, "AGENTS.md")))
+      (
+        await Promise.all(
+          REPOSITORY_MARKERS.map((marker) =>
+            pathExists(path.join(candidate, marker)),
+          ),
+        )
+      ).every(Boolean)
     ) {
       return candidate;
     }
@@ -622,7 +632,7 @@ async function discoverLessons(semesterDirectory, semester) {
   return lessons;
 }
 
-async function validateSlideStructure(root, semester, lesson, revision) {
+async function validateSlideStructure(root, semester, lesson) {
   const lessonDirectory = path.join(root, semester, lesson);
   const slidesDirectory = path.join(lessonDirectory, "slides");
   await assertRealDirectory(slidesDirectory, `${semester}/${lesson}/slides`);
@@ -655,13 +665,11 @@ async function validateSlideStructure(root, semester, lesson, revision) {
   const recordedRevision = (
     await readFile(path.join(slidesDirectory, ".slidev-template-revision"), "utf8")
   ).trim();
+  // Existing decks retain the template revision they were created or migrated
+  // from; course.config.json selects the revision only for newly created decks.
   assert(
     /^[0-9a-f]{40}$/u.test(recordedRevision),
     `${semester}/${lesson}/slides/.slidev-template-revision: SHA completo esperado.`,
-  );
-  assert(
-    recordedRevision === revision,
-    `${semester}/${lesson}/slides/.slidev-template-revision: esperado ${revision}.`,
   );
 
   for (const name of ["academic.config.ts", "slides.md", "style.css"]) {
@@ -820,12 +828,7 @@ async function validateSemester(root, semester, scheduleSchema, config) {
   );
 
   for (const lesson of [...lessons].sort()) {
-    await validateSlideStructure(
-      root,
-      semester,
-      lesson,
-      config.slides.templateRevision,
-    );
+    await validateSlideStructure(root, semester, lesson);
   }
 
   const missing = [...referenced].filter((lesson) => !lessons.has(lesson)).sort();
