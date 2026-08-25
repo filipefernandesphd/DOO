@@ -48,12 +48,11 @@ kicker: Sintaxe básica
 title: Criando um ArrayList
 ---
 
-```java[font=extralarge]
+```java[font=large]
 import java.util.ArrayList;
-import java.util.List;
 
-List<Cliente> clientes = new ArrayList<>();
-clientes.add(new Cliente("Lia"));
+ArrayList<Classe> objeto = new ArrayList<>();
+objeto.add(new Classe("Alguma coisa"));
 ```
 
 ---
@@ -63,7 +62,7 @@ title: Uma lista de carros
 ---
 
 ```java[font=extralarge]
-List<Carro> carros = new ArrayList<>();
+ArrayList<Carro> carros = new ArrayList<>();
 
 carros.add(new Carro("Onix", 2024));
 carros.add(new Carro("Argo", 2023));
@@ -90,8 +89,8 @@ kicker: Outro exemplo
 title: Adicionar, localizar e remover produtos
 ---
 
-```java[font=extralarge]
-List<Produto> produtos = new ArrayList<>();
+```java[font=large]
+ArrayList<Produto> produtos = new ArrayList<>();
 produtos.add(new Produto("Mouse", 89.90));
 produtos.add(new Produto("Teclado", 149.90));
 
@@ -100,6 +99,216 @@ produtos.remove(primeiro);
 
 System.out.println(produtos.size()); // 1
 ```
+
+---
+layout: code
+kicker: Outra forma de localizar um objeto
+---
+```java[font=large]
+ArrayList<Aluno> alunos = new ArrayList<>();
+alunos.add(new Aluno(1, "Ana"));
+alunos.add(new Aluno(2, "Carlos"));
+
+Aluno encontrado = null;
+
+for (Aluno aluno : alunos) {
+    if (aluno.getId() == 2) {
+        encontrado = aluno;
+        break;
+    }
+}
+
+if (encontrado != null) {
+    System.out.println(encontrado.getNome());
+}
+```
+
+---
+layout: section
+index: "ArrayList"
+title: Principais Métodos do Arraylist
+---
+
+---
+layout: code
+title: Adiciona um objeto
+kicker: Principais Métodos do Arraylist
+---
+
+# Sintaxe
+
+```java[font=extralarge]
+add(objeto)
+```
+
+<div style="padding:20px"></div>
+
+# Exemplo
+
+```java[font=extralarge]
+alunos.add(aluno);
+```
+
+---
+layout: code
+title: Obtém um objeto pela posição
+kicker: Principais Métodos do Arraylist
+---
+
+# Sintaxe
+
+```java[font=extralarge]
+get(indice)
+```
+
+<div style="padding:20px"></div>
+
+# Exemplo
+
+```java[font=extralarge]
+alunos.get(0);
+```
+
+---
+layout: code
+title: Retorna a quantidade de elementos
+kicker: Principais Métodos do Arraylist
+---
+
+# Sintaxe
+
+```java[font=extralarge]
+size()
+```
+
+<div style="padding:20px"></div>
+
+# Exemplo
+
+```java[font=extralarge]
+alunos.size();
+```
+
+---
+layout: code
+title: Remove pela posição
+kicker: Principais Métodos do Arraylist
+---
+
+# Sintaxe
+
+```java[font=extralarge]
+remove(indice)
+```
+
+<div style="padding:20px"></div>
+
+# Exemplo
+
+```java[font=extralarge]
+alunos.remove(0);
+```
+
+---
+layout: code
+title: Remove um determinado objeto
+kicker: Principais Métodos do Arraylist
+---
+
+# Sintaxe
+
+```java[font=extralarge]
+remove(objeto)
+```
+
+<div style="padding:20px"></div>
+
+# Exemplo
+
+```java[font=extralarge]
+alunos.remove(aluno);
+```
+
+---
+layout: code
+title: Verifica se contém um objeto
+kicker: Principais Métodos do Arraylist
+---
+
+# Sintaxe
+
+```java[font=extralarge]
+contains(objeto)
+```
+
+<div style="padding:20px"></div>
+
+# Exemplo
+
+```java[font=extralarge]
+alunos.contains(aluno);
+```
+
+---
+layout: code
+title: Verifica se a lista está vazia
+kicker: Principais Métodos do Arraylist
+---
+
+# Sintaxe
+
+```java[font=extralarge]
+isEmpty()
+```
+
+<div style="padding:20px"></div>
+
+# Exemplo
+
+```java[font=extralarge]
+alunos.isEmpty();
+```
+
+---
+layout: code
+title: Remove todos os elementos
+kicker: Principais Métodos do Arraylist
+---
+
+# Sintaxe
+
+```java[font=extralarge]
+clear()
+```
+
+<div style="padding:20px"></div>
+
+# Exemplo
+
+```java[font=extralarge]
+alunos.clear();
+```
+
+---
+layout: code
+title: Substitui um elemento
+kicker: Principais Métodos do Arraylist
+---
+
+# Sintaxe
+
+```java[font=extralarge]
+set(indice, objeto)
+```
+
+<div style="padding:20px"></div>
+
+# Exemplo
+
+```java[font=extralarge]
+alunos.set(0, novoAluno);
+```
+
 
 ---
 layout: section
@@ -117,27 +326,27 @@ Uma concessionária precisa registrar a venda de **quantos carros o cliente
 escolher**.
 
 1. Crie as classes `Cliente`, `Carro` e `Venda`.
-2. Em `Venda`, declare uma `List<Carro>`.
+2. Em `Venda`, declare uma `ArrayList<Carro>`.
 3. Implemente um método para adicionar carros à venda.
 4. Percorra a lista e exiba cada veículo comprado.
 5. Calcule e mostre o valor total da venda.
 
----
+<!-- ---
 layout: code
 kicker: Estrutura inicial
 title: A venda mantém sua própria lista
 ---
 
-```java[font=extralarge]
+```java[font=large]
 class Venda {
   Cliente cliente;
-  List<Carro> carros = new ArrayList<>();
+  ArrayList<Carro> carros = new ArrayList<>();
 
   void adicionarCarro(Carro carro) {
     carros.add(carro);
   }
 }
-```
+``` -->
 
 ---
 layout: section
@@ -154,7 +363,7 @@ title: Enunciado padrão
 Para cada cenário:
 
 1. Modele a classe principal e a classe dos objetos armazenados.
-2. Declare uma `List<Tipo>` e inicialize-a com `ArrayList`.
+2. Declare uma `ArrayList<Tipo>`.
 3. Implemente métodos para adicionar e remover objetos.
 4. Percorra a lista com `for-each` e exiba os dados.
 5. Demonstre o programa com pelo menos três objetos.
@@ -178,6 +387,11 @@ panels:
     title: E-commerce
     items:
       - Lista de produtos do carrinho
+      - Adicionar, remover e calcular total
+  - icon: "lucide:send"
+    title: Mensagem
+    items:
+      - Lista de mensagens enviadas
       - Adicionar, remover e calcular total
 ---
 
