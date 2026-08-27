@@ -18,6 +18,9 @@ const SEMESTER_PATTERN = /^[0-9]{4}\.[12]$/u;
 const SEMESTER_LIKE_PATTERN = /^[0-9]{4}\./u;
 const LESSON_PATTERN = /^aula-[0-9]{2}$/u;
 const LESSON_LIKE_PATTERN = /^aula(?:-|$)/iu;
+const HANDSON_PATTERN = /^handson-[0-9]{2}$/u;
+const HANDSON_LIKE_PATTERN = /^hand(?:s-?on)?(?:-|$)/iu;
+const CONTENT_PATTERN = /^(?:aula|handson)-[0-9]{2}$/u;
 const DATE_PATTERN = /^(?:|[0-9]{2}\/[0-9]{2}\/[0-9]{4})$/u;
 const SCHEDULE_FIELDS = ["day", "date", "module", "topic", "id"];
 const REQUIRED_SLIDE_FILES = [
@@ -389,8 +392,8 @@ function validateSchedule(schedule, semester, label) {
       `${entryLabel}/date: use uma data real em dd/mm/aaaa ou deixe vazio.`,
     );
     assert(
-      entry.id === "" || LESSON_PATTERN.test(entry.id),
-      `${entryLabel}/id: use aula-NN ou deixe vazio.`,
+      entry.id === "" || CONTENT_PATTERN.test(entry.id),
+      `${entryLabel}/id: use aula-NN, handson-NN ou deixe vazio.`,
     );
     assert(
       entry.id === "" || entry.topic.trim() !== "",
@@ -614,22 +617,26 @@ async function discoverSemesters(root) {
   return semesters.sort((left, right) => right.localeCompare(left, "pt-BR"));
 }
 
-async function discoverLessons(semesterDirectory, semester) {
-  const lessons = new Set();
+async function discoverContentDirectories(semesterDirectory, semester) {
+  const contentDirectories = new Set();
   for (const entry of await readdir(semesterDirectory, { withFileTypes: true })) {
-    if (LESSON_PATTERN.test(entry.name)) {
+    if (CONTENT_PATTERN.test(entry.name)) {
       await assertRealDirectory(
         path.join(semesterDirectory, entry.name),
         `${semester}/${entry.name}`,
       );
-      lessons.add(entry.name);
+      contentDirectories.add(entry.name);
     } else if (LESSON_LIKE_PATTERN.test(entry.name)) {
       throw new ContentError(
         `${semester}/${entry.name}: use exatamente aula-NN.`,
       );
+    } else if (HANDSON_LIKE_PATTERN.test(entry.name)) {
+      throw new ContentError(
+        `${semester}/${entry.name}: use exatamente handson-NN.`,
+      );
     }
   }
-  return lessons;
+  return contentDirectories;
 }
 
 async function validateSlideStructure(root, semester, lesson) {
@@ -696,6 +703,29 @@ async function validateSlideStructure(root, semester, lesson) {
     /^---[ \t]*\r?\n/u.test(slides),
     `${semester}/${lesson}/slides/slides.md: headmatter YAML ausente.`,
   );
+}
+
+export async function validateHandsonStructure(root, semester, handson) {
+  const directory = path.join(root, semester, handson);
+  const readmePath = path.join(directory, "README.md");
+  await assertRealFile(readmePath, `${semester}/${handson}/README.md`);
+  assert(
+    (await readFile(readmePath, "utf8")).trim() !== "",
+    `${semester}/${handson}/README.md: arquivo vazio.`,
+  );
+
+  for (const entry of await readdir(directory, { withFileTypes: true })) {
+    const label = `${semester}/${handson}/${entry.name}`;
+    const target = path.join(directory, entry.name);
+    const info = await lstat(target);
+    assert(!info.isSymbolicLink(), `${label}: link simbólico não é permitido.`);
+    assert(info.isFile(), `${label}: somente arquivos Markdown são permitidos.`);
+    assert(
+      entry.name === "README.md" ||
+        (!entry.name.startsWith(".") && path.extname(entry.name) === ".md"),
+      `${label}: use README.md ou outro arquivo com extensão .md.`,
+    );
+  }
 }
 
 function parseDotenvValue(rawValue) {
@@ -804,14 +834,16 @@ async function validateSemester(root, semester, scheduleSchema, config) {
   validateAgainstSchema(schedule, scheduleSchema, `${semester}/schedule.json`);
   validateSchedule(schedule, semester, `${semester}/schedule.json`);
 
-  const lessons = await discoverLessons(directory, semester);
+  const contentDirectories = await discoverContentDirectories(directory, semester);
   const referenced = new Set(
     schedule.entries.filter((entry) => entry.id !== "").map((entry) => entry.id),
   );
-  const unreferenced = [...lessons].filter((lesson) => !referenced.has(lesson));
+  const unreferenced = [...contentDirectories].filter(
+    (content) => !referenced.has(content),
+  );
   assert(
     unreferenced.length === 0,
-    `${semester}: aulas sem referência no cronograma: ${unreferenced.join(", ")}.`,
+    `${semester}: conteúdos sem referência no cronograma: ${unreferenced.join(", ")}.`,
   );
 
   const readme = await readFile(readmePath, "utf8");
@@ -821,21 +853,32 @@ async function validateSemester(root, semester, scheduleSchema, config) {
     "Cronograma",
     `${semester}/README.md`,
   );
-  const expectedTable = renderScheduleTable(schedule, lessons);
+  const expectedTable = renderScheduleTable(schedule, contentDirectories);
   assert(
     normalizeSectionBody(cronograma) === expectedTable,
     `${semester}/README.md: Cronograma desatualizado; execute scripts/sync-schedule-links.mjs.`,
   );
 
-  for (const lesson of [...lessons].sort()) {
-    await validateSlideStructure(root, semester, lesson);
+  for (const content of [...contentDirectories].sort()) {
+    if (LESSON_PATTERN.test(content)) {
+      await validateSlideStructure(root, semester, content);
+    } else if (HANDSON_PATTERN.test(content)) {
+      await validateHandsonStructure(root, semester, content);
+    }
   }
 
-  const missing = [...referenced].filter((lesson) => !lessons.has(lesson)).sort();
+  const missing = [...referenced]
+    .filter((content) => !contentDirectories.has(content))
+    .sort();
   return {
     semester,
     tab: schedule.source.tab,
-    lessons: lessons.size,
+    lessons: [...contentDirectories].filter((content) =>
+      LESSON_PATTERN.test(content),
+    ).length,
+    handsons: [...contentDirectories].filter((content) =>
+      HANDSON_PATTERN.test(content),
+    ).length,
     records: schedule.entries.length,
     missing,
   };
@@ -882,6 +925,7 @@ export async function validateContent(options = {}) {
     semesters: results,
     semesterCount: results.length,
     lessonCount: results.reduce((total, result) => total + result.lessons, 0),
+    handsonCount: results.reduce((total, result) => total + result.handsons, 0),
     recordCount: results.reduce((total, result) => total + result.records, 0),
     missing: results.flatMap((result) =>
       result.missing.map((lesson) => `${result.semester}/${lesson}`),
@@ -911,7 +955,7 @@ function printHelp() {
     [
       "Uso: node scripts/check-content.mjs [--root CAMINHO]",
       "",
-      "Valida configuração, schemas, READMEs, cronogramas, aulas e slides.",
+      "Valida configuração, schemas, READMEs, cronogramas, aulas, hands-ons e slides.",
       "",
     ].join("\n"),
   );
@@ -926,11 +970,12 @@ async function main() {
   const result = await validateContent(options);
   process.stdout.write(
     `Conteúdo válido: ${result.semesterCount} semestre(s), ` +
-      `${result.lessonCount} aula(s), ${result.recordCount} registro(s).\n`,
+      `${result.lessonCount} aula(s), ${result.handsonCount} hands-on(s), ` +
+      `${result.recordCount} registro(s).\n`,
   );
   if (result.missing.length > 0) {
     process.stdout.write(
-      `Aviso: aulas planejadas ainda sem pasta: ${result.missing.join(", ")}.\n`,
+      `Aviso: conteúdos planejados ainda sem pasta: ${result.missing.join(", ")}.\n`,
     );
   }
 }

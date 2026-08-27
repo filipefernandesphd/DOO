@@ -24,6 +24,7 @@ const OUTPUT_DIR = path.join(ROOT, "_site");
 const SITE_DIR = path.join(ROOT, "site");
 const SEMESTER_PATTERN = /^\d{4}\.[12]$/;
 const LESSON_PATTERN = /^aula-\d{2}$/;
+const CONTENT_PATTERN = /^(?:aula|handson)-\d{2}$/;
 const INFRASTRUCTURE_NAMES = new Set([
   "AGENTS.md",
   "INSTRUCTIONS.md",
@@ -753,28 +754,28 @@ function isInfrastructure(name) {
   return name.startsWith(".") || INFRASTRUCTURE_NAMES.has(name);
 }
 
-async function lessonResources(config, sha, basePath, semester, lesson) {
-  const lessonDir = path.join(ROOT, semester, lesson);
-  const entries = await readdir(lessonDir, { withFileTypes: true });
+async function contentResources(config, sha, basePath, semester, content) {
+  const contentDir = path.join(ROOT, semester, content);
+  const entries = await readdir(contentDir, { withFileTypes: true });
   const resources = [];
 
   for (const entry of entries.sort((left, right) => codePointCompare(left.name, right.name))) {
-    const target = path.join(lessonDir, entry.name);
+    const target = path.join(contentDir, entry.name);
     const stats = await lstat(target);
 
     if (stats.isSymbolicLink()) {
-      fail(`Link simbólico não permitido na aula: ${semester}/${lesson}/${entry.name}`);
+      fail(`Link simbólico não permitido no conteúdo: ${semester}/${content}/${entry.name}`);
     }
     if (isInfrastructure(entry.name)) {
       continue;
     }
 
-    if (entry.name === "slides") {
+    if (entry.name === "slides" && LESSON_PATTERN.test(content)) {
       if (!stats.isDirectory()) {
-        fail(`${semester}/${lesson}/slides deve ser um diretório real.`);
+        fail(`${semester}/${content}/slides deve ser um diretório real.`);
       }
       resources.unshift({
-        href: sitePath(basePath, semester, lesson, "slides"),
+        href: sitePath(basePath, semester, content, "slides"),
         kind: "Apresentação",
         label: "Slides",
       });
@@ -786,7 +787,7 @@ async function lessonResources(config, sha, basePath, semester, lesson) {
         config,
         sha,
         stats.isDirectory() ? "tree" : "blob",
-        [semester, lesson, entry.name],
+        [semester, content, entry.name],
       ),
       kind: stats.isDirectory() ? "Pasta no GitHub" : "Arquivo no GitHub",
       label: humanizeName(entry.name),
@@ -1036,12 +1037,12 @@ async function auditArtifact(semesters) {
 
   for (const semester of semesters) {
     const semesterDir = path.join(OUTPUT_DIR, semester);
-    const lessons = await discoverDirectories(
+    const contents = await discoverDirectories(
       path.join(ROOT, semester),
-      LESSON_PATTERN,
-      "A aula",
+      CONTENT_PATTERN,
+      "O conteúdo",
     );
-    const allowed = new Set(["index.html", ...lessons]);
+    const allowed = new Set(["index.html", ...contents]);
     if (await pathExists(path.join(ROOT, semester, "assets"))) {
       allowed.add("assets");
     }
@@ -1050,15 +1051,19 @@ async function auditArtifact(semesters) {
       fail(`Conteúdo não autorizado em _site/${semester}: ${unexpected.join(", ")}`);
     }
 
-    for (const lesson of lessons) {
-      const lessonOutput = path.join(semesterDir, lesson);
-      const lessonAllowed = new Set(["index.html", "slides"]);
-      const unexpectedLesson = (await readdir(lessonOutput)).filter(
-        (entry) => !lessonAllowed.has(entry),
+    for (const content of contents) {
+      const contentOutput = path.join(semesterDir, content);
+      const contentAllowed = new Set([
+        "index.html",
+        ...(LESSON_PATTERN.test(content) ? ["slides"] : []),
+      ]);
+      const unexpectedContent = (await readdir(contentOutput)).filter(
+        (entry) => !contentAllowed.has(entry),
       );
-      if (unexpectedLesson.length > 0) {
+      if (unexpectedContent.length > 0) {
         fail(
-          `Material comum foi copiado para _site/${semester}/${lesson}: ${unexpectedLesson.join(", ")}`,
+          `Material comum foi copiado para _site/${semester}/${content}: ` +
+            unexpectedContent.join(", "),
         );
       }
     }
@@ -1137,43 +1142,52 @@ async function main() {
     );
     await publishSemesterAssets(semester);
 
-    const lessons = await discoverDirectories(semesterDir, LESSON_PATTERN, "A aula");
-    for (const lesson of lessons.sort(codePointCompare)) {
-      const lessonDir = path.join(semesterDir, lesson);
-      const lessonReadmePath = path.join(lessonDir, "README.md");
-      const lessonLabel = `Aula ${lesson.slice(-2)}`;
+    const contents = await discoverDirectories(
+      semesterDir,
+      CONTENT_PATTERN,
+      "O conteúdo",
+    );
+    for (const content of contents.sort(codePointCompare)) {
+      const contentDir = path.join(semesterDir, content);
+      const contentReadmePath = path.join(contentDir, "README.md");
+      const isLesson = LESSON_PATTERN.test(content);
+      const contentLabel = isLesson
+        ? `Aula ${content.slice(-2)}`
+        : `Hands-on ${content.slice(-2)}`;
       let introduction = "";
-      let title = lessonLabel;
+      let title = contentLabel;
 
-      if (await pathExists(lessonReadmePath)) {
-        const stats = await lstat(lessonReadmePath);
+      if (await pathExists(contentReadmePath)) {
+        const stats = await lstat(contentReadmePath);
         if (stats.isSymbolicLink() || !stats.isFile()) {
-          fail(`${semester}/${lesson}/README.md deve ser um arquivo real.`);
+          fail(`${semester}/${content}/README.md deve ser um arquivo real.`);
         }
-        const lessonReadme = await readFile(lessonReadmePath, "utf8");
-        title = extractTitle(lessonReadme, lessonLabel);
-        introduction = `<article class="markdown">${renderMarkdown(lessonReadme)}</article>`;
+        const contentReadme = await readFile(contentReadmePath, "utf8");
+        title = extractTitle(contentReadme, contentLabel);
+        introduction = `<article class="markdown">${renderMarkdown(contentReadme)}</article>`;
+      } else if (!isLesson) {
+        fail(`${semester}/${content}/README.md é obrigatório para um hands-on.`);
       } else {
-        introduction = `<h1>${escapeHtml(lessonLabel)}</h1>`;
+        introduction = `<h1>${escapeHtml(contentLabel)}</h1>`;
       }
 
-      const resources = await lessonResources(config, sha, basePath, semester, lesson);
-      if (!resources.some((resource) => resource.label === "Slides")) {
-        fail(`A aula ${semester}/${lesson} não contém a pasta obrigatória slides/.`);
+      const resources = await contentResources(config, sha, basePath, semester, content);
+      if (isLesson && !resources.some((resource) => resource.label === "Slides")) {
+        fail(`A aula ${semester}/${content} não contém a pasta obrigatória slides/.`);
       }
 
       await writePage(
-        path.join(semester, lesson),
+        path.join(semester, content),
         renderPage({
           basePath,
           body: `${introduction}\n${renderResources(resources)}`,
           breadcrumbs: [
             { label: "Início", href: basePath },
             { label: semesterLabel, href: sitePath(basePath, semester) },
-            { label: lessonLabel, href: sitePath(basePath, semester, lesson) },
+            { label: contentLabel, href: sitePath(basePath, semester, content) },
           ],
           config,
-          description: `${config.course.name} — ${lessonLabel}, ${semesterLabel}`,
+          description: `${config.course.name} — ${contentLabel}, ${semesterLabel}`,
           sha,
           title,
         }),

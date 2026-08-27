@@ -15,7 +15,7 @@ import process from "node:process";
 import { pathToFileURL } from "node:url";
 
 const SEMESTER_PATTERN = /^[0-9]{4}\.[12]$/;
-const LESSON_PATTERN = /^aula-[0-9]{2}$/;
+const CONTENT_PATTERN = /^(?:aula|handson)-[0-9]{2}$/;
 const DATE_PATTERN = /^(?:|[0-9]{2}\/[0-9]{2}\/[0-9]{4})$/;
 const SCHEDULE_FIELDS = ["day", "date", "module", "topic", "id"];
 
@@ -165,8 +165,10 @@ function validateSchemaContracts(configSchema, scheduleSchema) {
   assert(
     scheduleId.test("") &&
       scheduleId.test("aula-00") &&
+      scheduleId.test("handson-00") &&
       !scheduleId.test("Aula 00") &&
-      !scheduleId.test("aula-00/"),
+      !scheduleId.test("aula-00/") &&
+      !scheduleId.test("hands-on-00"),
     "schedule.schema.json: contrato de ID incompatível.",
     "INVALID_SCHEMA",
   );
@@ -558,8 +560,8 @@ function validateSchedule(schedule, semester) {
       `${label}/date: use uma data real em dd/mm/aaaa ou deixe vazio.`,
     );
     assert(
-      entry.id === "" || LESSON_PATTERN.test(entry.id),
-      `${label}/id: use aula-NN ou deixe vazio.`,
+      entry.id === "" || CONTENT_PATTERN.test(entry.id),
+      `${label}/id: use aula-NN, handson-NN ou deixe vazio.`,
     );
     assert(
       entry.id === "" || entry.topic.trim() !== "",
@@ -582,12 +584,12 @@ function isValidCalendarDate(value) {
   );
 }
 
-async function discoverLessonDirectories(semesterDirectory) {
+async function discoverContentDirectories(semesterDirectory) {
   const entries = await readdir(semesterDirectory, { withFileTypes: true });
-  const lessons = new Set();
+  const contentDirectories = new Set();
 
   for (const entry of entries) {
-    if (!LESSON_PATTERN.test(entry.name)) {
+    if (!CONTENT_PATTERN.test(entry.name)) {
       continue;
     }
 
@@ -595,13 +597,16 @@ async function discoverLessonDirectories(semesterDirectory) {
     const info = await lstat(target);
     assert(
       !info.isSymbolicLink(),
-      `${entry.name}: link simbólico não pode representar uma aula.`,
+      `${entry.name}: link simbólico não pode representar conteúdo do cronograma.`,
     );
-    assert(info.isDirectory(), `${entry.name}: o nome de uma aula deve ser um diretório.`);
-    lessons.add(entry.name);
+    assert(
+      info.isDirectory(),
+      `${entry.name}: o nome de um conteúdo do cronograma deve ser um diretório.`,
+    );
+    contentDirectories.add(entry.name);
   }
 
-  return lessons;
+  return contentDirectories;
 }
 
 function escapeHtml(value) {
@@ -854,14 +859,14 @@ export async function synchronizeScheduleLinks(options = {}) {
   validateSchedule(schedule, semester);
   await validateOptionalLocalEnv(root, semester, schedule.source.tab);
 
-  const lessons = await discoverLessonDirectories(semesterDirectory);
-  const rendered = renderTable(schedule, lessons);
+  const contentDirectories = await discoverContentDirectories(semesterDirectory);
+  const rendered = renderTable(schedule, contentDirectories);
   const referenced = new Set(
     schedule.entries.filter((entry) => entry.id !== "").map((entry) => entry.id),
   );
   const filledIds = schedule.entries.filter((entry) => entry.id !== "").length;
-  const unreferenced = [...lessons]
-    .filter((lesson) => !referenced.has(lesson))
+  const unreferenced = [...contentDirectories]
+    .filter((content) => !referenced.has(content))
     .sort();
   const original = await readFile(readmePath, "utf8");
   const replacement = replaceCronograma(original, rendered.table);
@@ -929,8 +934,8 @@ function printReport(result, check) {
       `IDs distintos: ${result.distinctIds}`,
       `Repetições de ID: ${result.repeatedIds}`,
       `Links gerados: ${result.links}`,
-      `Aulas planejadas sem pasta: ${result.missing.length}`,
-      `Pastas de aula sem referência: ${result.unreferenced.length}`,
+      `Conteúdos planejados sem pasta: ${result.missing.length}`,
+      `Pastas de conteúdo sem referência: ${result.unreferenced.length}`,
       `Linhas com campos vazios: ${result.rowsWithEmptyFields}`,
     ].join("\n"),
   );
