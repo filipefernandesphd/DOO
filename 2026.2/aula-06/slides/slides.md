@@ -51,13 +51,20 @@ title: Breve história da UML
 
 </v-clicks>
 
-Fonte histórica: Object Management Group [@Kobryn1999; @OMGVisualModeling].
+Fonte: [@Kobryn1999] [@OMGVisualModeling].
 
----
+<!-- ---
 layout: bleed
 image: https://lh5.googleusercontent.com/t_g924hOGV9nSuNSLvXl0VcW7qzyARV6fHG9OBwl-vuIS7gUQXI_X-4ajRQydKN7OKqhZF1bu8gJnyOu4skYMiPq6YlFF5mj3zADCOJDlL4G9EnvjbhhSIV5Bd661u4gaQqe6hufk15lwQrodpxFSpA
 duotone: false
+--- -->
+
 ---
+title: Diagramas UML
+---
+<center>
+<img src="https://lh5.googleusercontent.com/t_g924hOGV9nSuNSLvXl0VcW7qzyARV6fHG9OBwl-vuIS7gUQXI_X-4ajRQydKN7OKqhZF1bu8gJnyOu4skYMiPq6YlFF5mj3zADCOJDlL4G9EnvjbhhSIV5Bd661u4gaQqe6hufk15lwQrodpxFSpA"  width="100%" />
+</center>
 
 ---
 layout: section
@@ -87,12 +94,12 @@ title: Relacionamentos
 
 <v-clicks>
 
-- **Associação simples** — objetos colaboram sem relação de todo e parte
-- **Agregação** — a parte pode existir sem o todo
-- **Composição** — a parte depende do ciclo de vida do todo
-- **Herança** — uma classe especializada herda características de outra
-- Realização — uma classe implementa o contrato de uma interface
-- Dependência — um elemento usa outro de forma pontual
+- **Associação simples**: objetos colaboram sem relação de todo e parte
+- **Agregação**: a parte pode existir sem o todo
+- **Composição**: a parte depende do ciclo de vida do todo
+- **Herança**: uma classe especializada herda características de outra
+- *Realização*: uma classe implementa o contrato de uma interface
+- *Dependência*: um elemento usa outro de forma pontual
 
 </v-clicks>
 
@@ -157,7 +164,7 @@ title: Código
 classDiagram
   direction TB
   class Carro {
-    -portas: Porta[4]
+    portas: Porta[4]
   }
   class Porta {
 
@@ -173,7 +180,7 @@ class Carro {
 }
 
 class Porta {
-
+  // implementação
 }
 ```
 
@@ -227,16 +234,22 @@ classDiagram
 ```
 
 ---
+title: Outro exemplo
+---
+<center><img src="https://miro.medium.com/v2/resize:fit:720/format:webp/1*Jhub06tVOfthGZzr9lTyTA.png" width="100%" /></center>
+
+
+---
 layout: section
 index: "H"
 title: Hands-on
 ---
 
----
+<!-- ---
 layout: statement
 kicker: Agora é com você
 title: A página da aula reúne quatro atividades para transformar diagramas UML em código Java.
----
+--- -->
 
 ---
 layout: default
