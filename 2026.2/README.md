@@ -23,13 +23,13 @@ Repositório de apoio às aulas da disciplina.
 | Segunda | 10/08/2026 |  | [AULA CANCELADA] 10 - Dia de São Lourenço - Padroeiro de Manhuaçu |
 | Quarta | 17/08/2026 |  | [AULA CANCELADA] |
 | Segunda | 17/08/2026 | MD1: Fundamentos | [Da programação procedural para programação orientada a objetos](aula-01/) |
-| Segunda | 12/08/2026 |  | [Estado, comportamento e identidade de um objeto](aula-02/) |
+| Segunda | 17/08/2026 |  | [Estado, comportamento e identidade de um objeto](aula-02/) |
 | Quarta | 19/08/2026 |  | [Classes, atributos e métodos](aula-03/) |
 | Segunda | 24/08/2026 |  | [Instanciação de objetos e método construtor](aula-04/) |
 | Quarta | 26/08/2026 |  | [Lista de objetos](aula-05/) |
 | Sábado | 29/08/2026 |  | [AULA CANCELADA] |
 | Segunda | 31/08/2026 |  | [Introdução à UML e hands-on](aula-06/) |
-| Segunda | 31/08/2026 |  | [REPOSIÇÃO - 4 AULAS] Hands-on |
+| Segunda | 31/08/2026 |  | [\[REPOSIÇÃO - 4 AULAS\] Hands-on](handson-01/) |
 | Quarta | 02/09/2026 |  | AVALIAÇÃO 1 |
 | Segunda | 07/09/2026 |  | [AULA CANCELADA] 07 - Indepêndencia do Brasil |
 | Quarta | 09/09/2026 |  | [AULA CANCELADA] |
