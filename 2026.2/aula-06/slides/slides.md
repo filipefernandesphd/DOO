@@ -2,10 +2,10 @@
 theme: slidev-theme-tahta
 addons:
   - slidev-addon-citations
-title: Introdução à UML
+title: Modificador de Acesso - Default
 aspectRatio: 16/10
 info: |
-  Aula introdutória sobre UML, diagramas de classes e diagramas de objetos.
+  Aula sobre os tipos de modificador de acesso do Java: default
 themeConfig:
   variant: minimal
   lang: pt-BR
@@ -25,248 +25,145 @@ index: "T"
 title: Teoria
 ---
 
-<!-- ---
-layout: define
-kicker: Definição
-term: UML
-definition: Uma <span class="accent2">família de notações gráficas</span>, apoiada por um metamodelo único, para descrever e projetar sistemas de software.
-points:
-  - Unified Modeling Language — Linguagem de Modelagem Unificada
-  - Uma linguagem visual, não uma linguagem de programação
-  - Síntese da definição apresentada por Martin Fowler em UML Distilled [@Fowler2003]
---- -->
-
----
-layout: default
-title: Breve história da UML
----
-
-<v-clicks>
-
-- **1995** — Booch e Rumbaugh publicam o Unified Method 0.8
-- **1996** — Jacobson se junta aos dois autores; surge a UML 0.9
-- **1997** — a OMG adota a UML 1 como padrão
-- **2005** — a OMG publica a UML 2, com uma base de modelagem mais rigorosa
-- **Hoje** — a UML permanece uma linguagem visual padronizada para comunicar projetos
-
-</v-clicks>
-
-Fonte: [@Kobryn1999] [@OMGVisualModeling].
-
-<!-- ---
-layout: bleed
-image: https://lh5.googleusercontent.com/t_g924hOGV9nSuNSLvXl0VcW7qzyARV6fHG9OBwl-vuIS7gUQXI_X-4ajRQydKN7OKqhZF1bu8gJnyOu4skYMiPq6YlFF5mj3zADCOJDlL4G9EnvjbhhSIV5Bd661u4gaQqe6hufk15lwQrodpxFSpA
-duotone: false
---- -->
-
----
-title: Diagramas UML
----
-<center>
-<img src="https://lh5.googleusercontent.com/t_g924hOGV9nSuNSLvXl0VcW7qzyARV6fHG9OBwl-vuIS7gUQXI_X-4ajRQydKN7OKqhZF1bu8gJnyOu4skYMiPq6YlFF5mj3zADCOJDlL4G9EnvjbhhSIV5Bd661u4gaQqe6hufk15lwQrodpxFSpA"  width="100%" />
-</center>
-
 ---
 layout: section
 index: "01"
-title: Diagrama de Classes
+title: Introdução
 ---
 
 ---
-layout: diagram
-title: Classe
+layout: statement
+kicker: Modificador de acesso 
+title: Controla quem pode acessar uma classe, atributo ou método
 ---
-
-```mermaid
-classDiagram
-  class NomeClasse {
-    -atributo1: String
-    -atributon: String
-    +método1() void
-    +métodon() void
-  }
-```
 
 ---
 layout: default
-title: Relacionamentos
+title: Os quatro níveis de acesso
 ---
 
-<v-clicks>
+<Grid
+  head
+  :data="[
+    ['Modificador', 'Mesma classe', 'Mesmo pacote', 'Subclasse em outro pacote', 'Qualquer classe'],
+    ['default', '✅', '✅', '❌', '❌'],
+    ['public', '✅', '✅', '✅', '✅'],
+    ['private', '✅', '❌', '❌', '❌'],
+    ['protected', '✅', '✅', '✅', '❌']
+  ]"
+/>
 
-- **Associação simples**: objetos colaboram sem relação de todo e parte
-- **Agregação**: a parte pode existir sem o todo
-- **Composição**: a parte depende do ciclo de vida do todo
-- **Herança**: uma classe especializada herda características de outra
-- *Realização*: uma classe implementa o contrato de uma interface
-- *Dependência*: um elemento usa outro de forma pontual
-
-</v-clicks>
-
----
-layout: diagram
-title: Associação simples
----
-
-```mermaid
-classDiagram
-  direction LR
-  class ClasseA
-  class ClasseB
-  ClasseA -- ClasseB
-```
+<Callout tone="warn" icon="lucide:triangle-alert">
+<strong>default</strong> não é palavra-chave: acontece quando nenhum modificador é declarado.
+</Callout>
 
 ---
-layout: diagram
-title: Agregação
+theme: slidev-theme-tahta
+themeConfig:
+  variant: notebook
+  lang: pt-BR
+layout: section
+title: default
+index: "02"
+kicker: Modificadores de acesso
+subtitle: Acesso dentro do mesmo <span class="accent2">pacote (pasta)</span>
+foot: Modificadores de acesso
+---
+---
+layout: define
+kicker: Modificador default
+term: Qual é a principal função?
+definition: Permitir acesso aos elementos por <span class="accent2">classes do mesmo pacote</span>.
+points:
+  - Não possui palavra-chave própria
+  - É aplicado quando nenhum modificador de acesso é declarado
+  - Também é chamado de package-private
+foot: Modificadores de acesso
+---
+---
+layout: default
+kicker: Modificador default
+title: Onde pode ser aplicado?
+foot: Modificadores de acesso
 ---
 
-```mermaid
-classDiagram
-  direction LR
-  class ClasseA
-  class ClasseB
-  ClasseA o-- ClasseB
-```
+<Grid
+  head
+  :data="[
+    ['Elemento', 'Pode usar default?', 'Como declarar'],
+    ['Classe top-level', '✅', 'Sem modificador'],
+    ['Atributo', '✅', 'Sem modificador'],
+    ['Método', '✅', 'Sem modificador']
+  ]"
+/>
 
+<Callout icon="lucide:info">
+Em Java, <strong>default</strong> não é escrito: a ausência de modificador define o acesso de pacote.
+</Callout>
+
+<!-- Reforce que "default" aqui significa ausência de modificador de acesso. -->
 ---
-layout: diagram
-title: Composição
+layout: code
+kicker: Modificador default
+title: Sintaxe
+foot: Modificadores de acesso
 ---
-
-```mermaid
-classDiagram
-  direction LR
-  class ClasseA
-  class ClasseB
-  ClasseA *-- ClasseB
-```
-
----
-layout: diagram
-title: Herança
----
-
-```mermaid
-classDiagram
-
-  class ClasseA
-  class ClasseB
-  ClasseA <|-- ClasseB 
-```
-
----
-layout: two-cols
-title: Código
----
-
-```mermaid
-classDiagram
-  direction TB
-  class Carro {
-    portas: Porta[4]
-  }
-  class Porta {
-
-  }
-  Carro "1" -- "4" Porta
-```
-
-::right::
 
 ```java[font=extralarge]
-class Carro {
-  Porta[4] portas;
-}
+class Produto {
+    String nome;
 
-class Porta {
-  // implementação
+    void exibirNome() {
+        System.out.println(nome);
+    }
 }
 ```
+
+<!-- Mostre que classe, atributo e método não possuem palavra-chave de acesso. -->
+---
+kicker: Modificador default
+title: Exemplo
+---
+
+```java[font=normal]
+package loja;
+
+class Produto {
+    String nome = "Notebook";
+
+    void exibirNome() {
+        System.out.println(nome);
+    }
+}
+
+class App {
+    public static void main(String[] args) {
+        Produto p = new Produto();
+        System.out.println(p.nome);
+        p.exibirNome();
+    }
+}
+```
+
+<!-- Se App estivesse em outro pacote, Produto e seus membros default não seriam acessíveis. -->
 
 ---
 layout: section
-index: "02"
-title: Diagrama de Objetos
+index: "D"
+title: Desenvolvimento
 ---
-
----
-layout: diagram
-title: Objeto
----
-
-```mermaid
-classDiagram
-  class musicaAtual["nomeDoObjeto : NomeClasse"] {
-    atributo1 = valor
-    atributon = valor
-  }
-```
-
----
-layout: diagram
-title: Um carro e suas quatro portas
----
-
-```mermaid
-classDiagram
-  direction TB
-  class meuCarro["meuCarro : Carro"] {
-    modelo = Civic
-    cor = azul
-  }
-  class portaDE["portaDE : Porta"] {
-    posicao = dianteira esquerda
-  }
-  class portaDD["portaDD : Porta"] {
-    posicao = dianteira direita
-  }
-  class portaTE["portaTE : Porta"] {
-    posicao = traseira esquerda
-  }
-  class portaTD["portaTD : Porta"] {
-    posicao = traseira direita
-  }
-  meuCarro "1" -- "1" portaDE
-  meuCarro "1" -- "1" portaDD
-  meuCarro "1" -- "1" portaTE
-  meuCarro "1" -- "1" portaTD
-```
-
----
-title: Outro exemplo
----
-<center><img src="https://miro.medium.com/v2/resize:fit:720/format:webp/1*Jhub06tVOfthGZzr9lTyTA.png" width="100%" /></center>
-
-
----
-layout: section
-index: "H"
-title: Hands-on
----
-
-<!-- ---
-layout: statement
-kicker: Agora é com você
-title: A página da aula reúne quatro atividades para transformar diagramas UML em código Java.
---- -->
 
 ---
 layout: default
-title: Pratique no site da disciplina
+title: Desenvolvimento
 ---
+Dentro da mesma pasta, crie uma classe usando o modificador `default` e verifique se a classe, seus atributos e métodos são acessados realmente por `Main.java`.
 
-- Acesse **[filipefernandesphd.github.io/DOO](https://filipefernandesphd.github.io/DOO/)**
-- Abra **2026/2 → Introdução à UML → Hands-on**
-- Implemente em Java o modelo apresentado em cada diagrama
-
-<Callout icon="lucide:code-2">Dois desafios usam diagramas de classes e dois usam diagramas de objetos.</Callout>
-
----
+<!-- ---
 layout: default
 title: Referências
 ---
-<BiblioList />
+<BiblioList /> -->
 
 ---
 layout: feature
@@ -294,4 +191,3 @@ title: Avaliação da Experiência de Aprendizagem
   src="../../assets/qrcode-avaliacao.png"
   alt="QR code da avaliação da experiência de aprendizagem"
 />
-

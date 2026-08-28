@@ -2,10 +2,10 @@
 theme: slidev-theme-tahta
 addons:
   - slidev-addon-citations
-title: Modificador de Acesso - Default
+title: Modificador de Acesso - Public
 aspectRatio: 16/10
 info: |
-  Aula sobre os tipos de modificador de acesso do Java: default
+  Aula sobre os tipos de modificador de acesso do Java: public
 themeConfig:
   variant: minimal
   lang: pt-BR
@@ -22,19 +22,13 @@ layout: academic-cover
 ---
 layout: section
 index: "T"
-title: Teoria
+title: "Teoria"
 ---
 
 ---
 layout: section
 index: "01"
-title: Introdução
----
-
----
-layout: statement
-kicker: Modificador de acesso 
-title: Controla quem pode acessar uma classe, atributo ou método
+title: "Revisão"
 ---
 
 ---
@@ -58,31 +52,27 @@ title: Os quatro níveis de acesso
 </Callout>
 
 ---
-theme: slidev-theme-tahta
-themeConfig:
-  variant: notebook
-  lang: pt-BR
 layout: section
-title: default
+title: public
 index: "02"
 kicker: Modificadores de acesso
-subtitle: Acesso dentro do mesmo <span class="accent2">pacote (pasta)</span>
+subtitle: Acesso disponível para outras classes
 foot: Modificadores de acesso
 ---
 ---
 layout: define
-kicker: Modificador default
+kicker: Modificador public
 term: Qual é a principal função?
-definition: Permitir acesso aos elementos por <span class="accent2">classes do mesmo pacote</span>.
+definition: Tornar o elemento <span class="accent2">acessível por qualquer classe</span> que consiga referenciá-lo.
 points:
-  - Não possui palavra-chave própria
-  - É aplicado quando nenhum modificador de acesso é declarado
-  - Também é chamado de package-private
+  - É o nível de acesso menos restritivo
+  - Permite acesso entre diferentes pacotes
+  - É comum em operações que fazem parte da interface pública da classe
 foot: Modificadores de acesso
 ---
 ---
 layout: default
-kicker: Modificador default
+kicker: Modificador public
 title: Onde pode ser aplicado?
 foot: Modificadores de acesso
 ---
@@ -90,80 +80,166 @@ foot: Modificadores de acesso
 <Grid
   head
   :data="[
-    ['Elemento', 'Pode usar default?', 'Como declarar'],
-    ['Classe top-level', '✅', 'Sem modificador'],
-    ['Atributo', '✅', 'Sem modificador'],
-    ['Método', '✅', 'Sem modificador']
+    ['Elemento', 'Pode usar public?', 'Exemplo'],
+    ['Classe top-level', '✅', 'public class Produto'],
+    ['Atributo', '✅', 'public String nome'],
+    ['Método', '✅', 'public void exibir()']
   ]"
 />
 
-<Callout icon="lucide:info">
-Em Java, <strong>default</strong> não é escrito: a ausência de modificador define o acesso de pacote.
-</Callout>
+<!-- <Callout icon="lucide:file-code">
+Uma classe <strong>public</strong> de nível superior deve estar em um arquivo com o mesmo nome da classe.
+</Callout> -->
 
-<!-- Reforce que "default" aqui significa ausência de modificador de acesso. -->
+<!-- Exemplo: public class Produto deve estar no arquivo Produto.java. -->
 ---
 layout: code
-kicker: Modificador default
+kicker: Modificador public
 title: Sintaxe
 foot: Modificadores de acesso
 ---
 
 ```java[font=extralarge]
-class Produto {
-    String nome;
+public class Produto {
+    public String nome;
 
-    void exibirNome() {
+    public void exibirNome() {
         System.out.println(nome);
     }
 }
 ```
 
-<!-- Mostre que classe, atributo e método não possuem palavra-chave de acesso. -->
+<!-- Destaque a palavra-chave public antes da classe, do atributo e do método. -->
 ---
-kicker: Modificador default
+kicker: Modificador public
 title: Exemplo
 ---
 
-```java[font=normal]
+```java[font=large]
+// arquivo: loja/Produto.java
 package loja;
 
-class Produto {
-    String nome = "Notebook";
-
-    void exibirNome() {
-        System.out.println(nome);
+public class Produto {
+    public void exibirNome() {
+        System.out.println("Notebook");
     }
 }
 
-class App {
-    public static void main(String[] args) {
-        Produto p = new Produto();
-        System.out.println(p.nome);
-        p.exibirNome();
-    }
-}
+// Em outro arquivo/pacote:
+import loja.Produto;
+Produto p = new Produto();
+p.exibirNome();
 ```
 
-<!-- Se App estivesse em outro pacote, Produto e seus membros default não seriam acessíveis. -->
+<!-- Use os comentários finais apenas para mostrar que o acesso pode ocorrer de outro pacote. -->
 
 ---
 layout: section
+index: "03"
+title: Importante!
+---
+
+---
+layout: default
+title: package x import
+---
+- Usa-se `package` e `import` para acessar classes que estão em diferentes pastas.
+
+---
+layout: code
+title: Exemplo (1)
+---
+
+```shell[font=extralarge]
+|-- Main.java
+    |-- Veiculo/
+        |-- Veiculo.java
+```
+
+---
+layout: code
+title: Exemplo (2)
+---
+```java[font=extralarge]
+package Veiculo;
+
+public class Veiculo {
+  // implementação
+}
+```
+
+---
+layout: code
+title: Exemplo (3)
+---
+```java[font=extralarge]
+// sintaxe: pasta.classe
+import Veiculo.Veiculo;
+
+public class Main {
+  public static void main(String[] args){
+    Veiculo v = new Veiculo();
+  }
+}
+```
+
+---
+layout: section
+title: Desenvolvimento
 index: "D"
-title: Desenvolvimento
 ---
 
 ---
 layout: default
-title: Desenvolvimento
+title: Concessionária
+kicker: Prática guiada
 ---
-Dentro da mesma pasta, crie uma classe usando o modificador `default` e verifique se a classe, seus atributos e métodos são acessados realmente por `Main.java`.
+- No projeto da concessionária, coloque as classes `Venda`, `Cliente` e `Carro` e em suas respectivas pastas. 
+- Use `package` e `import` para realizar esta ação.
+- Faça as devidas modificações para o programa continuar funcionando.
 
-<!-- ---
-layout: default
-title: Referências
 ---
-<BiblioList /> -->
+layout: section
+index: "H"
+title: Hands-on
+---
+
+---
+layout: default
+title: Enunciado padrão
+kicker: Desafio
+---
+Para cada cenário:
+- Coloque as classes em suas respectivas pastas. 
+- Use `package` e `import` para realizar esta ação.
+- Faça as devidas modificações para o programa continuar funcionando.
+
+---
+layout: panels
+kicker: Cenários
+title: Escolha um domínio
+panels:
+  - icon: "lucide:library"
+    title: Sistema de biblioteca
+    items:
+      - Lista de livros emprestados
+      - Adicionar, devolver e listar
+  - icon: "lucide:landmark"
+    title: Sistema bancário
+    items:
+      - Lista de contas do cliente
+      - Cadastrar, encerrar e consultar
+  - icon: "lucide:shopping-cart"
+    title: E-commerce
+    items:
+      - Lista de produtos do carrinho
+      - Adicionar, remover e calcular total
+  - icon: "lucide:send"
+    title: Mensagem
+    items:
+      - Lista de mensagens enviadas
+      - Adicionar, remover e calcular total
+---
 
 ---
 layout: feature

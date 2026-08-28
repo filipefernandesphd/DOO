@@ -20,5 +20,5 @@ export const academicConfig = {
   subjectCode: 'INF03068',
   professorName: 'Filipe Fernandes, PhD',
   professorContact: 'https://filipefernandesphd.com/',
-  presentationTitle: 'Modificador de Acesso: Private',
+  presentationTitle: 'Introdução à UML',
 } satisfies AcademicPresentation

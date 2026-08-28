@@ -2,10 +2,10 @@
 theme: slidev-theme-tahta
 addons:
   - slidev-addon-citations
-title: Modificador de Acesso - Private
+title: Introdução à UML
 aspectRatio: 16/10
 info: |
-  Aula sobre os tipos de modificador de acesso do Java: private
+  Aula introdutória sobre UML, diagramas de classes e diagramas de objetos.
 themeConfig:
   variant: minimal
   lang: pt-BR
@@ -19,202 +19,225 @@ biblio:
 layout: academic-cover
 ---
 
-
 ---
 layout: section
 index: "T"
-title: "Teoria"
+title: Teoria
 ---
+
+<!-- ---
+layout: define
+kicker: Definição
+term: UML
+definition: Uma <span class="accent2">família de notações gráficas</span>, apoiada por um metamodelo único, para descrever e projetar sistemas de software.
+points:
+  - Unified Modeling Language — Linguagem de Modelagem Unificada
+  - Uma linguagem visual, não uma linguagem de programação
+  - Síntese da definição apresentada por Martin Fowler em UML Distilled [@Fowler2003]
+--- -->
+
+---
+layout: default
+title: Breve história da UML
+---
+
+<v-clicks>
+
+- **1995** — Booch e Rumbaugh publicam o Unified Method 0.8
+- **1996** — Jacobson se junta aos dois autores; surge a UML 0.9
+- **1997** — a OMG adota a UML 1 como padrão
+- **2005** — a OMG publica a UML 2, com uma base de modelagem mais rigorosa
+- **Hoje** — a UML permanece uma linguagem visual padronizada para comunicar projetos
+
+</v-clicks>
+
+Fonte: [@Kobryn1999] [@OMGVisualModeling].
+
+<!-- ---
+layout: bleed
+image: https://lh5.googleusercontent.com/t_g924hOGV9nSuNSLvXl0VcW7qzyARV6fHG9OBwl-vuIS7gUQXI_X-4ajRQydKN7OKqhZF1bu8gJnyOu4skYMiPq6YlFF5mj3zADCOJDlL4G9EnvjbhhSIV5Bd661u4gaQqe6hufk15lwQrodpxFSpA
+duotone: false
+--- -->
+
+---
+title: Diagramas UML
+---
+<center>
+<img src="https://lh5.googleusercontent.com/t_g924hOGV9nSuNSLvXl0VcW7qzyARV6fHG9OBwl-vuIS7gUQXI_X-4ajRQydKN7OKqhZF1bu8gJnyOu4skYMiPq6YlFF5mj3zADCOJDlL4G9EnvjbhhSIV5Bd661u4gaQqe6hufk15lwQrodpxFSpA"  width="100%" />
+</center>
 
 ---
 layout: section
 index: "01"
-title: "Revisão"
+title: Diagrama de Classes
 ---
+
+---
+layout: diagram
+title: Classe
+---
+
+```mermaid
+classDiagram
+  class NomeClasse {
+    -atributo1: String
+    -atributon: String
+    +método1() void
+    +métodon() void
+  }
+```
 
 ---
 layout: default
-title: Os quatro níveis de acesso
+title: Relacionamentos
 ---
 
-<Grid
-  head
-  :data="[
-    ['Modificador', 'Mesma classe', 'Mesmo pacote', 'Subclasse em outro pacote', 'Qualquer classe'],
-    ['default', '✅', '✅', '❌', '❌'],
-    ['public', '✅', '✅', '✅', '✅'],
-    ['private', '✅', '❌', '❌', '❌'],
-    ['protected', '✅', '✅', '✅', '❌']
-  ]"
-/>
+<v-clicks>
 
-<Callout tone="warn" icon="lucide:triangle-alert">
-<strong>default</strong> não é palavra-chave: acontece quando nenhum modificador é declarado.
-</Callout>
+- **Associação simples**: objetos colaboram sem relação de todo e parte
+- **Agregação**: a parte pode existir sem o todo
+- **Composição**: a parte depende do ciclo de vida do todo
+- **Herança**: uma classe especializada herda características de outra
+- *Realização*: uma classe implementa o contrato de uma interface
+- *Dependência*: um elemento usa outro de forma pontual
+
+</v-clicks>
 
 ---
-layout: section
-title: private
-index: "03"
-kicker: Modificadores de acesso
-subtitle: Acesso restrito à própria classe
-foot: Modificadores de acesso
----
----
-layout: define
-kicker: Modificador private
-term: Qual é a principal função?
-definition: Restringir o acesso ao elemento à <span class="accent2">própria classe que o declarou</span>.
-points:
-  - É o nível de acesso mais restritivo
-  - É fundamental para ocultar detalhes internos da implementação
-  - É amplamente utilizado no encapsulamento de atributos
-foot: Modificadores de acesso
----
----
-layout: default
-kicker: Modificador private
-title: Onde pode ser aplicado?
-foot: Modificadores de acesso
+layout: diagram
+title: Associação simples
 ---
 
-<Grid
-  head
-  :data="[
-    ['Elemento', 'Pode usar private?', 'Observação'],
-    ['Classe top-level', '❌', 'Não permitido'],
-    ['Atributo', '✅', 'Acesso somente na própria classe'],
-    ['Método', '✅', 'Acesso somente na própria classe']
-  ]"
-/>
+```mermaid
+classDiagram
+  direction LR
+  class ClasseA
+  class ClasseB
+  ClasseA -- ClasseB
+```
 
-<Callout tone="warn" icon="lucide:triangle-alert">
-Classes internas podem ser <strong>private</strong>. Veremos isso em outro momento.
-</Callout>
+---
+layout: diagram
+title: Agregação
+---
 
-<!-- Esta distinção evita que os alunos generalizem a regra de classes top-level para classes internas. -->
+```mermaid
+classDiagram
+  direction LR
+  class ClasseA
+  class ClasseB
+  ClasseA o-- ClasseB
+```
+
 ---
-layout: code
-kicker: Modificador private
-title: Sintaxe
-foot: Modificadores de acesso
+layout: diagram
+title: Composição
 ---
+
+```mermaid
+classDiagram
+  direction LR
+  class ClasseA
+  class ClasseB
+  ClasseA *-- ClasseB
+```
+
+---
+layout: diagram
+title: Herança
+---
+
+```mermaid
+classDiagram
+
+  class ClasseA
+  class ClasseB
+  ClasseA <|-- ClasseB 
+```
+
+---
+layout: two-cols
+title: Código
+---
+
+```mermaid
+classDiagram
+  direction TB
+  class Carro {
+    portas: Porta[4]
+  }
+  class Porta {
+
+  }
+  Carro "1" -- "4" Porta
+```
+
+::right::
 
 ```java[font=extralarge]
-class Conta {
-    private double saldo;
-
-    private void validarSaldo() {
-        System.out.println(saldo);
-    }
-}
-```
-
-<!-- A classe top-level não é private; apenas seus membros são. -->
----
-kicker: Modificador private
-title: Exemplo
----
-
-```java[font=large]
-class Conta {
-    private double saldo;
+class Carro {
+  Porta[4] portas;
 }
 
-class Main {
-  public static void main(String[] args){
-    Conta conta = new Conta();
-    conta.saldo = 512.0; // Não conseguirá acessar!
-  }
-}
-```
-
-<!-- Conecte private ao encapsulamento: o estado fica protegido e as operações controlam o acesso. -->
-
----
-layout: section
-title: Importante!
-index: "04"
----
-
----
-layout: code
-title: Métodos getters e setters
----
-- Boa prática de programação
-- **Motivo**: estados <span class="accent2">nunca</span> podem ser acessados diretamente
-```java[font=extralarge]
-carro.preco = 123000.0; // errado
-```
-
----
-layout: code
-title: Sintaxe
-kicker: Métodos getters e setters
----
-```java[font=extralarge]
-String getNome(){
-  return this.nome;
-}
-
-void setNome(String nome){
-  this.nome = nome;
-}
-```
-
----
-layout: code
-title: Exemplo (1)
-kicker: Métodos getters e setters
----
-```java[font=large]
-package Veiculo;
-
-public class Veiculo {
-  private double preco;
-
-  public double getPreco(){
-    return this.preco;
-  }
-
-  public void setPreco(double preco){
-    this.preco = preco;
-  }
-}
-```
-
----
-layout: code
-title: Exemplo (2)
-kicker: Métodos getters e setters
----
-
-```java[font=large]
-import Veiculo.Veiculo;
-
-public class App{
-  public static void main(String[] args){
-    Veiculo v1 = new Veiculo();
-    v1.setPreco(100000.0);
-
-    System.out.println("Preço: " + v1.getPreco());
-  }
+class Porta {
+  // implementação
 }
 ```
 
 ---
 layout: section
-title: Desenvolvimento
-index: "D"
+index: "02"
+title: Diagrama de Objetos
 ---
 
 ---
-layout: default
-title: Concessionária
-kicker: Prática guiada
+layout: diagram
+title: Objeto
 ---
-- No projeto da concessionária, coloque `private` para todos os atributos e crie métodos `getters` e `setters` para cada um deles.
-- Faça as devidas modificações para o programa continuar funcionando.
+
+```mermaid
+classDiagram
+  class musicaAtual["nomeDoObjeto : NomeClasse"] {
+    atributo1 = valor
+    atributon = valor
+  }
+```
+
+---
+layout: diagram
+title: Um carro e suas quatro portas
+---
+
+```mermaid
+classDiagram
+  direction TB
+  class meuCarro["meuCarro : Carro"] {
+    modelo = Civic
+    cor = azul
+  }
+  class portaDE["portaDE : Porta"] {
+    posicao = dianteira esquerda
+  }
+  class portaDD["portaDD : Porta"] {
+    posicao = dianteira direita
+  }
+  class portaTE["portaTE : Porta"] {
+    posicao = traseira esquerda
+  }
+  class portaTD["portaTD : Porta"] {
+    posicao = traseira direita
+  }
+  meuCarro "1" -- "1" portaDE
+  meuCarro "1" -- "1" portaDD
+  meuCarro "1" -- "1" portaTE
+  meuCarro "1" -- "1" portaTD
+```
+
+---
+title: Outro exemplo
+---
+<center><img src="https://miro.medium.com/v2/resize:fit:720/format:webp/1*Jhub06tVOfthGZzr9lTyTA.png" width="100%" /></center>
+
 
 ---
 layout: section
@@ -222,41 +245,28 @@ index: "H"
 title: Hands-on
 ---
 
----
-layout: default
-title: Enunciado padrão
-kicker: Desafio
----
-Para cada cenário:
-- Coloque `private` para todos os atributos e crie métodos `getters` e `setters` para cada um deles.
-- Faça as devidas modificações para o programa continuar funcionando.
+<!-- ---
+layout: statement
+kicker: Agora é com você
+title: A página da aula reúne quatro atividades para transformar diagramas UML em código Java.
+--- -->
 
 ---
-layout: panels
-kicker: Cenários
-title: Escolha um domínio
-panels:
-  - icon: "lucide:library"
-    title: Sistema de biblioteca
-    items:
-      - Lista de livros emprestados
-      - Adicionar, devolver e listar
-  - icon: "lucide:landmark"
-    title: Sistema bancário
-    items:
-      - Lista de contas do cliente
-      - Cadastrar, encerrar e consultar
-  - icon: "lucide:shopping-cart"
-    title: E-commerce
-    items:
-      - Lista de produtos do carrinho
-      - Adicionar, remover e calcular total
-  - icon: "lucide:send"
-    title: Mensagem
-    items:
-      - Lista de mensagens enviadas
-      - Adicionar, remover e calcular total
+layout: default
+title: Pratique no site da disciplina
 ---
+
+- Acesse **[filipefernandesphd.github.io/DOO](https://filipefernandesphd.github.io/DOO/)**
+- Abra **2026/2 → Introdução à UML → Hands-on**
+- Implemente em Java o modelo apresentado em cada diagrama
+
+<Callout icon="lucide:code-2">Dois desafios usam diagramas de classes e dois usam diagramas de objetos.</Callout>
+
+---
+layout: default
+title: Referências
+---
+<BiblioList />
 
 ---
 layout: feature
@@ -284,3 +294,4 @@ title: Avaliação da Experiência de Aprendizagem
   src="../../assets/qrcode-avaliacao.png"
   alt="QR code da avaliação da experiência de aprendizagem"
 />
+

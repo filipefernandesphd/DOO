@@ -2,10 +2,10 @@
 theme: slidev-theme-tahta
 addons:
   - slidev-addon-citations
-title: Modificador de Acesso - Public
+title: Modificador de Acesso - Private
 aspectRatio: 16/10
 info: |
-  Aula sobre os tipos de modificador de acesso do Java: public
+  Aula sobre os tipos de modificador de acesso do Java: private
 themeConfig:
   variant: minimal
   lang: pt-BR
@@ -18,6 +18,7 @@ biblio:
   show_id: false
 layout: academic-cover
 ---
+
 
 ---
 layout: section
@@ -53,26 +54,26 @@ title: Os quatro níveis de acesso
 
 ---
 layout: section
-title: public
-index: "02"
+title: private
+index: "03"
 kicker: Modificadores de acesso
-subtitle: Acesso disponível para outras classes
+subtitle: Acesso restrito à própria classe
 foot: Modificadores de acesso
 ---
 ---
 layout: define
-kicker: Modificador public
+kicker: Modificador private
 term: Qual é a principal função?
-definition: Tornar o elemento <span class="accent2">acessível por qualquer classe</span> que consiga referenciá-lo.
+definition: Restringir o acesso ao elemento à <span class="accent2">própria classe que o declarou</span>.
 points:
-  - É o nível de acesso menos restritivo
-  - Permite acesso entre diferentes pacotes
-  - É comum em operações que fazem parte da interface pública da classe
+  - É o nível de acesso mais restritivo
+  - É fundamental para ocultar detalhes internos da implementação
+  - É amplamente utilizado no encapsulamento de atributos
 foot: Modificadores de acesso
 ---
 ---
 layout: default
-kicker: Modificador public
+kicker: Modificador private
 title: Onde pode ser aplicado?
 foot: Modificadores de acesso
 ---
@@ -80,105 +81,123 @@ foot: Modificadores de acesso
 <Grid
   head
   :data="[
-    ['Elemento', 'Pode usar public?', 'Exemplo'],
-    ['Classe top-level', '✅', 'public class Produto'],
-    ['Atributo', '✅', 'public String nome'],
-    ['Método', '✅', 'public void exibir()']
+    ['Elemento', 'Pode usar private?', 'Observação'],
+    ['Classe top-level', '❌', 'Não permitido'],
+    ['Atributo', '✅', 'Acesso somente na própria classe'],
+    ['Método', '✅', 'Acesso somente na própria classe']
   ]"
 />
 
-<!-- <Callout icon="lucide:file-code">
-Uma classe <strong>public</strong> de nível superior deve estar em um arquivo com o mesmo nome da classe.
-</Callout> -->
+<Callout tone="warn" icon="lucide:triangle-alert">
+Classes internas podem ser <strong>private</strong>. Veremos isso em outro momento.
+</Callout>
 
-<!-- Exemplo: public class Produto deve estar no arquivo Produto.java. -->
+<!-- Esta distinção evita que os alunos generalizem a regra de classes top-level para classes internas. -->
 ---
 layout: code
-kicker: Modificador public
+kicker: Modificador private
 title: Sintaxe
 foot: Modificadores de acesso
 ---
 
 ```java[font=extralarge]
-public class Produto {
-    public String nome;
+class Conta {
+    private double saldo;
 
-    public void exibirNome() {
-        System.out.println(nome);
+    private void validarSaldo() {
+        System.out.println(saldo);
     }
 }
 ```
 
-<!-- Destaque a palavra-chave public antes da classe, do atributo e do método. -->
+<!-- A classe top-level não é private; apenas seus membros são. -->
 ---
-kicker: Modificador public
+kicker: Modificador private
 title: Exemplo
 ---
 
 ```java[font=large]
-// arquivo: loja/Produto.java
-package loja;
-
-public class Produto {
-    public void exibirNome() {
-        System.out.println("Notebook");
-    }
+class Conta {
+    private double saldo;
 }
 
-// Em outro arquivo/pacote:
-import loja.Produto;
-Produto p = new Produto();
-p.exibirNome();
+class Main {
+  public static void main(String[] args){
+    Conta conta = new Conta();
+    conta.saldo = 512.0; // Não conseguirá acessar!
+  }
+}
 ```
 
-<!-- Use os comentários finais apenas para mostrar que o acesso pode ocorrer de outro pacote. -->
+<!-- Conecte private ao encapsulamento: o estado fica protegido e as operações controlam o acesso. -->
 
 ---
 layout: section
-index: "03"
 title: Importante!
+index: "04"
 ---
 
 ---
-layout: default
-title: package x import
+layout: code
+title: Métodos getters e setters
 ---
-- Usa-se `package` e `import` para acessar classes que estão em diferentes pastas.
+- Boa prática de programação
+- **Motivo**: estados <span class="accent2">nunca</span> podem ser acessados diretamente
+```java[font=extralarge]
+carro.preco = 123000.0; // errado
+```
+
+---
+layout: code
+title: Sintaxe
+kicker: Métodos getters e setters
+---
+```java[font=extralarge]
+String getNome(){
+  return this.nome;
+}
+
+void setNome(String nome){
+  this.nome = nome;
+}
+```
 
 ---
 layout: code
 title: Exemplo (1)
+kicker: Métodos getters e setters
 ---
+```java[font=large]
+package Veiculo;
 
-```shell[font=extralarge]
-|-- Main.java
-    |-- Veiculo/
-        |-- Veiculo.java
+public class Veiculo {
+  private double preco;
+
+  public double getPreco(){
+    return this.preco;
+  }
+
+  public void setPreco(double preco){
+    this.preco = preco;
+  }
+}
 ```
 
 ---
 layout: code
 title: Exemplo (2)
+kicker: Métodos getters e setters
 ---
-```java[font=extralarge]
-package Veiculo;
 
-public class Veiculo {
-  // implementação
-}
-```
-
----
-layout: code
-title: Exemplo (3)
----
-```java[font=extralarge]
-// sintaxe: pasta.classe
+```java[font=large]
 import Veiculo.Veiculo;
 
-public class Main {
+public class App{
   public static void main(String[] args){
-    Veiculo v = new Veiculo();
+    Veiculo v1 = new Veiculo();
+    v1.setPreco(100000.0);
+
+    System.out.println("Preço: " + v1.getPreco());
   }
 }
 ```
@@ -194,8 +213,7 @@ layout: default
 title: Concessionária
 kicker: Prática guiada
 ---
-- No projeto da concessionária, coloque as classes `Venda`, `Cliente` e `Carro` e em suas respectivas pastas. 
-- Use `package` e `import` para realizar esta ação.
+- No projeto da concessionária, coloque `private` para todos os atributos e crie métodos `getters` e `setters` para cada um deles.
 - Faça as devidas modificações para o programa continuar funcionando.
 
 ---
@@ -210,8 +228,7 @@ title: Enunciado padrão
 kicker: Desafio
 ---
 Para cada cenário:
-- Coloque as classes em suas respectivas pastas. 
-- Use `package` e `import` para realizar esta ação.
+- Coloque `private` para todos os atributos e crie métodos `getters` e `setters` para cada um deles.
 - Faça as devidas modificações para o programa continuar funcionando.
 
 ---
