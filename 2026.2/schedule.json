@@ -72,14 +72,14 @@
     {
       "day": "Segunda",
       "date": "31/08/2026",
-      "module": "",
+      "module": "MD2: Encapsulamento",
       "topic": "Modificador de acesso: default",
       "id": "aula-06"
     },
     {
       "day": "Segunda",
       "date": "31/08/2026",
-      "module": "MD2: Encapsulamento",
+      "module": "",
       "topic": "Modificador de acesso: public",
       "id": "aula-07"
     },
@@ -177,7 +177,7 @@
     {
       "day": "Segunda",
       "date": "05/10/2026",
-      "module": "MD3: Tipos de relacionamentos",
+      "module": "",
       "topic": "Introdução à herança",
       "id": ""
     },
@@ -198,7 +198,7 @@
     {
       "day": "Quarta",
       "date": "14/10/2026",
-      "module": "",
+      "module": "MD3: Tipos de relacionamentos",
       "topic": "Multiplicidade, agregação e composição",
       "id": ""
     },
@@ -233,7 +233,7 @@
     {
       "day": "Segunda",
       "date": "26/10/2026",
-      "module": "MD4: Abstração",
+      "module": "",
       "topic": "AVALIAÇÃO 2",
       "id": ""
     },
@@ -254,7 +254,7 @@
     {
       "day": "Quarta",
       "date": "04/11/2026",
-      "module": "",
+      "module": "MD4: Abstração",
       "topic": "Classes abstratas e interfaces",
       "id": ""
     },
@@ -296,14 +296,14 @@
     {
       "day": "Segunda",
       "date": "23/11/2026",
-      "module": "MD5: Trabalho final",
+      "module": "",
       "topic": "Desenvolvimento de algoritmos",
       "id": ""
     },
     {
       "day": "Quarta",
       "date": "25/11/2026",
-      "module": "",
+      "module": "MD5: Trabalho final",
       "topic": "Hands-on; Entrega de relatório",
       "id": ""
     },
