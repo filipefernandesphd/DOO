@@ -1,339 +1,583 @@
 # Hands-on 01
 
-Atividade de revisão dos conceitos OO: classe, objeto, atributos, métodos, método construtor e lista de objetos com `ArrayList`.
+## Desenvolvimento Orientado a Objetos com Java
 
-## Teoria
+### Objetivo
 
-1. Explique, com suas palavras, a diferença entre **classe** e **objeto**. Dê um exemplo de uma classe e de dois objetos pertencentes a essa classe.
-2. O que significa dizer que um objeto possui **identidade**? Explique por que dois objetos podem possuir exatamente os mesmos valores em seus atributos e, ainda assim, serem objetos diferentes.
-3. O que é o **estado de um objeto**? Explique como os atributos de um objeto estão relacionados ao seu estado e apresente um exemplo.
-4. O que representa o **comportamento de um objeto** em Orientação a Objetos? Como os métodos estão relacionados ao comportamento?
-5. Considere um objeto da classe `ContaBancaria`. Dê exemplos da identidade, do estado e do comportamento desse objeto.
-6. O que é um **atributo** em uma classe? Considere uma classe `Aluno` e proponha pelo menos quatro atributos que poderiam representar o estado de seus objetos.
-7. O que é um **método** em Orientação a Objetos? Considere uma classe `Carro` e proponha três métodos que representem possíveis comportamentos de seus objetos.
-8. Em um **diagrama de classes UML**, uma classe normalmente é representada por um retângulo dividido em três partes. Explique o que deve ser representado em cada uma dessas partes.
-9. Considere a classe `Livro`, que possui os atributos `titulo`, `autor` e `disponivel`, além dos métodos `emprestar()` e `devolver()`. Represente essa classe utilizando a notação básica de um **diagrama de classes UML**.
-10. Explique a diferença entre um **diagrama de classes** e um **diagrama de objetos**. Em seguida, considere a classe `Pessoa` com os atributos `nome` e `idade` e represente, em UML, um objeto dessa classe chamado `pessoa1`, com nome `"Ana"` e idade `20`.
+Revisar e aplicar, de forma incremental, os conceitos fundamentais de desenvolvimento orientado a objetos em Java.
 
-## Prática
+A atividade utiliza como domínio uma **plataforma de streaming de músicas**. Cada exercício evolui a implementação criada no exercício anterior.
 
-### Contexto
-
-Você desenvolverá, de forma incremental, uma aplicação simples para gerenciamento de uma playlist de músicas.
-
-Cada questão deve ser implementada a partir da solução construída na questão anterior. Portanto, **não crie um novo projeto para cada questão**: evolua continuamente o mesmo código.
+> **Importante:** não crie um novo projeto para cada exercício. Evolua o mesmo código ao longo de toda a atividade.
 
 ---
 
-#### 1. Criando a primeira classe
+# 1. Revisão conceitual
+
+Responda às questões abaixo de forma objetiva.
+
+1. O que é uma **classe** em orientação a objetos?
+
+2. O que é um **objeto**?
+
+3. Qual é a relação entre uma classe e seus objetos?
+
+4. O que representa o **estado** de um objeto?
+
+5. O que representa o **comportamento** de um objeto?
+
+6. O que é um **atributo**?
+
+7. O que é um **método**?
+
+8. Qual é a diferença entre **atributo** e **parâmetro de método**?
+
+9. Qual é a função de um **método construtor**?
+
+10. Para que serve a classe `ArrayList` em Java?
+
+11. Explique, de forma sucinta, a finalidade dos métodos abaixo de `ArrayList`:
+
+    - `add`
+    - `get`
+    - `size`
+    - `remove`
+    - `contains`
+    - `isEmpty`
+    - `clear`
+    - `set`
+
+12. O que são **modificadores de acesso** em Java e qual é a sua principal finalidade?
+
+13. Explique o modificador de acesso **`default`**. Em quais situações um atributo ou método com acesso `default` pode ser acessado?
+
+14. Explique o modificador de acesso **`public`**. O que significa declarar uma classe, atributo, método ou construtor como `public`?
+
+15. Explique o modificador de acesso **`private`**. Quem pode acessar diretamente um atributo ou método declarado como `private`?
+
+16. Qual é a principal diferença entre os modificadores de acesso `default`, `public` e `private`?
+
+17. O que é um método **getter** e qual é a sua finalidade?
+
+18. O que é um método **setter** e qual é a sua finalidade?
+
+19. Por que getters e setters podem ser utilizados quando os atributos de uma classe são declarados como `private`?
+
+20. Qual é a vantagem de utilizar um setter em vez de permitir a alteração direta de um atributo?
+
+21. Para que serve a declaração **`package`** em um arquivo Java?
+
+22. Qual é a relação entre um `package` e a organização das classes de um projeto Java?
+
+23. Para que serve a declaração **`import`** em Java?
+
+24. Considere duas classes localizadas em pacotes diferentes. O que precisa ser observado para que uma delas possa utilizar a outra?
+
+---
+
+# 2. Exercício prático
+
+## Domínio: plataforma de streaming de músicas
+
+Considere uma plataforma de streaming na qual usuários podem ouvir músicas e organizar suas músicas em playlists.
+
+A implementação será construída de forma incremental.
+
+---
+
+## Exercício 1 — Criando a classe `Musica`
 
 Crie uma classe chamada `Musica`.
 
-Neste primeiro momento, a classe pode permanecer vazia.
+Neste momento, a classe pode permanecer vazia.
 
-Em seguida, crie uma classe `Main` contendo o método `main()` para executar e testar a aplicação.
-
----
-
-#### 2. Adicionando atributos
-
-Evolua a classe `Musica` adicionando os seguintes atributos:
-
-- `titulo`, do tipo `String`;
-- `artista`, do tipo `String`;
-- `duracaoSegundos`, do tipo `int`;
-- `curtida`, do tipo `boolean`.
-
-Esses atributos devem representar o **estado** de cada música.
+Crie também uma classe `Main` contendo o método `main`.
 
 ---
 
-#### 3. Adicionando comportamentos
+## Exercício 2 — Características de uma música
 
-Adicione à classe `Musica` os seguintes métodos:
+Uma música possui:
 
-- `exibirInformacoes()`: deve exibir no console os dados da música;
-- `curtir()`: deve alterar o atributo `curtida` para `true`;
-- `descurtir()`: deve alterar o atributo `curtida` para `false`.
+- título;
+- artista;
+- duração em segundos;
+- informação indicando se foi curtida ou não.
 
-Teste os métodos na classe `Main`.
+Adicione à classe `Musica` atributos que representem essas informações.
+
+Utilize os tipos de dados que considerar mais adequados.
 
 ---
 
-#### 4. Instanciando objetos
+## Exercício 3 — Comportamentos de uma música
 
-Na classe `Main`, crie pelo menos três objetos da classe `Musica`.
+Uma música deve ser capaz de:
+
+- exibir suas informações;
+- ser curtida;
+- deixar de ser curtida.
+
+Implemente na classe `Musica` os métodos:
+
+- `exibirInformacoes()`;
+- `curtir()`;
+- `descurtir()`.
+
+O método `exibirInformacoes()` deve mostrar no console as principais informações da música.
+
+---
+
+## Exercício 4 — Criando objetos
+
+Na classe `Main`, crie pelo menos **três objetos** da classe `Musica`.
 
 Atribua valores diferentes aos atributos de cada objeto.
 
-Em seguida:
+Depois:
 
-1. exiba as informações das três músicas;
+1. exiba as informações das músicas;
 2. curta uma das músicas;
-3. exiba novamente suas informações para verificar a alteração de estado.
+3. exiba novamente suas informações;
+4. retire a curtida;
+5. exiba novamente suas informações.
 
 ---
 
-#### 5. Criando um método construtor
+## Exercício 5 — Método construtor
 
-Melhore a classe `Musica` criando um construtor que receba:
+Atualmente, os valores dos atributos são definidos depois da criação do objeto.
+
+Modifique a classe `Musica` criando um método construtor que receba:
 
 - título;
 - artista;
 - duração em segundos.
 
-O atributo `curtida` deve iniciar automaticamente com o valor `false`.
+Toda nova música deve iniciar com a informação de curtida definida como `false`.
 
-Modifique a classe `Main` para que os objetos sejam criados utilizando o construtor.
-
-Exemplo esperado de criação:
-
-```java
-Musica musica1 = new Musica("...", "...", 180);
-```
+Atualize a classe `Main` para criar as músicas utilizando o construtor.
 
 ---
 
-#### 6. Melhorando a implementação
+## Exercício 6 — Melhorando a classe `Musica`
 
-Até este momento, os atributos da classe `Musica` podem ser alterados diretamente pela classe `Main`.
+Adicione à classe `Musica` um método chamado `duracaoEmMinutos()`.
 
-Melhore a implementação aplicando **encapsulamento**:
+Esse método deve converter a duração armazenada em segundos para minutos e retornar o resultado.
 
-1. torne os atributos `private`;
-2. crie métodos `get` quando forem necessários para consultar os valores;
-3. mantenha as alterações relacionadas a `curtida` sendo realizadas pelos métodos `curtir()` e `descurtir()`.
+Atualize `exibirInformacoes()` para também apresentar a duração da música em minutos.
 
-Verifique se o restante do programa continua funcionando após a alteração.
+Teste a implementação na classe `Main`.
 
 ---
 
-#### 7. Criando uma playlist com ArrayList
+## Exercício 7 — Criando uma playlist
 
-Crie uma nova classe chamada `Playlist`.
+Crie uma classe chamada `Playlist`.
 
-A classe deve possuir:
+Uma playlist possui:
 
-- um atributo `nome`, do tipo `String`;
-- um atributo para armazenar músicas utilizando exclusivamente `ArrayList<Musica>`.
+- um nome;
+- várias músicas.
 
-Crie um construtor que receba o nome da playlist e inicialize o `ArrayList`.
+Utilize exclusivamente um `ArrayList<Musica>` para armazenar as músicas.
 
-Na classe `Main`, crie uma playlist chamada `"Minhas Favoritas"`.
+Inicialize o `ArrayList` no construtor da classe `Playlist`.
 
 ---
 
-#### 8. Adicionando músicas — add(), size() e get()
+## Exercício 8 — Adicionando e consultando músicas
 
-Na classe `Playlist`, implemente um método:
+Uma playlist deve permitir adicionar músicas.
+
+Implemente um método:
 
 ```java
 adicionarMusica(Musica musica)
 ```
 
-O método deve utilizar `add()` para adicionar uma música ao `ArrayList`.
+Esse método deve utilizar `add`.
 
-Em seguida, implemente:
+Depois, implemente comportamentos que permitam:
 
-```java
-quantidadeDeMusicas()
-```
+1. descobrir quantas músicas existem na playlist utilizando `size`;
+2. recuperar uma música a partir de uma posição utilizando `get`.
 
-Esse método deve utilizar `size()` para retornar a quantidade de músicas existentes na playlist.
-
-Implemente também:
-
-```java
-obterMusica(int indice)
-```
-
-Esse método deve utilizar `get()` para retornar uma música armazenada em determinada posição.
-
-Na classe `Main`:
-
-1. adicione pelo menos cinco músicas à playlist;
-2. exiba a quantidade de músicas;
-3. obtenha uma música pelo índice e exiba suas informações.
+Na classe `Main`, crie uma playlist, adicione pelo menos três músicas e teste as operações.
 
 ---
 
-#### 9. Verificando e removendo músicas — contains() e remove()
+## Exercício 9 — Verificando e removendo músicas
 
-Na classe `Playlist`, implemente:
+Adicione à classe `Playlist` comportamentos que permitam:
 
-```java
-contemMusica(Musica musica)
-```
+1. verificar se determinada música pertence à playlist utilizando `contains`;
+2. remover determinada música utilizando `remove`.
 
-O método deve utilizar `contains()` e retornar `true` ou `false`.
-
-Implemente também:
-
-```java
-removerMusica(Musica musica)
-```
-
-O método deve utilizar `remove()`.
-
-Na classe `Main`:
-
-1. verifique se determinada música está na playlist;
-2. remova essa música;
-3. verifique novamente se ela está presente;
-4. exiba a nova quantidade de músicas.
+Teste os dois comportamentos na classe `Main`.
 
 ---
 
-#### 10. Verificando uma playlist vazia — isEmpty()
+## Exercício 10 — Verificando se a playlist está vazia
 
-Implemente na classe `Playlist` o método:
+Adicione um comportamento que informe se a playlist está vazia.
+
+Utilize:
 
 ```java
-estaVazia()
+isEmpty()
 ```
 
-O método deve utilizar `isEmpty()` para informar se existem músicas na playlist.
+Teste o comportamento:
 
-Na classe `Main`, exiba uma mensagem diferente para cada situação:
-
-- `"A playlist está vazia."`
-- `"A playlist possui músicas."`
+1. em uma playlist com músicas;
+2. em uma playlist sem músicas.
 
 ---
 
-#### 11. Substituindo uma música — set()
+## Exercício 11 — Substituindo uma música
 
-Implemente na classe `Playlist`:
+Uma música adicionada incorretamente deve poder ser substituída por outra.
+
+Adicione um comportamento que receba:
+
+- a posição da música;
+- a nova música.
+
+Utilize:
 
 ```java
-substituirMusica(int indice, Musica novaMusica)
+set()
 ```
 
-O método deve utilizar `set()` para substituir a música existente em determinada posição.
-
-Na classe `Main`:
-
-1. escolha uma posição da playlist;
-2. exiba a música existente nessa posição;
-3. substitua-a por outra música;
-4. exiba novamente a música da posição para comprovar a alteração.
+Na classe `Main`, substitua uma música da playlist e confira o resultado utilizando `get`.
 
 ---
 
-#### 12. Limpando a playlist — clear()
+## Exercício 12 — Limpando a playlist
 
-Implemente na classe `Playlist`:
+Adicione à classe `Playlist` um comportamento capaz de remover todas as músicas.
+
+Utilize:
 
 ```java
-limparPlaylist()
+clear()
 ```
 
-O método deve utilizar `clear()` para remover todas as músicas.
+Depois:
 
-Na classe `Main`:
-
-1. exiba a quantidade de músicas antes da operação;
-2. execute `limparPlaylist()`;
-3. verifique a quantidade novamente;
-4. utilize `estaVazia()` para confirmar que a playlist ficou vazia.
+1. adicione algumas músicas;
+2. mostre a quantidade de músicas;
+3. limpe a playlist;
+4. utilize `size` para verificar a quantidade;
+5. utilize `isEmpty` para confirmar que a playlist está vazia.
 
 ---
 
-### Desafio final
+# 3. Evoluindo o controle de acesso
 
-Organize a classe `Playlist` para oferecer os seguintes comportamentos:
+A partir deste ponto, evolua **o mesmo projeto** desenvolvido nos exercícios anteriores.
 
-- adicionar música;
-- obter música por índice;
-- verificar quantidade de músicas;
+---
+
+## Exercício 13 — Acesso `public`
+
+Organize o projeto em dois pacotes:
+
+```text
+modelo
+app
+```
+
+Coloque as classes `Musica` e `Playlist` no pacote `modelo`.
+
+Coloque a classe `Main` no pacote `app`.
+
+Faça as adaptações necessárias para que `Main` consiga utilizar `Musica` e `Playlist`.
+
+Para isso:
+
+1. declare as classes `Musica` e `Playlist` como `public`;
+2. declare como `public` os construtores que precisam ser utilizados pela classe `Main`;
+3. declare como `public` os métodos que representam operações disponíveis para quem utiliza essas classes;
+4. utilize `import` na classe `Main`.
+
+Exemplo da organização esperada:
+
+```text
+src/
+├── app/
+│   └── Main.java
+└── modelo/
+    ├── Musica.java
+    └── Playlist.java
+```
+
+Teste se a classe `Main` consegue criar músicas, criar uma playlist e executar suas operações.
+
+---
+
+## Exercício 14 — Protegendo os atributos com `private`
+
+Até este momento, os atributos das classes podem ser acessados diretamente.
+
+Modifique as classes `Musica` e `Playlist` para que **todos os seus atributos sejam `private`**.
+
+Por exemplo:
+
+```java
+private String titulo;
+```
+
+Depois da alteração:
+
+1. tente acessar diretamente um atributo da classe `Musica` a partir da classe `Main`;
+2. observe o erro de compilação;
+3. identifique por que o acesso deixou de ser permitido.
+
+Não torne os atributos `public` novamente.
+
+---
+
+## Exercício 15 — Consultando informações com getters
+
+Como os atributos agora são `private`, outras classes não podem consultá-los diretamente.
+
+Crie métodos getters para os dados que precisam ser consultados.
+
+Na classe `Musica`, crie getters para:
+
+- título;
+- artista;
+- duração em segundos;
+- informação de curtida.
+
+Na classe `Playlist`, crie pelo menos um getter para o nome da playlist.
+
+Exemplo:
+
+```java
+public String getTitulo() {
+    return titulo;
+}
+```
+
+Atualize a classe `Main` para consultar os dados utilizando os getters.
+
+---
+
+## Exercício 16 — Alterando informações com setters
+
+Crie métodos setters para os atributos que podem ser alterados depois da criação do objeto.
+
+Na classe `Musica`, permita alterar:
+
+- título;
+- artista;
+- duração em segundos.
+
+Na classe `Playlist`, permita alterar:
+
+- nome.
+
+Exemplo:
+
+```java
+public void setTitulo(String titulo) {
+    this.titulo = titulo;
+}
+```
+
+Adicione também as seguintes validações:
+
+- o título não pode ser vazio;
+- o artista não pode ser vazio;
+- a duração deve ser maior que zero;
+- o nome da playlist não pode ser vazio.
+
+> Não crie um setter para substituir diretamente o `ArrayList` de músicas. As alterações na coleção devem continuar acontecendo pelos métodos da própria classe `Playlist`.
+
+---
+
+## Exercício 17 — Encapsulando a playlist
+
+Revise a classe `Playlist`.
+
+O `ArrayList<Musica>` deve permanecer `private`.
+
+O código da classe `Main` não deve manipular diretamente a lista interna.
+
+Toda interação com as músicas da playlist deve ocorrer por métodos `public` da classe `Playlist`.
+
+Garanta que existam métodos públicos para:
+
+- adicionar uma música;
+- obter uma música por posição;
+- obter a quantidade de músicas;
 - verificar se uma música está presente;
-- remover música;
+- remover uma música;
 - verificar se a playlist está vazia;
 - substituir uma música;
 - limpar a playlist.
 
-A classe `Main` deve criar objetos e utilizar esses métodos para demonstrar o funcionamento completo da aplicação.
+Ao final, revise a classe `Main` e elimine qualquer acesso direto aos atributos das classes.
+
+---
+
+# 4. Desafio final
+
+## Streaming de músicas — versão encapsulada
+
+Implemente uma versão final do sistema de playlist utilizando tudo o que foi desenvolvido durante a atividade.
+
+O sistema deve possuir as classes:
+
+```text
+modelo.Musica
+modelo.Playlist
+app.Main
+```
+
+### `Musica`
+
+Cada música deve possuir:
+
+- título;
+- artista;
+- duração em segundos;
+- estado indicando se está curtida.
+
+Todos os atributos devem ser `private`.
+
+A classe deve possuir:
+
+- construtor;
+- getters;
+- setters para os dados que podem ser alterados;
+- validações nos setters;
+- `curtir()`;
+- `descurtir()`;
+- `duracaoEmMinutos()`;
+- `exibirInformacoes()`.
+
+A classe e os métodos que precisam ser utilizados por outras classes devem possuir acesso `public`.
+
+### `Playlist`
+
+Cada playlist deve possuir:
+
+- nome;
+- um `ArrayList<Musica>` privado.
+
+A classe deve oferecer métodos públicos para manipular a coleção sem permitir acesso direto ao `ArrayList`.
 
 Durante a implementação, utilize obrigatoriamente os seguintes métodos de `ArrayList`:
 
-- `add()`
-- `get()`
-- `size()`
-- `remove()`
-- `contains()`
-- `isEmpty()`
-- `clear()`
-- `set()`
-
-## Bônus
-
-Execute o prompt abaixo na IA de sua preferência para gerar exercícios e praticar mais.
-
-```markdown
-Atue como professor especialista em Desenvolvimento Orientado a Objetos com Java.
-
-Crie um exercício prático baseado em um **domínio conhecido e fácil de compreender por estudantes da Geração Z**.
-
-O exercício deve ser apresentado **exclusivamente como um texto corrido em formato de redação de minimundo**, descrevendo as regras, elementos, características e comportamentos existentes nesse domínio.
-
-#### Regras para elaboração do minimundo
-
-* NÃO diga diretamente ao aluno o que ele deve programar.
-* NÃO utilize instruções como:
-
-  * "crie uma classe";
-  * "crie um atributo";
-  * "crie um método";
-  * "instancie um objeto";
-  * "crie um construtor";
-  * "utilize ArrayList".
-* NÃO apresente código Java.
-* NÃO apresente pseudocódigo.
-* NÃO apresente a solução.
-* NÃO identifique explicitamente quais elementos do texto devem se tornar classes, atributos ou métodos.
-* Descreva apenas como o domínio funciona no mundo real ou no sistema proposto.
-* O texto deve fornecer informações suficientes para que o aluno consiga identificar sozinho os elementos necessários para construir a solução usando Orientação a Objetos.
-
-#### Conhecimentos que o exercício deve permitir aplicar
-
-O minimundo deve ser projetado de maneira que, ao interpretá-lo, o aluno consiga desenvolver uma solução que envolva:
-
-* classes;
-* objetos;
-* atributos;
-* métodos;
-* métodos construtores;
-* relacionamento entre objetos;
-* uma coleção de objetos utilizando `ArrayList`.
-
-A relação envolvendo `ArrayList` deve surgir naturalmente no domínio por meio de situações em que **um elemento possui ou gerencia vários outros elementos**.
-
-Por exemplo, o texto poderia dizer:
-
-> Uma playlist possui um nome e reúne várias músicas. Cada música possui informações como título, artista e duração. Novas músicas podem ser adicionadas à playlist, enquanto músicas que não forem mais desejadas podem ser removidas.
-
-Observe que o texto descreve apenas o domínio. Ele NÃO deve dizer que `Playlist` deve ser uma classe, que as músicas devem ser armazenadas em um `ArrayList` ou que adicionar uma música deve ser implementado como um método.
-
-#### Complexidade
-
-Considere alunos que estão tendo seus primeiros contatos com Java e Orientação a Objetos.
-
-Portanto:
-
-* utilize um domínio simples;
-* trabalhe com aproximadamente 2 ou 3 entidades principais;
-* evite herança, interfaces, classes abstratas, polimorfismo, exceções e recursos avançados;
-* apresente diferentes estados e comportamentos para os elementos do domínio;
-* inclua pelo menos uma relação de "um para vários";
-* permita criar vários objetos com valores diferentes;
-* permita que o estado de alguns objetos seja alterado por meio de seus comportamentos.
-
-#### Saída
-
-Apresente somente:
-
-1. um título com o nome do domínio;
-2. o texto do minimundo em formato de redação, com aproximadamente 3 a 5 parágrafos.
-
-O minimundo deve ser suficientemente detalhado para que o aluno precise **interpretar o problema e transformar os elementos do domínio em uma solução orientada a objetos**, em vez de simplesmente seguir instruções explícitas de programação.
+```text
+add
+get
+size
+remove
+contains
+isEmpty
+clear
+set
 ```
+
+A classe também deve possuir:
+
+- construtor;
+- getter e setter para o nome;
+- validação para impedir nome vazio.
+
+### `Main`
+
+Na classe `Main`:
+
+1. crie pelo menos cinco músicas;
+2. crie uma playlist;
+3. adicione as músicas;
+4. exiba a quantidade de músicas;
+5. consulte músicas por posição;
+6. verifique se determinada música está presente;
+7. remova uma música;
+8. substitua uma música;
+9. teste a playlist vazia e não vazia;
+10. limpe a playlist;
+11. altere dados utilizando setters;
+12. consulte dados utilizando getters.
+
+A classe `Main` deve estar em um pacote diferente das classes de domínio e utilizar `import` para acessá-las.
+
+> O objetivo do desafio é garantir que o código cliente utilize a interface pública das classes e não dependa do acesso direto ao estado interno dos objetos.
+
+---
+
+# 5. Bônus — Gere um novo domínio com IA
+
+Escolha uma ferramenta de IA generativa e utilize o prompt abaixo para gerar um novo exercício em um domínio diferente.
+
+Depois, implemente em Java o sistema descrito pela IA aplicando os mesmos conceitos utilizados nesta atividade.
+
+## Prompt
+
+```text
+Atue como professor especialista em Desenvolvimento Orientado a Objetos e Java.
+
+Crie um exercício prático baseado em um único minimundo, diferente de plataforma de streaming de músicas.
+
+O minimundo deve ser apresentado exclusivamente como um texto de domínio, em formato de redação, descrevendo entidades, características, comportamentos e relações existentes nesse contexto.
+
+NÃO diga diretamente ao aluno quais classes, atributos, métodos ou objetos devem ser criados.
+NÃO apresente código.
+NÃO apresente solução.
+NÃO utilize diagramas.
+NÃO transforme a descrição em uma lista de instruções de programação.
+
+O texto deve conter informações suficientes para que o aluno consiga, a partir da interpretação do minimundo:
+
+- identificar classes e objetos;
+- identificar características que possam ser representadas como atributos;
+- identificar comportamentos que possam ser representados como métodos;
+- perceber quais informações devem ser fornecidas na criação dos objetos;
+- identificar uma entidade que mantenha uma coleção de outros objetos;
+- utilizar ArrayList para representar essa coleção;
+- realizar operações equivalentes a adicionar, consultar, contar, remover, verificar existência, verificar se a coleção está vazia, substituir e limpar elementos;
+- identificar dados que não devem ser acessados diretamente por outras classes;
+- perceber quais operações precisam estar disponíveis publicamente;
+- consultar informações de objetos sem acessar diretamente seu estado interno;
+- alterar, de forma controlada e validada, informações que possam ser modificadas.
+
+O domínio escolhido deve ser conhecido por estudantes universitários e permitir uma implementação pequena em Java.
+
+Ao final, apresente somente o texto do minimundo.
+```
+
+---
+
+## Checklist
+
+Ao concluir a atividade, verifique se você utilizou:
+
+- [ ] classes;
+- [ ] objetos;
+- [ ] atributos;
+- [ ] métodos;
+- [ ] construtores;
+- [ ] `ArrayList`;
+- [ ] `add`;
+- [ ] `get`;
+- [ ] `size`;
+- [ ] `remove`;
+- [ ] `contains`;
+- [ ] `isEmpty`;
+- [ ] `clear`;
+- [ ] `set`;
+- [ ] `public`;
+- [ ] `private`;
+- [ ] getters;
+- [ ] setters;
+- [ ] validações;
+- [ ] pacotes;
+- [ ] `import`.

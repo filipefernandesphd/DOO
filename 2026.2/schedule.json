@@ -73,22 +73,29 @@
       "day": "Segunda",
       "date": "31/08/2026",
       "module": "",
-      "topic": "Introdução à UML e hands-on",
+      "topic": "Modificador de acesso: default",
       "id": "aula-06"
+    },
+    {
+      "day": "Segunda",
+      "date": "31/08/2026",
+      "module": "MD2: Encapsulamento",
+      "topic": "Modificador de acesso: public",
+      "id": "aula-07"
     },
     {
       "day": "Segunda",
       "date": "31/08/2026",
       "module": "",
       "topic": "[REPOSIÇÃO - 4 AULAS] Hands-on",
-      "id": "aula-07"
+      "id": "handson-01"
     },
     {
       "day": "Quarta",
       "date": "02/09/2026",
       "module": "",
-      "topic": "AVALIAÇÃO 1",
-      "id": ""
+      "topic": "Modificador de acesso: private",
+      "id": "aula-08"
     },
     {
       "day": "Segunda",
@@ -101,8 +108,8 @@
       "day": "Quarta",
       "date": "09/09/2026",
       "module": "",
-      "topic": "[AULA CANCELADA]",
-      "id": ""
+      "topic": "Hands-on",
+      "id": "handson-01"
     },
     {
       "day": "Sábado",
@@ -122,8 +129,8 @@
       "day": "Quarta",
       "date": "16/09/2026",
       "module": "",
-      "topic": "[AULA CANCELADA]",
-      "id": ""
+      "topic": "Hands-on",
+      "id": "handson-01"
     },
     {
       "day": "Segunda",
@@ -149,15 +156,15 @@
     {
       "day": "Segunda",
       "date": "28/09/2026",
-      "module": "MD2: Encapsulamento",
-      "topic": "Modificadores de acesso e introdução à herança",
-      "id": "aula-08"
+      "module": "",
+      "topic": "AVALIAÇÃO 1",
+      "id": ""
     },
     {
       "day": "Quarta",
       "date": "30/09/2026",
       "module": "",
-      "topic": "Métodos getters e setters",
+      "topic": "Introdução à UML",
       "id": "aula-09"
     },
     {
@@ -170,16 +177,16 @@
     {
       "day": "Segunda",
       "date": "05/10/2026",
-      "module": "",
-      "topic": "Modificadores de estado: static e final",
-      "id": "aula-10"
+      "module": "MD3: Tipos de relacionamentos",
+      "topic": "Introdução à herança",
+      "id": ""
     },
     {
       "day": "Quarta",
       "date": "07/10/2026",
-      "module": "MD3: Tipos de relacionamentos",
-      "topic": "Multiplicidade, agregação e composição",
-      "id": "aula-11"
+      "module": "",
+      "topic": "Modificadores de estado: static e final",
+      "id": ""
     },
     {
       "day": "Segunda",
@@ -192,22 +199,36 @@
       "day": "Quarta",
       "date": "14/10/2026",
       "module": "",
-      "topic": "Correção da avaliação e Herança",
-      "id": "aula-12"
+      "topic": "Multiplicidade, agregação e composição",
+      "id": ""
     },
     {
       "day": "Segunda",
       "date": "19/10/2026",
       "module": "",
-      "topic": "Polimorfismo, sobrescrita e sobrecarga de métodos",
-      "id": "aula-13"
+      "topic": "Correção da avaliação e Herança",
+      "id": ""
     },
     {
       "day": "Quarta",
       "date": "21/10/2026",
       "module": "",
-      "topic": "Hands-on",
-      "id": "aula-14"
+      "topic": "Polimorfismo, sobrescrita e sobrecarga de métodos",
+      "id": ""
+    },
+    {
+      "day": "Quarta",
+      "date": "21/10/2026",
+      "module": "",
+      "topic": "[REPOSIÇÃO - 4 AULAS] Hands-on",
+      "id": ""
+    },
+    {
+      "day": "Sexta",
+      "date": "23/10/2026",
+      "module": "",
+      "topic": "[REPOSIÇÃO - 2 AULAS] Hands-on",
+      "id": ""
     },
     {
       "day": "Segunda",
@@ -235,27 +256,27 @@
       "date": "04/11/2026",
       "module": "",
       "topic": "Classes abstratas e interfaces",
-      "id": "aula-15"
+      "id": ""
     },
     {
       "day": "Segunda",
       "date": "09/11/2026",
       "module": "",
       "topic": "Tratamento de exceções",
-      "id": "aula-16"
+      "id": ""
     },
     {
       "day": "Quarta",
       "date": "11/11/2026",
       "module": "",
       "topic": "Classes internas e classes internas anônimas",
-      "id": "aula-17"
+      "id": ""
     },
     {
-      "day": "Quarta",
-      "date": "11/11/2026",
+      "day": "Sexta",
+      "date": "13/11/2026",
       "module": "",
-      "topic": "[REPOSIÇÃO - 4 AULAS] Hands-on",
+      "topic": "[REPOSIÇÃO - 2 AULAS] Desenvolvimento de algoritmos",
       "id": ""
     },
     {
@@ -266,38 +287,38 @@
       "id": ""
     },
     {
-      "day": "Segunda",
-      "date": "16/11/2026",
-      "module": "",
-      "topic": "[REPOSIÇÃO 4 - AULAS] Hands-on",
-      "id": ""
-    },
-    {
       "day": "Quarta",
       "date": "18/11/2026",
       "module": "",
       "topic": "Desenvolvimento de algoritmos",
-      "id": ""
-    },
-    {
-      "day": "Quarta",
-      "date": "18/11/2026",
-      "module": "",
-      "topic": "[REPOSIÇÃO 4 - AULAS] Hands-on",
       "id": ""
     },
     {
       "day": "Segunda",
       "date": "23/11/2026",
       "module": "MD5: Trabalho final",
-      "topic": "Entrega de relatório e hands-on",
+      "topic": "Desenvolvimento de algoritmos",
       "id": ""
     },
     {
       "day": "Quarta",
       "date": "25/11/2026",
       "module": "",
-      "topic": "AVALIAÇÃO 3",
+      "topic": "Hands-on; Entrega de relatório",
+      "id": ""
+    },
+    {
+      "day": "Quarta",
+      "date": "25/11/2026",
+      "module": "",
+      "topic": "[REPOSIÇÃO - 2 AULAS] Hands-on",
+      "id": ""
+    },
+    {
+      "day": "Sexta",
+      "date": "27/11/2026",
+      "module": "",
+      "topic": "[REPOSIÇÃO - 2 AULAS] AVALIAÇÃO 3",
       "id": ""
     },
     {
@@ -340,13 +361,6 @@
       "date": "09/12/2026",
       "module": "",
       "topic": "Revisão",
-      "id": ""
-    },
-    {
-      "day": "Quarta",
-      "date": "09/12/2026",
-      "module": "",
-      "topic": "[REPOSIÇÃO - 4 AULAS] Revisão",
       "id": ""
     },
     {
