@@ -152,8 +152,8 @@ title: Exemplo (1)
 
 ```shell[font=extralarge]
 |-- Main.java
-    |-- Veiculo/
-        |-- Veiculo.java
+|-- Veiculo/
+    |-- Veiculo.java
 ```
 
 ---
