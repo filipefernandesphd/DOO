@@ -9,6 +9,7 @@ themeConfig:
   lang: pt-BR
 mdc: true
 routerMode: hash
+browserExporter: build
 layout: academic-cover
 ---
 
