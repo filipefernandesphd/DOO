@@ -46,7 +46,7 @@ title: Breve história da UML
 
 - **1995** — Booch e Rumbaugh publicam o Unified Method 0.8
 - **1996** — Jacobson se junta aos dois autores; surge a UML 0.9
-- **1997** — a OMG adota a UML 1 como padrão
+- **1997** — a Object Management Group (OMG) adota a UML 1 como padrão
 - **2005** — a OMG publica a UML 2, com uma base de modelagem mais rigorosa
 - **Hoje** — a UML permanece uma linguagem visual padronizada para comunicar projetos
 
@@ -64,7 +64,7 @@ duotone: false
 title: Diagramas UML
 ---
 <center>
-<img src="https://lh5.googleusercontent.com/t_g924hOGV9nSuNSLvXl0VcW7qzyARV6fHG9OBwl-vuIS7gUQXI_X-4ajRQydKN7OKqhZF1bu8gJnyOu4skYMiPq6YlFF5mj3zADCOJDlL4G9EnvjbhhSIV5Bd661u4gaQqe6hufk15lwQrodpxFSpA"  width="100%" />
+<img src="./images/diagramas_uml.png"  width="100%" />
 </center>
 
 ---
@@ -175,9 +175,9 @@ classDiagram
 
 ::right::
 
-```java[font=extralarge]
+```java[font=large]
 class Carro {
-  Porta[4] portas;
+  Porta[] portas = new Porta[4];
 }
 
 class Porta {
@@ -242,6 +242,109 @@ title: Outro exemplo
 
 ---
 layout: section
+index: "D"
+title: Desenvolvimento
+---
+
+---
+layout: diagram
+title: Visão geral das classes
+---
+
+```mermaid
+classDiagram
+  class Carro
+  class Motor
+  class Porta
+  class Roda
+  Carro "1" --> "1" Motor
+  Carro "1" --> "4" Porta
+  Carro "1" --> "4" Roda
+```
+
+---
+layout: diagram
+title: Classe Motor
+---
+
+```mermaid
+classDiagram
+  class Motor {
+    -String tipo
+    +Motor(String tipo)
+  }
+```
+
+---
+layout: diagram
+title: Classe Porta
+---
+
+```mermaid
+classDiagram
+  class Porta {
+    -String posicao
+    -String lado
+    +Porta(String posicao, String lado)
+    +getPosicao() String
+    +getLado() String
+  }
+```
+
+---
+layout: diagram
+title: Classe Roda
+---
+
+```mermaid
+classDiagram
+  class Roda {
+    -int aro
+    -String posicao
+    -String lado
+    +Roda(int aro, String posicao, String lado)
+    +getAro() int
+    +getPosicao() String
+    +getLado() String
+  }
+```
+
+---
+layout: diagram
+title: Classe Carro
+---
+
+```mermaid
+classDiagram
+  class Carro {
+    -Motor motor
+    -Porta[] portas
+    -Roda[] rodas
+    -int indicePorta
+    -int indiceRoda
+    +Carro()
+    -UsarIndicePorta() int
+    -UsarIndiceRoda() int
+    +adicionarMotor(Motor motor) void
+    +adicionarPorta(Porta porta) void
+    +adicionarRoda(Roda roda) void
+    +mostrarInformacoes() String
+  }
+```
+
+---
+layout: default
+title: Código-fonte do desenvolvimento
+---
+
+O **código-fonte gabarito** está publicado na página da aula-09.
+
+- Acesse a **[página da aula-09](https://filipefernandesphd.github.io/DOO/2026.2/aula-09/)**
+- Clique em **Desenvolvimento** para consultar os arquivos Java
+- Use `Main.java` como exemplo de criação e uso dos objetos
+
+---
+layout: section
 index: "H"
 title: Hands-on
 ---
@@ -295,4 +398,3 @@ title: Avaliação da Experiência de Aprendizagem
   src="../../assets/qrcode-avaliacao.png"
   alt="QR code da avaliação da experiência de aprendizagem"
 />
-
