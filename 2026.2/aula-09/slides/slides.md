@@ -270,7 +270,7 @@ title: Classe Motor
 ```mermaid
 classDiagram
   class Motor {
-    -String tipo
+    -tipo: String
     +Motor(String tipo)
   }
 ```
@@ -283,8 +283,8 @@ title: Classe Porta
 ```mermaid
 classDiagram
   class Porta {
-    -String posicao
-    -String lado
+    -posicao: String
+    -lado: String
     +Porta(String posicao, String lado)
     +getPosicao() String
     +getLado() String
@@ -299,9 +299,9 @@ title: Classe Roda
 ```mermaid
 classDiagram
   class Roda {
-    -int aro
-    -String posicao
-    -String lado
+    -aro: int
+    -posicao: String
+    -lado: String
     +Roda(int aro, String posicao, String lado)
     +getAro() int
     +getPosicao() String
@@ -317,11 +317,11 @@ title: Classe Carro
 ```mermaid
 classDiagram
   class Carro {
-    -Motor motor
-    -Porta[] portas
-    -Roda[] rodas
-    -int indicePorta
-    -int indiceRoda
+    -motor: Motor
+    -portas: Porta[]
+    -rodas: Roda[] 
+    -indicePorta: int 
+    -indiceRoda: int 
     +Carro()
     -UsarIndicePorta() int
     -UsarIndiceRoda() int
