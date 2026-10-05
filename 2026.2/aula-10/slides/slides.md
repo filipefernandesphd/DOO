@@ -119,7 +119,7 @@ class Pessoa {
   +apresentar() void
 }
 class Cliente {
-  -int pontos
+  -pontos: int
 }
 ```
 
