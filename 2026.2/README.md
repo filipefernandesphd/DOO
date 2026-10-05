@@ -44,7 +44,7 @@ Repositório de apoio às aulas da disciplina.
 | Quarta | 30/09/2026 |  | [Introdução à UML](aula-09/) |
 | Sábado | 03/10/2026 |  | [AULA CANCELADA] |
 | Segunda | 05/10/2026 |  | [Introdução à herança](aula-10/) |
-| Quarta | 07/10/2026 |  | Modificadores de estado: static e final |
+| Quarta | 07/10/2026 |  | [Modificadores de estado: static e final](aula-11/) |
 | Segunda | 12/10/2026 |  | [AULA CANCELADA] 12 - Nossa Senhora Aparecida |
 | Quarta | 14/10/2026 | MD3: Tipos de relacionamentos | Multiplicidade, agregação e composição |
 | Segunda | 19/10/2026 |  | Correção da avaliação e Herança |
