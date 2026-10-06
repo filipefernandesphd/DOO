@@ -676,4 +676,3 @@ title: Avaliação da Experiência de Aprendizagem
   src="../../assets/qrcode-avaliacao.png"
   alt="QR code da avaliação da experiência de aprendizagem"
 />
-
