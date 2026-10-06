@@ -28,7 +28,7 @@ Repositório de apoio às aulas da disciplina.
 | Segunda | 24/08/2026 |  | [Instanciação de objetos e método construtor](aula-04/) |
 | Quarta | 26/08/2026 |  | [Lista de objetos](aula-05/) |
 | Sábado | 29/08/2026 |  | [AULA CANCELADA] |
-| Segunda | 31/08/2026 | MD2: Encapsulamento | [Modificador de acesso: default](aula-06/) |
+| Segunda | 31/08/2026 | MD2: Encapsulamento | [Modificador de acesso: default e public](aula-06/) |
 | Segunda | 31/08/2026 |  | [Modificador de acesso: public](aula-07/) |
 | Segunda | 31/08/2026 |  | [\[REPOSIÇÃO - 4 AULAS\] Hands-on](handson-01/) |
 | Quarta | 02/09/2026 |  | [Modificador de acesso: private](aula-08/) |

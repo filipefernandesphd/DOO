@@ -73,7 +73,7 @@
       "day": "Segunda",
       "date": "31/08/2026",
       "module": "MD2: Encapsulamento",
-      "topic": "Modificador de acesso: default",
+      "topic": "Modificador de acesso: default e public",
       "id": "aula-06"
     },
     {
@@ -200,21 +200,21 @@
       "date": "14/10/2026",
       "module": "MD3: Tipos de relacionamentos",
       "topic": "Multiplicidade, agregação e composição",
-      "id": ""
+      "id": "aula-12"
     },
     {
       "day": "Segunda",
       "date": "19/10/2026",
       "module": "",
       "topic": "Correção da avaliação e Herança",
-      "id": ""
+      "id": "aula-13"
     },
     {
       "day": "Quarta",
       "date": "21/10/2026",
       "module": "",
       "topic": "Polimorfismo, sobrescrita e sobrecarga de métodos",
-      "id": ""
+      "id": "aula-14"
     },
     {
       "day": "Quarta",
