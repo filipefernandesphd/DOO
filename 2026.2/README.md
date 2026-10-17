@@ -46,24 +46,24 @@ Repositório de apoio às aulas da disciplina.
 | Segunda | 05/10/2026 |  | [Introdução à herança](aula-10/) |
 | Quarta | 07/10/2026 |  | [Modificadores de estado: static e final](aula-11/) |
 | Segunda | 12/10/2026 |  | [AULA CANCELADA] 12 - Nossa Senhora Aparecida |
-| Quarta | 14/10/2026 | MD3: Tipos de relacionamentos | Multiplicidade, agregação e composição |
-| Segunda | 19/10/2026 |  | Correção da avaliação e Herança |
-| Quarta | 21/10/2026 |  | Polimorfismo, sobrescrita e sobrecarga de métodos |
-| Quarta | 21/10/2026 |  | [REPOSIÇÃO - 4 AULAS] Hands-on |
-| Sexta | 23/10/2026 |  | [REPOSIÇÃO - 2 AULAS] Hands-on |
-| Segunda | 26/10/2026 |  | AVALIAÇÃO 2 |
+| Quarta | 14/10/2026 | MD3: Tipos de relacionamentos | Correção da avaliação |
+| Segunda | 19/10/2026 |  | [Multiplicidade](aula-12/) |
+| Quarta | 21/10/2026 |  | Agregação e composição |
+| Quarta | 21/10/2026 |  | [REPOSIÇÃO - 4 AULAS] Hands-on: Lab01 de 13h até 16h |
+| Sexta | 23/10/2026 |  | [REPOSIÇÃO - 4 AULAS] Polimorfismo, sobrescrita e sobrecarga de métodos |
+| Segunda | 26/10/2026 |  | Hands-on |
 | Quarta | 28/10/2026 |  | [AULA CANCELADA] 28 - Dia do Servidor Público |
 | Segunda | 02/11/2026 |  | [AULA CANCELADA] 02 - Finados |
-| Quarta | 04/11/2026 | MD4: Abstração | Classes abstratas e interfaces |
-| Segunda | 09/11/2026 |  | Tratamento de exceções |
-| Quarta | 11/11/2026 |  | Classes internas e classes internas anônimas |
-| Sexta | 13/11/2026 |  | [REPOSIÇÃO - 2 AULAS] Desenvolvimento de algoritmos |
+| Quarta | 04/11/2026 |  | [REPOSIÇÃO - 2 AULAS] AVALIAÇÃO 2 - Bloco A: Sala01 |
+| Segunda | 09/11/2026 | MD4: Abstração | Classes abstratas e interfaces |
+| Quarta | 11/11/2026 |  | Tratamento de exceções |
+| Sexta | 13/11/2026 |  | [REPOSIÇÃO - 2 AULAS] Classes internas e classes internas anônimas |
 | Segunda | 16/11/2026 |  | Desenvolvimento de algoritmos |
 | Quarta | 18/11/2026 |  | Desenvolvimento de algoritmos |
 | Segunda | 23/11/2026 |  | Desenvolvimento de algoritmos |
 | Quarta | 25/11/2026 | MD5: Trabalho final | Hands-on; Entrega de relatório |
 | Quarta | 25/11/2026 |  | [REPOSIÇÃO - 2 AULAS] Hands-on |
-| Sexta | 27/11/2026 |  | [REPOSIÇÃO - 2 AULAS] AVALIAÇÃO 3 |
+| Sexta | 27/11/2026 |  | [REPOSIÇÃO - 2 AULAS] AVALIAÇÃO 3 - Área Externa: Sala de aula 03 |
 | Sábado | 28/11/2026 |  | Atividade de Informática |
 | Segunda | 30/11/2026 |  | Apresentação |
 | Quarta | 02/12/2026 |  | Apresentação |

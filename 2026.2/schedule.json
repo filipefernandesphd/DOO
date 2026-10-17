@@ -199,43 +199,43 @@
       "day": "Quarta",
       "date": "14/10/2026",
       "module": "MD3: Tipos de relacionamentos",
-      "topic": "Multiplicidade, agregação e composição",
-      "id": "aula-12"
+      "topic": "Correção da avaliação",
+      "id": ""
     },
     {
       "day": "Segunda",
       "date": "19/10/2026",
       "module": "",
-      "topic": "Correção da avaliação e Herança",
+      "topic": "Multiplicidade",
+      "id": "aula-12"
+    },
+    {
+      "day": "Quarta",
+      "date": "21/10/2026",
+      "module": "",
+      "topic": "Agregação e composição",
       "id": "aula-13"
     },
     {
       "day": "Quarta",
       "date": "21/10/2026",
       "module": "",
-      "topic": "Polimorfismo, sobrescrita e sobrecarga de métodos",
-      "id": "aula-14"
-    },
-    {
-      "day": "Quarta",
-      "date": "21/10/2026",
-      "module": "",
-      "topic": "[REPOSIÇÃO - 4 AULAS] Hands-on",
+      "topic": "[REPOSIÇÃO - 4 AULAS] Hands-on: Lab01 de 13h até 16h",
       "id": ""
     },
     {
       "day": "Sexta",
       "date": "23/10/2026",
       "module": "",
-      "topic": "[REPOSIÇÃO - 2 AULAS] Hands-on",
-      "id": ""
+      "topic": "[REPOSIÇÃO - 4 AULAS] Polimorfismo, sobrescrita e sobrecarga de métodos",
+      "id": "aula-14"
     },
     {
       "day": "Segunda",
       "date": "26/10/2026",
       "module": "",
-      "topic": "AVALIAÇÃO 2",
-      "id": ""
+      "topic": "Hands-on",
+      "id": "handson-02"
     },
     {
       "day": "Quarta",
@@ -254,30 +254,30 @@
     {
       "day": "Quarta",
       "date": "04/11/2026",
-      "module": "MD4: Abstração",
-      "topic": "Classes abstratas e interfaces",
+      "module": "",
+      "topic": "[REPOSIÇÃO - 2 AULAS] AVALIAÇÃO 2 - Bloco A: Sala01",
       "id": ""
     },
     {
       "day": "Segunda",
       "date": "09/11/2026",
-      "module": "",
-      "topic": "Tratamento de exceções",
-      "id": ""
+      "module": "MD4: Abstração",
+      "topic": "Classes abstratas e interfaces",
+      "id": "aula-15"
     },
     {
       "day": "Quarta",
       "date": "11/11/2026",
       "module": "",
-      "topic": "Classes internas e classes internas anônimas",
-      "id": ""
+      "topic": "Tratamento de exceções",
+      "id": "aula-16"
     },
     {
       "day": "Sexta",
       "date": "13/11/2026",
       "module": "",
-      "topic": "[REPOSIÇÃO - 2 AULAS] Desenvolvimento de algoritmos",
-      "id": ""
+      "topic": "[REPOSIÇÃO - 2 AULAS] Classes internas e classes internas anônimas",
+      "id": "aula-17"
     },
     {
       "day": "Segunda",
@@ -318,7 +318,7 @@
       "day": "Sexta",
       "date": "27/11/2026",
       "module": "",
-      "topic": "[REPOSIÇÃO - 2 AULAS] AVALIAÇÃO 3",
+      "topic": "[REPOSIÇÃO - 2 AULAS] AVALIAÇÃO 3 - Área Externa: Sala de aula 03",
       "id": ""
     },
     {
