@@ -213,7 +213,7 @@
       "day": "Quarta",
       "date": "21/10/2026",
       "module": "",
-      "topic": "Agregação e composição",
+      "topic": "Agregação e Composição",
       "id": "aula-13"
     },
     {
@@ -221,21 +221,21 @@
       "date": "21/10/2026",
       "module": "",
       "topic": "[REPOSIÇÃO - 4 AULAS] Hands-on - Lab01 de 13h até 16h",
-      "id": ""
+      "id": "handson-02"
     },
     {
       "day": "Sexta",
       "date": "23/10/2026",
       "module": "",
       "topic": "[REPOSIÇÃO - 4 AULAS] Polimorfismo, sobrescrita e sobrecarga de métodos",
-      "id": "aula-14"
+      "id": ""
     },
     {
       "day": "Segunda",
       "date": "26/10/2026",
       "module": "",
       "topic": "Hands-on",
-      "id": "handson-02"
+      "id": ""
     },
     {
       "day": "Quarta",
@@ -263,21 +263,21 @@
       "date": "09/11/2026",
       "module": "MD4: Abstração",
       "topic": "Tratamento de exceções",
-      "id": "aula-15"
+      "id": ""
     },
     {
       "day": "Quarta",
       "date": "11/11/2026",
       "module": "",
       "topic": "Classes abstratas e interfaces",
-      "id": "aula-16"
+      "id": ""
     },
     {
       "day": "Sexta",
       "date": "13/11/2026",
       "module": "",
       "topic": "[REPOSIÇÃO - 2 AULAS] Classes internas e classes internas anônimas",
-      "id": "aula-17"
+      "id": ""
     },
     {
       "day": "Segunda",

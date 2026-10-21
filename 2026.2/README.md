@@ -48,7 +48,7 @@ Repositório de apoio às aulas da disciplina.
 | Segunda | 12/10/2026 |  | [AULA CANCELADA] 12 - Nossa Senhora Aparecida |
 | Quarta | 14/10/2026 | MD3: Tipos de relacionamentos | Correção da avaliação |
 | Segunda | 19/10/2026 |  | [Multiplicidade](aula-12/) |
-| Quarta | 21/10/2026 |  | Agregação e composição |
+| Quarta | 21/10/2026 |  | [Agregação e Composição](aula-13/) |
 | Quarta | 21/10/2026 |  | [REPOSIÇÃO - 4 AULAS] Hands-on - Lab01 de 13h até 16h |
 | Sexta | 23/10/2026 |  | [REPOSIÇÃO - 4 AULAS] Polimorfismo, sobrescrita e sobrecarga de métodos |
 | Segunda | 26/10/2026 |  | Hands-on |
