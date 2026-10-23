@@ -50,7 +50,7 @@ Repositório de apoio às aulas da disciplina.
 | Segunda | 19/10/2026 |  | [Multiplicidade](aula-12/) |
 | Quarta | 21/10/2026 |  | [Agregação e Composição](aula-13/) |
 | Quarta | 21/10/2026 |  | [\[REPOSIÇÃO - 4 AULAS\] Hands-on - Lab01 de 13h até 16h](handson-02/) |
-| Sexta | 23/10/2026 |  | [REPOSIÇÃO - 4 AULAS] Polimorfismo, sobrescrita e sobrecarga de métodos |
+| Sexta | 23/10/2026 |  | [\[REPOSIÇÃO - 2 AULAS\] Polimorfismo, sobrescrita e sobrecarga de métodos](aula-14/) |
 | Segunda | 26/10/2026 |  | Hands-on |
 | Quarta | 28/10/2026 |  | [AULA CANCELADA] 28 - Dia do Servidor Público |
 | Segunda | 02/11/2026 |  | [AULA CANCELADA] 02 - Finados |
