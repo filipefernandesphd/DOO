@@ -455,28 +455,27 @@ kicker: super em atributo
 
 ```java[font=large]
 class Animal {
-  protected String nome = "Animal";
+  protected String nome;
   Aninal (String nome) { this.nome = nome; }
 }
 
 class Cachorro extends Animal {
   Cachorro (String nome) { super(nome); }
   void mostrarNomes() {
-      System.out.println(super.nome); 
-      System.out.println(this.nome); 
+      System.out.println(super.nome);     // nome da classe Animal
+      System.out.println(this.nome);      // nome da classe Cachorro
   }
 }
 ```
 
-
-<v-clicks>
+<!-- <v-clicks>
 
 ```text
 Animal
 Pluto
 ```
 
-</v-clicks>
+</v-clicks> -->
 
 <!-- `super.nome` lê o campo de `Animal`; `this.nome`, o de `Cachorro`. -->
 
